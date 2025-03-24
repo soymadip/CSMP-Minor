@@ -8,3 +8,14 @@
   <h4>CRUD Student Management Portal written in Laravel</h4>
   <p>This is minor project.</p>
 </div>
+
+
+# Laravel 12
+
+## Packeges
+
+- livewire starter kit
+
+- spatie/laravel-permission
+
+- barryvdh/laravel-dompdf 
