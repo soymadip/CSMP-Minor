@@ -12,7 +12,7 @@
 
 # Laravel 12
 
-## Packeges
+## Packages
 
 - livewire starter kit
 
