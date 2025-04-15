@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:opsz,wght@18..144,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #565252;
+}
+
+.student-id-card-back {
+    width: 15cm;
+    height: 8.75cm;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    padding: 0.6cm;
+    overflow: hidden;
+}
+
+.address-section {
+    margin-bottom: 0.85cm;
+}
+
+.address-row {
+    display: flex;
+    margin-bottom: 0.3cm;
+    align-items: center;
+}
+
+.address-label {
+    font-weight: bold;
+    font-size: 0.4cm;
+    color: #333;
+    width: auto;
+    margin-right: 0.2cm;
+}
+
+.address-value {
+    flex: 1;
+    border-bottom: 1px solid #999;
+    min-height: 0.5cm;
+}
+
+.address-line {
+    width: 100%;
+    border-bottom: 1px solid #999;
+    min-height: 0.5cm;
+    margin-left: 0;
+    margin-top: 0.2cm;
+}
+
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 0.6cm;
+    table-layout: fixed;
+}
+
+.info-table td {
+    border: 1px solid #999;
+    padding: 0.2cm;
+    height: 1.1cm;
+    font-size: 0.35cm;
+}
+
+.table-label {
+    font-weight: bold;
+    color: #333;
+    width: 30%;
+    text-align: center;
+}
+
+.table-value {
+    width: 17.5%;
+}
+
+.footer-note {
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.31cm;
+    color: #c02c2c;
+    position: absolute;
+    bottom: 0.4cm;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.red-dot {
+    display: inline-block;
+    width: 0.3cm;
+    height: 0.3cm;
+    background-color: #c02c2c;
+    border-radius: 50%;
+    margin: 0 0.5cm;
+}
+
+
