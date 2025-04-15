@@ -13,39 +13,39 @@
             <h3 class="college-address">110, S.N. BANERJEE ROAD, KOLKATA-700 013</h3>
             <div class="card-content">
                 <div class="photo-container">
-                    PHOTO
+                    <img src="{{ $student->dp }}" alt="Student Pic"> 
                 </div>
                 <div class="student-details">
                     <div class="id-title">STUDENT ID CARD</div>
                     <div class="detail-row">
                         <div class="detail-label">NAME</div>
                         <div class="detail-dash">:</div>
-                        <div class="detail-value"></div>
+                        <div class="detail-value">{{ $student->name }}</div>
                     </div>
                     <div class="detail-row">
                         <div class="detail-label">GUARDIAN'S NAME</div>
                         <div class="detail-dash">:</div>
-                        <div class="detail-value"></div>
+                        <div class="detail-value">{{ $student->gurdian_name }}</div>
                     </div>
                     <div class="detail-row">
                         <div class="detail-label">DEPARTMENT</div>
                         <div class="detail-dash">:</div>
-                        <div class="detail-value"></div>
+                        <div class="detail-value">{{ $student->department }}</div>
                     </div>
                     <div class="detail-row">
-                        <div class="detail-label">ROLL NO.</div>
+                        <div class="detail-label">REGISTRATION NO.</div>
                         <div class="detail-dash">:</div>
-                        <div class="detail-value"></div>
+                        <div class="detail-value">{{ $student->registration_no }}</div>
                     </div>
                     <div class="detail-row">
                         <div class="detail-label">DATE OF ISSUE</div>
                         <div class="detail-dash">:</div>
-                        <div class="detail-value"></div>
+                        <div class="detail-value">{{ $student->date_of_issue }}</div>
                     </div>
                     <div class="detail-row">
                         <div class="detail-label">BLOOD GROUP</div>
                         <div class="detail-dash">:</div>
-                        <div class="detail-value"></div>
+                        <div class="detail-value">{{ $student->blood_group }}</div>
                     </div>
                 </div>
             </div>

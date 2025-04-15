@@ -75,16 +75,23 @@ body {
 .photo-container {
     width: 3.2cm;
     height: 4.2cm;
-    border: 1px solid #999;
     margin-right: 0.39cm;
     margin-top: 0.3cm;
-    background-color: #f0f0f0;
+    background-color: #f9f9f9;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 0.3cm;
-    color: #666;
     flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 7px;
+}
+
+.photo-container img {
+    max-width: 99%;
+    max-height: 99%;
+    object-fit: contain;
+    border-radius: 4px;
 }
 
 .student-details {
