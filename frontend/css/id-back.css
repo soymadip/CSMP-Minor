@@ -15,7 +15,7 @@ body {
     background-color: #565252;
 }
 
-.student-id-card-back {
+main.student-id-card-back {
     width: 15cm;
     height: 8.75cm;
     background-color: white;
@@ -25,7 +25,7 @@ body {
     overflow: hidden;
 }
 
-.address-section {
+section.address-section {
     margin-bottom: 0.85cm;
 }
 
@@ -35,7 +35,7 @@ body {
     align-items: center;
 }
 
-.address-label {
+h3.address-label {
     font-weight: bold;
     font-size: 0.4cm;
     color: #333;
@@ -43,13 +43,13 @@ body {
     margin-right: 0.2cm;
 }
 
-.address-value {
+p.address-value {
     flex: 1;
     border-bottom: 1px solid #999;
     min-height: 0.5cm;
 }
 
-.address-line {
+p.address-line {
     width: 100%;
     border-bottom: 1px solid #999;
     min-height: 0.5cm;
@@ -57,32 +57,36 @@ body {
     margin-top: 0.2cm;
 }
 
-.info-table {
+section.verification-section {
+    margin-bottom: 0.6cm;
+}
+
+table.info-table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 0.6cm;
     table-layout: fixed;
 }
 
-.info-table td {
+.info-table td,
+.info-table th {
     border: 1px solid #999;
     padding: 0.2cm;
     height: 1.1cm;
     font-size: 0.35cm;
 }
 
-.table-label {
+th.table-label {
     font-weight: bold;
     color: #333;
     width: 30%;
     text-align: center;
 }
 
-.table-value {
+td.table-value {
     width: 17.5%;
 }
 
-.footer-note {
+footer.footer-note {
     text-align: center;
     font-weight: bold;
     font-size: 0.31cm;
@@ -96,7 +100,7 @@ body {
     align-items: center;
 }
 
-.red-dot {
+span.red-dot {
     display: inline-block;
     width: 0.3cm;
     height: 0.3cm;

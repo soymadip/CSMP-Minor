@@ -1,57 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Student ID card - back</title>
-    <link rel="stylesheet" href="../../css/id-back.css">
-</head>
-<body>
-   <div class="student-id-card-back">
-       <div class="address-section">
-           <div class="address-row">
-               <div class="address-label">ADDRESS :</div>
-               <div class="address-value"></div>
-           </div>
-           <div class="address-row">
-               <div class="address-value address-line"></div>
-           </div>
-       </div>
-       
-       <table class="info-table">
-           <tr>
-               <td class="table-label">SESSION</td>
-               <td class="table-value"></td>
-               <td class="table-value"></td>
-               <td class="table-value"></td>
-               <td class="table-value"></td>
-           </tr>
-           <tr>
-               <td class="table-label">YEAR</td>
-               <td class="table-value"></td>
-               <td class="table-value"></td>
-               <td class="table-value"></td>
-               <td class="table-value"></td>
-           </tr>
-           <tr>
-               <td class="table-label">SIG. OF ISSUING STAFF</td>
-               <td class="table-value"></td>
-               <td class="table-value"></td>
-               <td class="table-value"></td>
-               <td class="table-value"></td>
-           </tr>
-           <tr>
-               <td class="table-label">SIG. OF PRINCIPAL</td>
-               <td class="table-value"></td>
-               <td class="table-value"></td>
-               <td class="table-value"></td>
-               <td class="table-value"></td>
-           </tr>
-       </table>
-       
-       <div class="footer-note">
-           <span class="red-dot"></span>
-           THIS CARD IS NOT TRANSFERABLE
-           <span class="red-dot"></span>
-       </div>
-   </div> 
-</body>
+    <link rel="stylesheet" href="../../css/id-back.css" />
+  </head>
+  <body>
+    <main class="student-id-card-back">
+      <section class="address-section">
+        <div class="address-row">
+          <h3 class="address-label">ADDRESS :</h3>
+          <p class="address-value"></p>
+        </div>
+        <div class="address-row">
+          <p class="address-value address-line"></p>
+        </div>
+      </section>
+
+      <section class="verification-section">
+        <table class="info-table">
+          <tbody>
+            <tr>
+              <th scope="row" class="table-label">SESSION</th>
+              <td class="table-value"></td>
+              <td class="table-value"></td>
+              <td class="table-value"></td>
+              <td class="table-value"></td>
+            </tr>
+            <tr>
+              <th scope="row" class="table-label">YEAR</th>
+              <td class="table-value"></td>
+              <td class="table-value"></td>
+              <td class="table-value"></td>
+              <td class="table-value"></td>
+            </tr>
+            <tr>
+              <th scope="row" class="table-label">SIG. OF ISSUING STAFF</th>
+              <td class="table-value"></td>
+              <td class="table-value"></td>
+              <td class="table-value"></td>
+              <td class="table-value"></td>
+            </tr>
+            <tr>
+              <th scope="row" class="table-label">SIG. OF PRINCIPAL</th>
+              <td class="table-value"></td>
+              <td class="table-value"></td>
+              <td class="table-value"></td>
+              <td class="table-value"></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <footer class="footer-note">
+        <span class="red-dot" aria-hidden="true"></span>
+        THIS CARD IS NOT TRANSFERABLE
+        <span class="red-dot" aria-hidden="true"></span>
+      </footer>
+    </main>
+  </body>
 </html>

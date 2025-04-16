@@ -1,65 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student ID card</title>
     <link rel="stylesheet" href="../../css/id-front.css">
 </head>
 <body>
-    <div class="student-id-card">
-        <div class="card-body">
-            <div class="watermark"></div>
-            <h1 class="college-title">THE CALCUTTA TECHNICAL SCHOOL</h1>
-            <h2 class="college-subtitle">Govt. of W.B</h2>
-            <h3 class="college-address">110, S.N. BANERJEE ROAD, KOLKATA-700 013</h3>
-            <div class="card-content">
-                <div class="photo-container">
-                    <img src="{{ $student->dp }}" alt="Student Pic"> 
-                </div>
-                <div class="student-details">
-                    <div class="id-title">STUDENT ID CARD</div>
-                    <div class="detail-row">
-                        <div class="detail-label">NAME</div>
-                        <div class="detail-dash">:</div>
-                        <div class="detail-value">{{ $student->name }}</div>
-                    </div>
-                    <div class="detail-row">
-                        <div class="detail-label">GUARDIAN'S NAME</div>
-                        <div class="detail-dash">:</div>
-                        <div class="detail-value">{{ $student->gurdian_name }}</div>
-                    </div>
-                    <div class="detail-row">
-                        <div class="detail-label">DEPARTMENT</div>
-                        <div class="detail-dash">:</div>
-                        <div class="detail-value">{{ $student->department }}</div>
-                    </div>
-                    <div class="detail-row">
-                        <div class="detail-label">REGISTRATION NO.</div>
-                        <div class="detail-dash">:</div>
-                        <div class="detail-value">{{ $student->registration_no }}</div>
-                    </div>
-                    <div class="detail-row">
-                        <div class="detail-label">DATE OF ISSUE</div>
-                        <div class="detail-dash">:</div>
-                        <div class="detail-value">{{ $student->date_of_issue }}</div>
-                    </div>
-                    <div class="detail-row">
-                        <div class="detail-label">BLOOD GROUP</div>
-                        <div class="detail-dash">:</div>
-                        <div class="detail-value">{{ $student->blood_group }}</div>
-                    </div>
-                </div>
-            </div>
-            <div class="signatures-section">
+    <main class="student-id-card">
+        <article class="card-body">
+            <div class="watermark" aria-hidden="true"></div>
+            <header>
+                <h1 class="college-title">THE CALCUTTA TECHNICAL SCHOOL</h1>
+                <h2 class="college-subtitle">Govt. of W.B</h2>
+                <address class="college-address">110, S.N. BANERJEE ROAD, KOLKATA-700 013</address>
+            </header>
+            <section class="card-content">
+                <figure class="photo-container">
+                    <img src="{{ $student->dp }}" alt="Student Photo">
+                </figure>
+                <section class="student-details">
+                    <header class="id-title">STUDENT ID CARD</header>
+                    <dl class="details-list">
+                        <div class="detail-row">
+                            <dt class="detail-label">NAME</dt>
+                            <span class="detail-dash">:</span>
+                            <dd class="detail-value">{{ $student->name }}</dd>
+                        </div>
+                        <div class="detail-row">
+                            <dt class="detail-label">GUARDIAN'S NAME</dt>
+                            <span class="detail-dash">:</span>
+                            <dd class="detail-value">{{ $student->gurdian_name }}</dd>
+                        </div>
+                        <div class="detail-row">
+                            <dt class="detail-label">DEPARTMENT</dt>
+                            <span class="detail-dash">:</span>
+                            <dd class="detail-value">{{ $student->department }}</dd>
+                        </div>
+                        <div class="detail-row">
+                            <dt class="detail-label">REGISTRATION NO.</dt>
+                            <span class="detail-dash">:</span>
+                            <dd class="detail-value">{{ $student->registration_no }}</dd>
+                        </div>
+                        <div class="detail-row">
+                            <dt class="detail-label">DATE OF ISSUE</dt>
+                            <span class="detail-dash">:</span>
+                            <dd class="detail-value">{{ $student->date_of_issue }}</dd>
+                        </div>
+                        <div class="detail-row">
+                            <dt class="detail-label">BLOOD GROUP</dt>
+                            <span class="detail-dash">:</span>
+                            <dd class="detail-value">{{ $student->blood_group }}</dd>
+                        </div>
+                    </dl>
+                </section>
+            </section>
+            <footer class="signatures-section">
                 <div class="principal-signature">
                     <div class="signature-line"></div>
-                    <div class="signature-text">SIGNATURE OF PRINCIPAL</div>
+                    <p class="signature-text">SIGNATURE OF PRINCIPAL</p>
                 </div>
                 <div class="student-signature">
                     <div class="signature-line"></div>
-                    <div class="signature-text">SIGNATURE OF STUDENT</div>
+                    <p class="signature-text">SIGNATURE OF STUDENT</p>
                 </div>
-            </div>
-        </div>
-    </div>
+            </footer>
+        </article>
+    </main>
 </body>
 </html>
