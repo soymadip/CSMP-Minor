@@ -16,6 +16,5 @@ class StudentDashboard extends Component
     public function render()
     {
         return view('livewire.student.student-dashboard')->layout('layouts.student');
-        //return view('livewire.student.student-dashboard');
     }
 }

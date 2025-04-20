@@ -42,7 +42,5 @@ class ApproveStudents extends Component
     {
         $pendingStudents = PendingStudentDetail::all();
         return view('livewire.admin.approve-students', compact('pendingStudents'));
-        
-        //return view('livewire.admin.approve-students');
     }
 }

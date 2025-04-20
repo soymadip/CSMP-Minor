@@ -26,6 +26,5 @@ class AddRegistration extends Component
         $pendingRegistrations = PendingStudent::all();
 
         return view('livewire.admin.add-registration', compact('pendingRegistrations'));
-        //return view('livewire.admin.add-registration');
     }
 }

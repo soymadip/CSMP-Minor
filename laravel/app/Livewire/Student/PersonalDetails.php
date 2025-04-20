@@ -39,6 +39,5 @@ class PersonalDetails extends Component
     public function render()
     {
         return view('livewire.student.personal-details')->layout('components.layouts.stud_app');
-        // return view('livewire.student.personal-details')->extends('components.layouts.stud_app')->section('content');
     }
 }

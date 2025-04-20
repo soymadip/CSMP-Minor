@@ -59,7 +59,6 @@ class Register extends Component
 
         session()->flash('message', 'Registration submitted for approval!');
         $this->reset();
-        // $this->reset();
         //   return redirect()->route('login');
     }
     
