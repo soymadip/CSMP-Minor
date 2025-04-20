@@ -18,4 +18,4 @@
 
 - spatie/laravel-permission
 
-- barryvdh/laravel-dompdf 
+- spatie/browsershot
