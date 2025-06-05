@@ -1,49 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>The Calcutta Technical School</title>
-	<link href="css/home.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTS</title>
+    <link rel="stylesheet" href="css/home.css">
+    <style>
+      body{
+          background-image: url('icons/cts.png');
+          height: 400px;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-size: 100% 214.8%;
+
+          background-position: center;
+      }
+  </style>
 </head>
-
 <body>
-	<header>
-		<h1>The Calcutta Technical School</h1>
-		<p>110, S.N Banerjee Road, Kolkata-700 013</p>
-		<div class="auth-links">
-			<div class="dropdown">
-				<button class="dropbtn">Portal</button>
-				<div class="dropdown-content" style="right: 0;">
-					<a href="#">Login</a>
-					<a href="#">Student Register</a>
-				</div>
-			</div>
-		</div>
-	</header>
+    <header>
+        <div class="navbar">
+            <div class="nav-logo">
+                <div class="logo"></div>
+            </div>
+            <div class="name">
+                <p>CTS</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Department</a>
+                    <div class="dropdown-content">
+                        <a href="#">DCST</a>
+                        <a href="#">DEE</a>
+                        <a href="#">DCE</a>
+                        <a href="#">DME</a>
+                    </div>
+                </li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <button>Log In</button>
+                <button>Sign Up</button>
+            </div>
+        </div>
+    </header>
 
-	<nav>
-		<ul>
-			<li><a href="#"><img src="icons/home.png" alt="Home Icon"> Home</a></li>
-			<li><a href="#"><img src="icons/about.png" alt="About Icon"> About</a></li>
-			<li><a href="#"><img src="icons/courses.png" alt="Courses Icon"> Courses</a></li>
-			<li><a href="#"><img src="icons/contact.png" alt="Contact Icon"> Contact</a></li>
-		</ul>
-	</nav>
+    <section class="hero">
+        <h1><mark>Welcome to Student Management Portal</mark></h1>
+        <p><mark>Manage student data efficiently and easily</mark></p>
+        <a href="#features" class="cta-button">Get Started</a>
+    </section>
 
-	<section>
-		<h2>Contact Details</h2>
-		<p>110, S.N Banerjee Road</p>
-		<p>New Market</p>
-		<p>Kolkata, 700 013</p>
-		<p>0123456789</p>
-		<p>abc123@gmail.com</p>
-	</section>
+    <section id="features">
+        <h2>Features</h2>
+        <div class="feature-grid">
+            <div class="feature-card">Add Students</div>
+            <div class="feature-card">View Records</div>
+            <div class="feature-card">Generate Reports</div>
+        </div>
+    </section>
 
-	<footer>
-		<p>&copy; The Calcutta Technical School</p>
-	</footer>
+    <section class="stats">
+        <h2>System Status</h2>
+        <div class="stats-grid">
+            <div>Total Students: 2000</div>
+            <div>Courses: 04</div>
+            <div>Teachers: 30</div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We provide a simple platform to manage all our student data efficiently.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: ctssmp@gmail.com</p>
+        <p>Phone: +911234567890</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 StudentMP. All rights reserved.</p>
+    </footer>
 </body>
-
 </html>
