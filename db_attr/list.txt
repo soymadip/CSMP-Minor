@@ -1,0 +1,153 @@
+################
+1.Students Table
+Fields:
+################
+
+registration_no (unique Key)
+
+email_id (unique Key)
+
+
+#####################
+2.Student_Personal_Info Table
+Fields:
+#####################
+
+registration_no (foreign key from students table)
+
+full_name
+
+gender
+
+date_of_birth
+
+blood_group
+
+nationality
+
+mother_name
+
+father_name
+
+aadhar_no (or other national id)
+
+mobile_number (unique Key)
+
+alternate_phone_number (nullable)
+
+present_address
+
+permanent_address
+
+jexpo_application_no
+
+guardian_name
+
+guardian_relation
+
+guardian_phone_no
+
+caste
+
+admission_quota
+
+religion
+
+physical_disability (yes/no or detailed description)
+  
+
+#############
+3.Marks Table
+Fields:
+#############
+
+registration_no (foreign key)
+
+exam_type (e.g., internal, external)
+
+subject_code
+
+subject_name
+
+marks_obtained
+
+semester
+
+
+###################
+4.Scholarship Table
+Fields:
+###################
+
+registration_no (foreign key)
+
+scholarship_name
+
+yearly_amount
+
+renewal_status (yes/no)
+
+renewal_year
+
+
+##############
+5.Result Table
+Fields:
+##############
+
+registration_no (foreign key)
+
+semester
+
+cgpa
+
+ygpa
+
+eligible_for_exam (yes/no)
+
+
+###############
+6.Subject Table
+Fields:
+###############
+
+subject_code (primary key)
+
+subject_name
+
+subject_type (theory/practical)
+
+back_status (yes/no)
+
+
+###################
+7.ReAdmission Table
+Fields:
+###################
+
+registration_no (foreign key)
+
+previous_year
+
+reason
+
+date_of_re_admission
+
+##############
+8.Office Table
+Fields:
+##############
+
+pass/fail status
+
+back (yes/no — whether the student has any backlogs)
+
+back subject code (list of subject codes for backlogs)
+
+subject-wise marks (marks in each subject)
+
+cgpa (cumulative grade point average)
+
+ygpa (yearly grade point average)
+
+re-admission status (yes/no or details if applicable)
