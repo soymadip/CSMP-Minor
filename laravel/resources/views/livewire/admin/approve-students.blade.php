@@ -32,4 +32,7 @@
             @endforelse
         </tbody>
     </table>
+        <div wire:key="pagination">
+        {{ $pendingStudents->links() }}
+    </div>
 </div>

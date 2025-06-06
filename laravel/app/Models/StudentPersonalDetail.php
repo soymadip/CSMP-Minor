@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class StudentPersonalDetail extends Model
 {
-    //
     protected $fillable = [
         'registration_no',
         'name',

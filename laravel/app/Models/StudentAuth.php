@@ -2,9 +2,6 @@
 
 namespace App\Models;
 
-//use Illuminate\Database\Eloquent\Model;
-//use App\Models\PendingStudentDetail;
-
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 

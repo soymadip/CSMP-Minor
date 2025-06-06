@@ -2,19 +2,23 @@
 
 namespace App\Livewire\Admin;
 
+use App\Models\StudentPersonalDetail;
 use Livewire\Component;
 use App\Models\PendingStudentDetail;
-use App\Models\Student;
+//use App\Models\Student;
 use App\Models\StudentAuth;
+use Livewire\WithPagination;
 
 class ApproveStudents extends Component
 {
+    use WithPagination;
+    
     public function approve($registration_no)
     {
         $pendingStudent = PendingStudentDetail::where('registration_no', $registration_no)->first();
 
         if ($pendingStudent) {
-            Student::create([
+            StudentPersonalDetail::create([
                 'registration_no' => $pendingStudent->registration_no,
                 'name' => $pendingStudent->name,
                 'dob' => $pendingStudent->dob,
@@ -40,7 +44,8 @@ class ApproveStudents extends Component
     
     public function render()
     {
-        $pendingStudents = PendingStudentDetail::all();
+        //        $pendingStudents = PendingStudentDetail::all();
+        $pendingStudents = PendingStudentDetail::paginate(10);
         return view('livewire.admin.approve-students', compact('pendingStudents'));
     }
 }

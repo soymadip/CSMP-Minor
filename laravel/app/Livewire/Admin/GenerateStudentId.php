@@ -2,7 +2,8 @@
 
 namespace App\Livewire\Admin;
 
-use App\Models\Student;
+//use App\Models\Student;
+use App\Models\StudentPersonalDetail;
 use Livewire\Component;
 use Spatie\Browsershot\Browsershot;
 use Illuminate\Support\Facades\View;
@@ -11,7 +12,7 @@ class GenerateStudentId extends Component
 {
     public function render()
     {
-        $students = Student::all();
+        $students = StudentPersonalDetail::all();
         return view('livewire.admin.generate-student-id', compact('students'));
     }
 
@@ -22,7 +23,7 @@ class GenerateStudentId extends Component
         // $imgData = file_get_contents($imgPath);
         // $data['img'] = 'data:image/' . $imgType . ';base64,' . base64_encode($imgData);
         
-        $student = Student::where('registration_no', $registration_no)->firstOrFail();
+        $student = StudentPersonalDetail::where('registration_no', $registration_no)->firstOrFail();
         $html = View::make('livewire.admin.id-card-pdf', compact('student'))->render();
  
         $pdf = Browsershot::html($html)

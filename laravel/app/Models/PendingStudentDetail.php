@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class PendingStudentDetail extends Model
 {
-    //
     protected $fillable = ['registration_no', 'name', 'dob', 'phone_no', 'department', 'semester'];
 
     public function studentAuth(): BelongsTo
