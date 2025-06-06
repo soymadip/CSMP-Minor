@@ -14,7 +14,7 @@
 
 ## Packages
 
-- livewire starter kit
+- livewire starter kit (Without Volt)
 
 - spatie/laravel-permission
 
