@@ -5,7 +5,7 @@ Fields:
 
 registration_no (unique Key)
 
-email_id (unique Key)
+email (unique Key)
 
 
 #####################
