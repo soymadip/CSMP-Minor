@@ -4,10 +4,13 @@
 <p>This dir contains All frontend code for all pages.</p>
 </center>
 
+<br>
+
 ## Setup Instructions
 
 ### Windows
 
+0. Install VSCode.
 1. Download NodeJS: [`https://nodejs.org/dist/v24.5.0/node-v24.5.0-x64.msi`](https://nodejs.org/dist/v24.5.0/node-v24.5.0-x64.msi)
 2. Double click the `node-v24.5.0-x64.msi` & install it.
 3. Open windows Terminal or PowerShell
@@ -21,6 +24,12 @@
 
 ### Linux
 
-1. Open Terminal
-2. Download NodeJS with your package manager.
-3. Follow rest of the windows instructions from 4
+1. You are not dumb right? Figure out yourself
+2. Make changes, push to GitHub.
+
+
+
+## CSS classes Reference
+
+1. Primarily use DaisyUI: https://daisyui.com/components
+2. For more see Tailwind: https://tailwindcss.com/docs/
