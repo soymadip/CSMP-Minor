@@ -1,0 +1,27 @@
+{
+  "name": "csmp-frontend",
+  "version": "0.0.1",
+  "description": "tailwindcss frontend for CSMP",
+  "author": "soymadip",
+  "keywords": [
+    "csmp"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soymadip/CSMP-Minor.git"
+  },
+  "scripts": {
+    "deps-install": "npm install",
+    "build": "npm install && npx @tailwindcss/cli -i src/css/_tailwind.css -o src/css/app.css",
+    "watch": "npx @tailwindcss/cli -i src/css/_tailwind.css -o src/css/app.css --watch",
+    "serve": "live-server src",
+    "dev": "npm run deps-install && concurrently \"npm:watch\" \"npm:serve\""
+  },
+  "dependencies": {
+    "tailwindcss": "^4.1.11",
+    "@tailwindcss/cli": "^4.1.11",
+    "daisyui": "^5.0.50",
+    "concurrently": "^9.2.0",
+    "live-server": "^1.2.2"
+  }
+}
