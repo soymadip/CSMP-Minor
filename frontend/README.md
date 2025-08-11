@@ -28,6 +28,8 @@
 2. Make changes, push to GitHub.
 
 
+## Compile CSS
+To get the `app.css`, run `npm run dev` in terminal.
 
 ## CSS classes Reference
 
