@@ -16,9 +16,10 @@ if [ ! -d "vendor" ]; then
     composer install --no-interaction --optimize-autoloader
 fi
 
-# Generate key if not set
+# Generate APP_KEY if it's missing or empty
 if ! grep -q "APP_KEY=base64" .env; then
-    php artisan key:generate
+    echo "APP_KEY is missing or empty. Generating a new secure key..."
+    php artisan key:generate --force
 fi
 
 # Wait for database

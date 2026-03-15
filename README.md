@@ -13,6 +13,10 @@
 
 This project is fully Dockerized. Ensure you have Docker and Docker Compose installed.
 
+### Edit the Env
+
+Edit the [.env](./.env) file with your own credentials. Do not touch which are marked not to edit.
+
 ### Start the application
 
 ```bash
