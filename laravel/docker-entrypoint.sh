@@ -1,8 +1,15 @@
 #!/bin/sh
 set -e
 
-# Change ownership of storage and bootstrap/cache (in case of mount issues)
-chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
+# Ensure required directories exist
+mkdir -p /var/www/storage/app/public \
+         /var/www/storage/framework/cache/data \
+         /var/www/storage/framework/sessions \
+         /var/www/storage/framework/testing \
+         /var/www/storage/framework/views \
+         /var/www/storage/logs \
+         /var/www/bootstrap/cache
+
 
 # Install dependencies if vendor is missing or composer.json changed
 if [ ! -d "vendor" ]; then
