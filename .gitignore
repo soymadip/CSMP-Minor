@@ -1,4 +1,6 @@
 *.*~
 \#*
-frontend/src/css/app.css
+frontend/**/app.css
 node_modules/
+template.png
+GEMINI.md

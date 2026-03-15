@@ -4,3 +4,14 @@
 @plugin "daisyui" {
   themes: dark --default, light;
 }
+
+@utility icon-mask {
+  display: inline-block;
+  background-color: currentColor;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+}

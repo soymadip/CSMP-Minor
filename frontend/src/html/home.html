@@ -1,155 +1,856 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../icons/logo.png">
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../img/logo.png" />
     <title>CSMP - Home</title>
-    <link rel="stylesheet" href="../css/app.css">
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/app.css" />
+    <style>
+      body {
+        font-family: "Outfit", sans-serif;
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in-up {
+        animation: fadeInUp 0.6s ease-out forwards;
+      }
+      .card {
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow:
+          0 10px 25px -5px rgba(0, 0, 0, 0.1),
+          0 8px 10px -6px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
 
-<body class="min-h-screen bg-cover bg-center bg-no-repeat pt-16"
-    style="background-image: url('../icons/cts.png'); background-size: 100% 200%;">
+  <body
+    class="min-h-screen bg-cover bg-center bg-no-repeat pt-16"
+    style="
+      background-image: url(&quot;../img/cts.png&quot;);
+      background-size: 100% 200%;
+    "
+  >
+    <!-- Local Access Warning Banner -->
+    <div
+      id="local-warning"
+      class="hidden fixed top-20 left-1/2 -translate-x-1/2 z-100 w-full max-w-2xl px-4 animate-fade-in-up"
+    >
+      <div
+        class="alert alert-warning shadow-2xl bg-amber-500/20 border-amber-500/50 text-amber-200 border-2"
+        style="backdrop-filter: blur(64px); -webkit-backdrop-filter: blur(64px)"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="stroke-current shrink-0 h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+          />
+        </svg>
+        <div>
+          <h3 class="font-bold items-center">Security Restriction Active</h3>
+          <div class="text-xs">
+            Opened directly.Icons and some features may not load correctly.
+            <br />
+            Please use a local server.
+          </div>
+        </div>
+        <button
+          class="btn btn-sm btn-ghost"
+          onclick="this.parentElement.parentElement.remove()"
+        >
+          ✕
+        </button>
+      </div>
+    </div>
 
     <!-- Navbar -->
-    <div class="navbar bg-primary/50 backdrop-blur-lg shadow-sm fixed top-0 left-0 right-0 z-50">
-        <!-- Logo -->
-        <div class="navbar-start">
-            <a href="#" class="text-xl font-bold flex items-center gap-1">
-                <img src="../icons/logo.png" alt="CSMP Logo" class="w-10 h-10">
-                CSMP
-            </a>
-        </div>
+    <div
+      class="navbar bg-rose-50/70 dark:bg-rose-950/40 backdrop-blur-3xl shadow-lg border-b border-rose-200 dark:border-red-500/10 fixed top-0 left-0 right-0 z-50"
+    >
+      <!-- Logo -->
+      <div class="navbar-start">
+        <a href="home.html" class="text-xl font-bold flex items-center gap-1">
+          <img src="../img/logo.png" alt="CSMP Logo" class="w-12 h-12" />
+          CSMP
+        </a>
+      </div>
 
-        <!-- Main Navigation Menu -->
-        <div class="navbar-center hidden lg:flex">
-            <ul id="main-nav" class="menu menu-horizontal px-1 gap-2 text-lg font-semibold">
-                <li>
-                    <a href="#" class="btn btn-ghost text-primary border-b-2 border-primary rounded-none px-4">
-                        Home
-                    </a>
-                </li>
-                <li><a href="#" class="btn btn-ghost hover:text-primary transition-colors px-4">Academics</a></li>
-                <li><a href="#" class="btn btn-ghost hover:text-primary transition-colors px-4">Faculty & Staff</a></li>
-                <li><a href="#" class="btn btn-ghost hover:text-primary transition-colors px-4">Events</a></li>
-                <li><a href="#" class="btn btn-ghost hover:text-primary transition-colors px-4">Notice</a></li>
+      <!-- Main Navigation Menu -->
+      <div class="navbar-center hidden lg:flex">
+        <ul
+          id="main-nav"
+          class="menu menu-horizontal px-1 gap-2 text-lg font-semibold"
+        >
+          <li>
+            <a
+              href="home.html"
+              class="text-primary px-4 flex items-center gap-2 h-full transition-all duration-300 hover:opacity-80"
+            >
+              <span
+                class="icon-mask w-5 h-5"
+                style="
+                  mask-image: url(&quot;../img/svg/home.svg&quot;);
+                  -webkit-mask-image: url(&quot;../img/svg/home.svg&quot;);
+                "
+              ></span>
+              Home
+            </a>
+          </li>
+
+          <!-- Departments Dropdown -->
+          <li class="dropdown dropdown-hover">
+            <div
+              tabindex="0"
+              role="button"
+              class="btn btn-ghost hover:text-primary transition-colors px-4 flex items-center gap-2"
+            >
+              <span
+                class="icon-mask w-5 h-5"
+                style="
+                  mask-image: url(&quot;../img/svg/graduation-cap.svg&quot;);
+                  -webkit-mask-image: url(&quot;../img/svg/graduation-cap.svg&quot;);
+                "
+              ></span>
+              Departments
+              <span
+                class="icon-mask w-3.5 h-3.5"
+                style="
+                  mask-image: url(&quot;../img/svg/chevron-down.svg&quot;);
+                  -webkit-mask-image: url(&quot;../img/svg/chevron-down.svg&quot;);
+                "
+              ></span>
+            </div>
+            <ul
+              tabindex="0"
+              class="dropdown-content z-100 menu p-2 shadow-2xl bg-white/90 dark:bg-rose-950/80 rounded-box w-60 border border-rose-100 dark:border-red-500/20 backdrop-blur-xl py-3 -mt-3 pt-6"
+            >
+              <li>
+                <a
+                  href="departments/civil.html"
+                  class="flex items-center gap-3"
+                >
+                  <span
+                    class="icon-mask w-4.5 h-4.5 text-orange-400"
+                    style="
+                      mask-image: url(&quot;../img/svg/building.svg&quot;);
+                      -webkit-mask-image: url(&quot;../img/svg/building.svg&quot;);
+                    "
+                  ></span>
+                  Civil Engineering
+                </a>
+              </li>
+              <li>
+                <a
+                  href="departments/electrical.html"
+                  class="flex items-center gap-3"
+                >
+                  <span
+                    class="icon-mask w-4.5 h-4.5 text-yellow-400"
+                    style="
+                      mask-image: url(&quot;../img/svg/bolt.svg&quot;);
+                      -webkit-mask-image: url(&quot;../img/svg/bolt.svg&quot;);
+                    "
+                  ></span>
+                  Electrical Engineering
+                </a>
+              </li>
+              <li>
+                <a href="departments/cst.html" class="flex items-center gap-3">
+                  <span
+                    class="icon-mask w-4.5 h-4.5 text-blue-400"
+                    style="
+                      mask-image: url(&quot;../img/svg/monitor.svg&quot;);
+                      -webkit-mask-image: url(&quot;../img/svg/monitor.svg&quot;);
+                    "
+                  ></span>
+                  Computer Science
+                </a>
+              </li>
+              <li>
+                <a
+                  href="departments/mechanical.html"
+                  class="flex items-center gap-3"
+                >
+                  <span
+                    class="icon-mask w-4.5 h-4.5 text-slate-400"
+                    style="
+                      mask-image: url(&quot;../img/svg/settings.svg&quot;);
+                      -webkit-mask-image: url(&quot;../img/svg/settings.svg&quot;);
+                    "
+                  ></span>
+                  Mechanical Engineering
+                </a>
+              </li>
             </ul>
-        </div>
+          </li>
 
-        <div class="navbar-end gap-3 text-lg">
-            <!-- Theme Toggle -->
-            <label class="swap swap-rotate btn btn-ghost btn-circle">
-                <input type="checkbox" class="theme-controller" value="dark" />
-                <svg class="swap-off fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
-                </svg>
-                <svg class="swap-on fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,12.14,19.73Z" />
-                </svg>
-            </label>
+          <!-- Academics Dropdown -->
+          <li class="dropdown dropdown-hover">
+            <div
+              tabindex="0"
+              role="button"
+              class="btn btn-ghost hover:text-primary transition-colors px-4 flex items-center gap-2"
+            >
+              <span
+                class="icon-mask w-5 h-5"
+                style="
+                  mask-image: url(&quot;../img/svg/book-open.svg&quot;);
+                  -webkit-mask-image: url(&quot;../img/svg/book-open.svg&quot;);
+                "
+              ></span>
+              Academics
+              <span
+                class="icon-mask w-3.5 h-3.5"
+                style="
+                  mask-image: url(&quot;../img/svg/chevron-down.svg&quot;);
+                  -webkit-mask-image: url(&quot;../img/svg/chevron-down.svg&quot;);
+                "
+              ></span>
+            </div>
+            <ul
+              tabindex="0"
+              class="dropdown-content z-100 menu p-2 shadow-2xl bg-white/90 dark:bg-rose-950/80 rounded-box w-52 border border-rose-100 dark:border-red-500/20 backdrop-blur-xl py-3 -mt-3 pt-6"
+            >
+              <li>
+                <a
+                  href="academics/calendar.html"
+                  class="flex items-center gap-3"
+                >
+                  <span
+                    class="icon-mask w-4.5 h-4.5 text-rose-400"
+                    style="
+                      mask-image: url(&quot;../img/svg/calendar.svg&quot;);
+                      -webkit-mask-image: url(&quot;../img/svg/calendar.svg&quot;);
+                    "
+                  ></span>
+                  Academic Calendar
+                </a>
+              </li>
+              <li>
+                <a
+                  href="academics/syllabus.html"
+                  class="flex items-center gap-3"
+                >
+                  <span
+                    class="icon-mask w-4.5 h-4.5 text-indigo-400"
+                    style="
+                      mask-image: url(&quot;../img/svg/file-text.svg&quot;);
+                      -webkit-mask-image: url(&quot;../img/svg/file-text.svg&quot;);
+                    "
+                  ></span>
+                  Syllabus
+                </a>
+              </li>
+              <li>
+                <a
+                  href="academics/examinations.html"
+                  class="flex items-center gap-3"
+                >
+                  <span
+                    class="icon-mask w-4.5 h-4.5 text-emerald-400"
+                    style="
+                      mask-image: url(&quot;../img/svg/clipboard-check.svg&quot;);
+                      -webkit-mask-image: url(&quot;../img/svg/clipboard-check.svg&quot;);
+                    "
+                  ></span>
+                  Examination
+                </a>
+              </li>
+              <li>
+                <a
+                  href="academics/library.html"
+                  class="flex items-center gap-3"
+                >
+                  <span
+                    class="icon-mask w-4.5 h-4.5 text-cyan-400"
+                    style="
+                      mask-image: url(&quot;../img/svg/library.svg&quot;);
+                      -webkit-mask-image: url(&quot;../img/svg/library.svg&quot;);
+                    "
+                  ></span>
+                  Library
+                </a>
+              </li>
+              <li>
+                <a
+                  href="academics/results.html"
+                  class="flex items-center gap-3"
+                >
+                  <span
+                    class="icon-mask w-4.5 h-4.5 text-orange-400"
+                    style="
+                      mask-image: url(&quot;../img/svg/results.svg&quot;);
+                      -webkit-mask-image: url(&quot;../img/svg/results.svg&quot;);
+                    "
+                  ></span>
+                  Results
+                </a>
+              </li>
+            </ul>
+          </li>
 
-            <!-- Login Button -->
-            <a href="login.html" class="btn btn-success gap-2 text-white shadow-md hover:shadow-lg transition-all group px-6">
-                <div class="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 2v10"/><path d="M18.4 6.6a9 9 0 1 1-12.77.04"/>
-                    </svg>
-                </div>
-                <span class="text-xl">Login</span>
+          <!-- Portal Dropdown -->
+          <li class="dropdown dropdown-hover">
+            <div
+              tabindex="0"
+              role="button"
+              class="btn btn-ghost hover:text-primary transition-colors px-4 flex items-center gap-2"
+            >
+              <span
+                class="icon-mask w-5 h-5"
+                style="
+                  mask-image: url(&quot;../img/svg/shield.svg&quot;);
+                  -webkit-mask-image: url(&quot;../img/svg/shield.svg&quot;);
+                "
+              ></span>
+              Portal
+              <span
+                class="icon-mask w-3.5 h-3.5"
+                style="
+                  mask-image: url(&quot;../img/svg/chevron-down.svg&quot;);
+                  -webkit-mask-image: url(&quot;../img/svg/chevron-down.svg&quot;);
+                "
+              ></span>
+            </div>
+            <ul
+              tabindex="0"
+              class="dropdown-content z-100 menu p-2 shadow-2xl bg-white/90 dark:bg-rose-950/80 rounded-box w-52 border border-rose-100 dark:border-red-500/20 backdrop-blur-xl py-3 -mt-3 pt-6"
+            >
+              <li>
+                <a
+                  href="portal/add-student.html"
+                  class="flex gap-3 items-center"
+                >
+                  <span
+                    class="icon-mask w-4.5 h-4.5 text-primary"
+                    style="
+                      mask-image: url(&quot;../img/svg/user-plus.svg&quot;);
+                      -webkit-mask-image: url(&quot;../img/svg/user-plus.svg&quot;);
+                    "
+                  ></span>
+                  Add Students
+                </a>
+              </li>
+              <li>
+                <a href="portal/records.html" class="flex gap-3 items-center">
+                  <span
+                    class="icon-mask w-4.5 h-4.5 text-secondary"
+                    style="
+                      mask-image: url(&quot;../img/svg/file-search.svg&quot;);
+                      -webkit-mask-image: url(&quot;../img/svg/file-search.svg&quot;);
+                    "
+                  ></span>
+                  View Records
+                </a>
+              </li>
+              <li>
+                <a href="portal/reports.html" class="flex gap-3 items-center">
+                  <span
+                    class="icon-mask w-4.5 h-4.5 text-accent"
+                    style="
+                      mask-image: url(&quot;../img/svg/file-line-chart.svg&quot;);
+                      -webkit-mask-image: url(&quot;../img/svg/file-line-chart.svg&quot;);
+                    "
+                  ></span>
+                  Generate Reports
+                </a>
+              </li>
+              <li>
+                <a
+                  href="portal/scholarships.html"
+                  class="flex gap-3 items-center"
+                >
+                  <span
+                    class="icon-mask w-4.5 h-4.5 text-amber-500"
+                    style="
+                      mask-image: url(&quot;../img/svg/award.svg&quot;);
+                      -webkit-mask-image: url(&quot;../img/svg/award.svg&quot;);
+                    "
+                  ></span>
+                  Scholarships
+                </a>
+              </li>
+              <li>
+                <a href="portal/placement.html" class="flex gap-3 items-center">
+                  <span
+                    class="icon-mask w-4.5 h-4.5 text-lime-400"
+                    style="
+                      mask-image: url(&quot;../img/svg/briefcase.svg&quot;);
+                      -webkit-mask-image: url(&quot;../img/svg/briefcase.svg&quot;);
+                    "
+                  ></span>
+                  Placements
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <a
+              href="notices.html"
+              class="btn btn-ghost hover:text-primary transition-colors px-4 flex items-center gap-2"
+            >
+              <span
+                class="icon-mask w-5 h-5 text-error"
+                style="
+                  mask-image: url(&quot;../img/svg/bell.svg&quot;);
+                  -webkit-mask-image: url(&quot;../img/svg/bell.svg&quot;);
+                "
+              ></span>
+              Notices
             </a>
-        </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="navbar-end gap-3 text-lg">
+        <!-- Theme Toggle -->
+        <label class="swap swap-rotate btn btn-ghost btn-circle">
+          <input type="checkbox" class="theme-controller" value="dark" />
+          <span
+            class="swap-off icon-mask w-6 h-6"
+            style="
+              mask-image: url(&quot;../img/svg/sun.svg&quot;);
+              -webkit-mask-image: url(&quot;../img/svg/sun.svg&quot;);
+            "
+          ></span>
+          <span
+            class="swap-on icon-mask w-6 h-6"
+            style="
+              mask-image: url(&quot;../img/svg/moon.svg&quot;);
+              -webkit-mask-image: url(&quot;../img/svg/moon.svg&quot;);
+            "
+          ></span>
+        </label>
+
+        <!-- Login Button -->
+        <a
+          href="login.html"
+          class="btn btn-ghost btn-sm border border-white/20 bg-white/5 backdrop-blur-md gap-2 text-white hover:bg-white/10 hover:border-success/50 transition-all group px-4 shadow-sm h-10 min-h-0"
+        >
+          <div
+            class="w-6 h-6 rounded-full bg-success/20 flex items-center justify-center group-hover:bg-success/30 transition-colors"
+          >
+            <span
+              class="icon-mask w-3.5 h-3.5 text-success"
+              style="
+                mask-image: url(&quot;../img/svg/power.svg&quot;);
+                -webkit-mask-image: url(&quot;../img/svg/power.svg&quot;);
+              "
+            ></span>
+          </div>
+          <span class="text-lg font-medium tracking-wide">Login</span>
+        </a>
+      </div>
     </div>
 
-    <!-- Hero Section -->
-    <div class="hero min-h-screen bg-black/30">
-        <div class="hero-overlay bg-opacity-30"></div>
-        <div class="hero-content text-center text-white">
-            <div class="max-w-4xl">
-                <h1 class="text-5xl md:text-6xl font-bold mb-6">
-                    The Calcutta Technical School
-                </h1>
-            </div>
-        </div>
-    </div>
+    <!-- About + Notice Section -->
+    <section
+      class="py-20 bg-black/40 backdrop-blur-md border-y border-white/10 animate-fade-in-up"
+    >
+      <div class="container mx-auto px-4 max-w-6xl">
+        <h1
+          class="text-4xl md:text-5xl font-bold text-white text-center mb-16 drop-shadow-lg opacity-0 animate-fade-in-up"
+          style="animation-delay: 0.2s"
+        >
+          Welcome to
+          <span class="text-primary italic">CSMP</span>
+        </h1>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+          <!-- About / Why CTS -->
+          <div class="card bg-base-100 shadow-lg">
+            <div class="card-body">
+              <h2
+                class="card-title text-3xl font-bold text-primary mb-4 border-b border-base-300 pb-3"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-7 w-7"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                  />
+                </svg>
+                About Us
+              </h2>
 
-    <!-- Features Section -->
-    <section id="features" class="py-16 bg-sky-400">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center text-white mb-12">Features</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                <div class="card bg-base-100 shadow-xl">
-                    <div class="card-body items-center text-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-primary mb-4" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
-                        </svg>
-                        <h3 class="card-title text-xl">Add Students</h3>
-                        <p class="text-base-content/70">Easily register new students into the system</p>
-                    </div>
+              <div class="flex flex-col gap-4">
+                <div
+                  class="p-5 rounded-xl border border-base-content/10 bg-base-200/30 leading-relaxed"
+                >
+                  <p class="text-base-content/80">
+                    <span class="font-bold text-primary"
+                      >The Calcutta Technical School</span
+                    >
+                    is one of the most prestigious and oldest technical
+                    institutions in West Bengal. Established in 1927, before
+                    India's independence, it began with need-based technical
+                    courses under the Board of Apprentice Training.
+                  </p>
+                  <p class="text-base-content/80 mt-4 outline-none">
+                    Over the years, it transitioned into a Government-sponsored
+                    institution offering Diploma courses in Mechanical and
+                    Electrical Engineering. Today, it is a heritage institution
+                    taken over by the Government in 1994 — a symbol of
+                    educational legacy and technical excellence.
+                  </p>
                 </div>
-                <div class="card bg-base-100 shadow-xl">
-                    <div class="card-body items-center text-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-secondary mb-4" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                        </svg>
-                        <h3 class="card-title text-xl">View Records</h3>
-                        <p class="text-base-content/70">Access and manage student information</p>
-                    </div>
-                </div>
-                <div class="card bg-base-100 shadow-xl">
-                    <div class="card-body items-center text-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-accent mb-4" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                        </svg>
-                        <h3 class="card-title text-xl">Generate Reports</h3>
-                        <p class="text-base-content/70">Create detailed reports and analytics</p>
-                    </div>
-                </div>
+              </div>
+
+              <div class="card-actions mt-4 justify-end">
+                <a href="#" class="link link-primary text-sm"
+                  >View more details →</a
+                >
+              </div>
             </div>
+          </div>
+
+          <!-- Notice Board -->
+          <div class="card bg-base-100 shadow-lg">
+            <div class="card-body">
+              <h2
+                class="card-title text-3xl font-bold text-error mb-4 border-b border-base-300 pb-3"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-7 w-7"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                  />
+                </svg>
+                Notice Board
+              </h2>
+
+              <div class="flex flex-col gap-4">
+                <!-- [LARAVEL] Wrap the following notice pattern in a @foreach loop -->
+
+                <!-- Notice Item Sample -->
+                <div
+                  class="p-4 rounded-xl border border-base-content/10 bg-base-200/50 hover:bg-base-200 transition-colors flex flex-col gap-3"
+                >
+                  <div class="flex justify-between items-start gap-4">
+                    <p class="text-sm font-medium leading-relaxed">
+                      [EXAMPLE] Application for Review of Results of 2nd & 4th
+                      Semester External Theoretical Examinations
+                    </p>
+                    <span
+                      class="badge badge-error badge-sm shrink-0 uppercase font-bold px-3 py-2"
+                      >MAY, 2025</span
+                    >
+                  </div>
+                  <a
+                    href="#"
+                    class="btn btn-ghost btn-sm border-error/30 text-error hover:bg-error hover:text-white w-fit"
+                  >
+                    Click to Apply
+                  </a>
+                </div>
+
+                <!-- [LARAVEL] Add more notice items dynamically here -->
+                <div
+                  class="p-4 rounded-xl border border-base-content/10 bg-base-200/50 hover:bg-base-200 transition-colors flex flex-col gap-3"
+                >
+                  <div class="flex justify-between items-start gap-4">
+                    <p class="text-sm font-medium leading-relaxed">
+                      [EXAMPLE] Admit Card for Special Supplementary Examination
+                      (August 2025) — Back Subjects (1st–6th Semester)
+                    </p>
+                    <span
+                      class="badge badge-success badge-sm shrink-0 uppercase font-bold px-3 py-2"
+                      >2024-25</span
+                    >
+                  </div>
+                  <a
+                    href="#"
+                    class="btn btn-ghost btn-sm border-success/30 text-success hover:bg-success hover:text-white w-fit"
+                  >
+                    Click to Download
+                  </a>
+                </div>
+
+                <div
+                  class="p-4 rounded-xl border border-base-content/10 bg-base-200/50 hover:bg-base-200 transition-colors flex flex-col gap-3"
+                >
+                  <div class="flex justify-between items-start gap-4">
+                    <p class="text-sm font-medium leading-relaxed">
+                      [EXAMPLE] Apply online for Special Supplementary
+                      Examination (August 2025) — Back Subjects (1st–6th
+                      Semester)
+                    </p>
+                    <span
+                      class="badge badge-warning badge-sm shrink-0 uppercase font-bold px-3 py-2"
+                      >2024-25</span
+                    >
+                  </div>
+                  <a
+                    href="#"
+                    class="btn btn-ghost btn-sm border-warning/30 text-warning hover:bg-warning hover:text-white w-fit"
+                  >
+                    Click to Apply
+                  </a>
+                </div>
+              </div>
+
+              <div class="card-actions mt-4 justify-end">
+                <a href="#" class="link link-primary text-sm"
+                  >View all notices →</a
+                >
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="py-16 bg-base-200">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12">System Status</h2>
-            <div class="flex justify-center">
-                <div class="stats stats-vertical lg:stats-horizontal shadow-xl bg-base-100">
-                    <div class="stat">
-                        <div class="stat-title">Total Students</div>
-                        <div class="stat-value text-primary">2,000</div>
-                        <div class="stat-desc">Across all departments</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-title">Departments</div>
-                        <div class="stat-value text-secondary">04</div>
-                        <div class="stat-desc">Active departments</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-title">Faculty</div>
-                        <div class="stat-value text-accent">30</div>
-                        <div class="stat-desc">Teaching staff</div>
-                    </div>
-                </div>
+    <!-- Gallery Section -->
+    <section
+      id="gallery"
+      class="py-16 bg-base-300/50 backdrop-blur-sm animate-fade-in-up"
+      style="animation-delay: 0.6s"
+    >
+      <div class="container mx-auto px-4 max-w-6xl">
+        <h2
+          class="text-4xl font-bold text-center text-error mb-12 drop-shadow-md"
+        >
+          Institutional
+          <span
+            class="text-white italic underline decoration-primary decoration-4 underline-offset-8 transition-all hover:underline-offset-4"
+            >Gallery</span
+          >
+        </h2>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
+          <!-- Main Large Image -->
+          <div
+            class="col-span-2 row-span-2 group relative overflow-hidden rounded-2xl border-2 border-white/10 shadow-lg"
+          >
+            <img
+              src="../img/gallery/cultural.png"
+              alt="Student Life Collage"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6"
+            >
+              <p class="text-white font-semibold text-lg">
+                Student Life & Culture
+              </p>
             </div>
+          </div>
+
+          <!-- Event 1 -->
+          <div
+            class="col-span-2 row-span-1 group relative overflow-hidden rounded-2xl border-2 border-white/10 shadow-lg"
+          >
+            <img
+              src="../img/gallery/ex-tech-edu.png"
+              alt="Prize Distribution"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-center"
+            >
+              <span
+                class="text-white font-medium border-b-2 border-primary pb-1"
+                >Excellence in Technical Education</span
+              >
+            </div>
+          </div>
+
+          <!-- Event 3 -->
+          <div
+            class="col-span-1 row-span-1 group relative overflow-hidden rounded-2xl border-2 border-white/10 shadow-lg"
+          >
+            <img
+              src="../img/gallery/social-event.jpg"
+              alt="Annual Social Event"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+          </div>
+
+          <!-- CTS Campus -->
+          <div
+            class="col-span-1 row-span-2 group relative overflow-hidden rounded-2xl border-2 border-white/10 shadow-lg"
+          >
+            <img
+              src="../img/cts.png"
+              alt="Campus View"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-primary/20 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+            >
+              <p class="text-white font-bold text-xl drop-shadow-lg">
+                Our Campus
+              </p>
+            </div>
+          </div>
+
+          <!-- Extra grid filler for balanced look -->
+          <div
+            class="col-span-1 row-span-1 group relative overflow-hidden rounded-2xl border-2 border-white/10 shadow-lg grayscale hover:grayscale-0 transition-all"
+          >
+            <img
+              src="../img/gallery/social.jpg"
+              alt="Moment"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+          </div>
         </div>
+
+        <div class="text-center mt-12">
+          <a
+            href="#"
+            class="btn btn-outline btn-primary px-8 hover:scale-105 transition-transform"
+          >
+            Explore All Memories
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section
+      id="contact"
+      class="py-16 bg-base-200/40 backdrop-blur-md border-t border-white/10 animate-fade-in-up"
+      style="animation-delay: 0.8s"
+    >
+      <div class="container mx-auto px-4 max-w-6xl">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <!-- Left: Map -->
+          <div
+            class="w-full h-[400px] rounded-2xl overflow-hidden border-2 border-white/10 shadow-2xl group"
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.461027015059!2d88.35479071171858!3d22.561854133277084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02770731aeafcf%3A0x70b7fa2f49a82e14!2sThe%20Calcutta%20Technical%20School!5e0!3m2!1sen!2sin!4v1773561647084!5m2!1sen!2sin"
+              width="600"
+              height="450"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+
+          <!-- Right: Contact Details -->
+          <div class="flex flex-col gap-8">
+            <div>
+              <h2 class="text-4xl font-bold text-error mb-4">
+                Contact <span class="text-white italic">Details</span>
+              </h2>
+              <div class="w-20 h-1.5 bg-primary rounded-full"></div>
+            </div>
+
+            <div class="space-y-6">
+              <!-- Address -->
+              <div
+                class="flex items-start gap-4 p-5 rounded-xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all group/card"
+              >
+                <div
+                  class="w-14 h-14 rounded-full bg-error/20 flex items-center justify-center shrink-0 group-hover/card:bg-error/30 transition-colors"
+                >
+                  <span
+                    class="icon-mask w-6 h-6 text-error"
+                    style="
+                      mask-image: url(&quot;../img/svg/map-pin.svg&quot;);
+                      -webkit-mask-image: url(&quot;../img/svg/map-pin.svg&quot;);
+                    "
+                  ></span>
+                </div>
+                <div>
+                  <h3 class="font-bold text-xl text-white mb-1">
+                    Our Location
+                  </h3>
+                  <p class="text-base-content/80 leading-relaxed text-lg">
+                    110, SN Banerjee Road, Esplanade, Taltala,<br />
+                    Kolkata, West Bengal 700013, India
+                  </p>
+                </div>
+              </div>
+
+              <!-- Phone -->
+              <div
+                class="flex items-start gap-4 p-5 rounded-xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all group/card"
+              >
+                <div
+                  class="w-14 h-14 rounded-full bg-error/20 flex items-center justify-center shrink-0 group-hover/card:bg-error/30 transition-colors"
+                >
+                  <span
+                    class="icon-mask w-6 h-6 text-error"
+                    style="
+                      mask-image: url(&quot;../img/svg/phone.svg&quot;);
+                      -webkit-mask-image: url(&quot;../img/svg/phone.svg&quot;);
+                    "
+                  ></span>
+                </div>
+                <div>
+                  <h3 class="font-bold text-xl text-white mb-1">Call Us</h3>
+                  <p
+                    class="text-base-content/90 text-2xl font-semibold tracking-wide"
+                  >
+                    {{COLLAGE_NUMBER}}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer footer-center p-2 bg-blue-900 text-white">
-        <div>
-            <p>&copy; 2025 The Calcutta Technical School.</p>
-        </div>
+      <div>
+        <p>&copy; 2025 CSMP (CTS Student Management Portal).</p>
+      </div>
     </footer>
 
     <!-- JavaScript -->
     <script src="../js/theme-toggle.js"></script>
-</body>
 
+    <script>
+      if (window.location.protocol === "file:") {
+        document.getElementById("local-warning").classList.remove("hidden");
+      }
+    </script>
+  </body>
 </html>
