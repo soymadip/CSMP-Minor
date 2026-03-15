@@ -2,7 +2,7 @@
 
 ## 🎨 Unified Premium Aesthetic
 
-The frontend of **CSMP-Minor** is designed to feel state-of-the-art and professional. All UI contributions must adhere to these standards:
+The frontend of **CTS Student Management Portal (CSMP)** is designed to feel state-of-the-art and professional. All UI contributions must adhere to these standards:
 
 ### 1. The "Solid on Blurred" Pattern
 - **Layouts**: Wrap primary content sections in a `backdrop-blur-md` container.

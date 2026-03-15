@@ -1,8 +1,8 @@
-# GEMINI.md - CSMP-Minor Project Overview
+# AGENTS.md - CTS Student Management Portal (CSMP) Overview
 
 ## 🚀 Introduction
 
-**CSMP-Minor** is a **Faculty Management Portal** (rebranded from student-focused) built primarily with **Laravel 12**. It is designed to manage academic records, departmental workflows, and administrative tasks for teachers and staff.
+**CTS Student Management Portal (CSMP)** is a comprehensive management system built primarily with **Laravel 12**.
 
 **Core Mission**: Providing a premium, modern interface for educators to manage university operations with minimal friction.
 
