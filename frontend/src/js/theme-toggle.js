@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const themeToggle = document.querySelector('.theme-controller');
     const htmlElement = document.documentElement;
     
-    // Check for saved theme or default to light
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    // Check for saved theme or default to dark
+    const savedTheme = localStorage.getItem('theme') || 'dark';
     htmlElement.setAttribute('data-theme', savedTheme);
     themeToggle.checked = savedTheme === 'dark';
     
