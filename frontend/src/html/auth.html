@@ -12,56 +12,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../css/app.css" />
-    <style>
-      body {
-        font-family: "Outfit", sans-serif;
-      }
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      .animate-fade-in-up {
-        animation: fadeInUp 0.6s ease-out forwards;
-      }
-
-      .glass-card {
-        background: rgba(0, 0, 0, 0.4);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-      }
-
-      .solid-card {
-        background: var(--base-100);
-      }
-
-      .tab-active {
-        @apply bg-primary text-white shadow-lg shadow-primary/20;
-      }
-
-      .form-section {
-        display: none;
-      }
-
-      .form-section.active {
-        display: block;
-        animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-
-      .icon-mask {
-        mask-repeat: no-repeat;
-        mask-position: center;
-        mask-size: contain;
-        background-color: currentColor;
-      }
-    </style>
   </head>
   <body
     class="min-h-screen bg-cover bg-center bg-no-repeat pt-16"
@@ -71,40 +21,40 @@
     "
   >
     <!-- Navbar -->
-    <div
-      class="navbar bg-rose-50/70 dark:bg-rose-950/40 backdrop-blur-3xl shadow-lg border-b border-rose-200 dark:border-red-500/10 fixed top-0 left-0 right-0 z-50"
+    <nav
+      class="flex items-center justify-between px-4 h-16 bg-[var(--navbar-bg)] text-[var(--navbar-text)] backdrop-blur-3xl shadow-lg border-b border-[var(--navbar-border)] fixed top-0 left-0 right-0 z-50 transition-colors duration-300"
     >
       <!-- Logo -->
-      <div class="navbar-start">
+      <div class="flex items-center">
         <a href="home.html" class="text-xl font-bold flex items-center gap-1">
           <img src="../img/logo.png" alt="CSMP Logo" class="w-12 h-12" />
           CSMP
         </a>
       </div>
 
-      <div class="navbar-end gap-3 text-lg">
+      <div class="flex items-center gap-4">
         <!-- Theme Toggle -->
-        <label class="swap swap-rotate btn btn-ghost btn-circle">
-          <input type="checkbox" class="theme-controller" value="dark" />
+        <button id="theme-toggle" class="p-2 hover:bg-white/10 rounded-full transition-colors relative h-10 w-10 overflow-hidden">
+          <input type="checkbox" class="theme-controller opacity-0 absolute inset-0 cursor-pointer z-10" value="dark" />
           <span
-            class="swap-off icon-mask w-6 h-6"
+            class="icon-mask w-6 h-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 dark:scale-0"
             style="
               mask-image: url(&quot;../img/svg/sun.svg&quot;);
               -webkit-mask-image: url(&quot;../img/svg/sun.svg&quot;);
             "
           ></span>
           <span
-            class="swap-on icon-mask w-6 h-6"
+            class="icon-mask w-6 h-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 scale-0 dark:scale-100"
             style="
               mask-image: url(&quot;../img/svg/moon.svg&quot;);
               -webkit-mask-image: url(&quot;../img/svg/moon.svg&quot;);
             "
           ></span>
-        </label>
+        </button>
 
         <a
           href="home.html"
-          class="btn btn-ghost btn-sm border border-white/20 bg-white/5 backdrop-blur-md gap-2 text-white hover:bg-white/10 transition-all px-4 h-10 min-h-0"
+          class="flex items-center gap-2 px-4 h-10 bg-[var(--nav-button-bg)] border border-[var(--nav-button-border)] backdrop-blur-md rounded-2xl hover:bg-[var(--nav-button-bg)]/20 transition-all shadow-sm"
         >
           <span
             class="icon-mask w-4 h-4"
@@ -116,7 +66,7 @@
           Home
         </a>
       </div>
-    </div>
+    </nav>
 
     <!-- Auth Section -->
     <div
@@ -124,9 +74,8 @@
     >
       <div class="w-full max-w-md animate-fade-in-up">
         <div
-          class="card bg-base-100 shadow-2xl rounded-2xl overflow-hidden border border-white/5"
+          class="bg-base-100 shadow-2xl rounded-2xl overflow-hidden border border-white/5 p-8"
         >
-          <div class="p-8">
             <div class="text-center mb-8">
               <h1
                 id="auth-title"
@@ -159,10 +108,10 @@
             <!-- Login Form -->
             <div id="login-section" class="form-section active">
               <form action="#" class="space-y-6">
-                <div class="form-control">
-                  <label class="label px-2">
+                <div>
+                  <label class="block px-2 mb-2">
                     <span
-                      class="label-text text-rose-100/70 font-bold text-xs uppercase tracking-widest"
+                      class="text-rose-100/70 font-bold text-xs uppercase tracking-widest"
                       >Email</span
                     >
                   </label>
@@ -188,24 +137,24 @@
                     <input
                       type="email"
                       placeholder="faculty@csmp.edu.in"
-                      class="input input-bordered w-full pl-12 bg-white/5 border-white/10 text-white focus:border-primary focus:ring-2 focus:ring-primary/20 h-14 rounded-2xl transition-all"
+                      class="w-full pl-12 bg-white/5 border border-white/10 text-white focus:border-primary focus:ring-2 focus:ring-primary/20 h-14 rounded-2xl transition-all outline-none"
                       required
                     />
                   </div>
                 </div>
 
-                <div class="form-control">
-                  <label class="label px-2">
+                <div>
+                  <div class="flex items-center justify-between px-2 mb-2">
                     <span
-                      class="label-text text-rose-100/70 font-bold text-xs uppercase tracking-widest"
+                      class="text-rose-100/70 font-bold text-xs uppercase tracking-widest"
                       >Password</span
                     >
                     <a
                       href="#"
-                      class="label-text-alt link link-primary no-underline hover:underline font-bold text-[10px] tracking-tighter"
+                      class="text-primary hover:underline font-bold text-[10px] tracking-tighter"
                       >FORGOT?</a
                     >
-                  </label>
+                  </div>
                   <div class="relative group">
                     <div
                       class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-rose-300/40 group-focus-within:text-primary transition-colors"
@@ -229,7 +178,7 @@
                       id="login-password"
                       type="password"
                       placeholder="••••••••••••"
-                      class="input input-bordered w-full pl-12 pr-12 bg-white/5 border-white/10 text-white focus:border-primary focus:ring-2 focus:ring-primary/20 h-14 rounded-2xl transition-all"
+                      class="w-full pl-12 pr-12 bg-white/5 border border-white/10 text-white focus:border-primary focus:ring-2 focus:ring-primary/20 h-14 rounded-2xl transition-all outline-none"
                       required
                     />
                     <button
@@ -262,21 +211,21 @@
                 </div>
 
                 <div class="flex items-center justify-between px-2">
-                  <label class="label cursor-pointer gap-3 p-0">
+                  <label class="flex items-center gap-3 cursor-pointer">
                     <input
                       type="checkbox"
-                      class="checkbox checkbox-primary checkbox-sm border-white/20"
+                      class="w-4 h-4 rounded border-white/20 bg-white/5 text-primary focus:ring-primary"
                       checked
                     />
                     <span
-                      class="label-text text-rose-100/50 text-xs font-semibold"
+                      class="text-rose-100/50 text-xs font-semibold"
                       >Keep Logged In</span
                     >
                   </label>
                 </div>
 
                 <button
-                  class="btn btn-primary w-full h-14 text-lg font-bold rounded-2xl shadow-xl shadow-primary/20 border-0"
+                  class="w-full h-14 text-lg font-bold rounded-2xl shadow-xl shadow-primary/20 bg-primary text-white hover:opacity-90 transition-all"
                 >
                   LOGIN
                 </button>
@@ -286,45 +235,45 @@
             <!-- Register Form -->
             <div id="register-section" class="form-section">
               <form action="#" class="space-y-4">
-                <div class="form-control">
-                  <label class="label px-2"
+                <div>
+                  <label class="block px-2 mb-1"
                     ><span
-                      class="label-text text-rose-100/70 font-bold text-[10px] uppercase tracking-widest"
+                      class="text-rose-100/70 font-bold text-[10px] uppercase tracking-widest"
                       >Full Name</span
                     ></label
                   >
                   <input
                     type="text"
                     placeholder="John Doe"
-                    class="input input-bordered w-full bg-white/5 border-white/10 text-white focus:border-primary h-12 rounded-xl transition-all"
+                    class="w-full bg-white/5 border border-white/10 text-white focus:border-primary h-12 rounded-xl transition-all px-4 outline-none"
                     required
                   />
                 </div>
 
-                <div class="form-control">
-                  <label class="label px-2"
+                <div>
+                  <label class="block px-2 mb-1"
                     ><span
-                      class="label-text text-rose-100/70 font-bold text-[10px] uppercase tracking-widest"
+                      class="text-rose-100/70 font-bold text-[10px] uppercase tracking-widest"
                       >Official Email</span
                     ></label
                   >
                   <input
                     type="email"
                     placeholder="name@institute.edu"
-                    class="input input-bordered w-full bg-white/5 border-white/10 text-white focus:border-primary h-12 rounded-xl transition-all"
+                    class="w-full bg-white/5 border border-white/10 text-white focus:border-primary h-12 rounded-xl transition-all px-4 outline-none"
                     required
                   />
                 </div>
 
-                <div class="form-control">
-                  <label class="label px-2"
+                <div>
+                  <label class="block px-2 mb-1"
                     ><span
-                      class="label-text text-rose-100/70 font-bold text-[10px] uppercase tracking-widest"
+                      class="text-rose-100/70 font-bold text-[10px] uppercase tracking-widest"
                       >Department</span
                     ></label
                   >
                   <select
-                    class="select select-bordered w-full bg-white/5 border-white/10 text-white focus:border-primary h-12 min-h-0 rounded-xl transition-all"
+                    class="w-full bg-white/5 border border-white/10 text-white focus:border-primary h-12 rounded-xl transition-all px-4 outline-none appearance-none"
                   >
                     <option disabled selected>Select Department</option>
                     <option>Computer Science & Technology</option>
@@ -334,10 +283,10 @@
                   </select>
                 </div>
 
-                <div class="form-control">
-                  <label class="label px-2"
+                <div>
+                  <label class="block px-2 mb-1"
                     ><span
-                      class="label-text text-rose-100/70 font-bold text-[10px] uppercase tracking-widest"
+                      class="text-rose-100/70 font-bold text-[10px] uppercase tracking-widest"
                       >Password</span
                     ></label
                   >
@@ -346,7 +295,7 @@
                       id="register-password"
                       type="password"
                       placeholder="••••••••"
-                      class="input input-bordered w-full bg-white/5 border-white/10 text-white focus:border-primary h-12 rounded-xl transition-all pr-12"
+                      class="w-full bg-white/5 border border-white/10 text-white focus:border-primary h-12 rounded-xl transition-all pr-12 px-4 outline-none"
                       required
                     />
                     <button
@@ -380,7 +329,7 @@
 
                 <div class="pt-4">
                   <button
-                    class="btn btn-secondary w-full h-14 font-bold rounded-2xl shadow-xl shadow-secondary/20 border-0"
+                    class="w-full h-14 font-bold rounded-2xl shadow-xl shadow-secondary/20 bg-secondary text-white hover:opacity-90 transition-all"
                   >
                     CREATE ACCOUNT
                   </button>

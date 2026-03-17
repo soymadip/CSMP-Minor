@@ -1,17 +1,121 @@
-@import "tailwindcss" source(none);
+@import "tailwindcss";
 @source "../**/*.{html,js,jsx,ts,tsx}";
 
-@plugin "daisyui" {
-  themes: dark --default, light;
+@variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@layer base {
+  body {
+    font-family: "Outfit", sans-serif;
+  }
+}
+
+@theme {
+  --color-primary: var(--color-rose-500);
+  --color-secondary: var(--color-indigo-500);
+  --color-accent: var(--color-emerald-500);
+  --color-neutral: var(--color-slate-500);
+  --color-base-100: var(--base-100);
+  --color-base-200: var(--base-200);
+  --color-base-300: var(--base-300);
+  --color-error: var(--color-red-500);
+  --color-success: var(--color-green-500);
+  --color-warning: var(--color-amber-500);
+  --color-info: var(--color-blue-500);
+
+  /* Animation Overrides */
+  --animate-fade-in-up: fadeInUp 0.6s ease-out forwards;
+
+  /* Theme-aware Navbar Variables */
+  --navbar-bg: rgba(255, 250, 250, 0.7);
+  --navbar-border: var(--color-rose-200);
+  --navbar-text: var(--color-slate-900);
+  --nav-button-bg: rgba(0, 0, 0, 0.05);
+  --nav-button-border: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+  --navbar-bg: rgba(76, 5, 25, 0.4);
+  --navbar-border: rgba(239, 68, 68, 0.1);
+  --navbar-text: var(--color-white);
+  --nav-button-bg: rgba(255, 255, 255, 0.05);
+  --nav-button-border: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility tab-active {
+  @apply bg-primary text-white shadow-lg shadow-primary/20;
+}
+
+@utility glass-card {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+@utility solid-card {
+  background: var(--base-100);
 }
 
 @utility icon-mask {
   display: inline-block;
-  background-color: currentColor;
   mask-repeat: no-repeat;
   mask-position: center;
   mask-size: contain;
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
   -webkit-mask-size: contain;
+  background-color: currentColor;
+}
+
+@utility card-hover {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow:
+      0 10px 25px -5px rgba(0, 0, 0, 0.1),
+      0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@utility form-section {
+  display: none;
+
+  &.active {
+    display: block;
+    animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+:root {
+  --base-100: #ffffff;
+  --base-200: #f8fafc;
+  --base-300: #f1f5f9;
+}
+
+:root[data-theme="dark"] {
+  --base-100: #0f172a;
+  --base-200: #1e293b;
+  --base-300: #334155;
+  color: white;
+}
+
+:root[data-theme="light"] {
+  --base-100: #ffffff;
+  --base-200: #f8fafc;
+  --base-300: #f1f5f9;
+  color: #1e293b;
 }

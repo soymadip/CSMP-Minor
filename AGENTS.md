@@ -11,7 +11,7 @@
 The project encompasses three main pillars:
 
 - **`laravel/`**: Backend core and Livewire components.
-- **`frontend/`**: Modernized UI layer (Tailwind 4 + DaisyUI 5). For specific frontend guidelines, see [`frontend/FRONTEND.md`](frontend/FRONTEND.md).
+- **`frontend/`**: Modernized UI layer (Tailwind 4.1+). For specific frontend guidelines, see [`frontend/FRONTEND.md`](frontend/FRONTEND.md).
 
 ## 🔑 Key Functionalities by Role
 
@@ -24,7 +24,7 @@ The portal is optimized for academic staff:
 ## 🛠️ Tech Stack
 
 - **Framework**: Laravel 12 + Livewire
-- **Styling**: TailwindCSS 4 + DaisyUI 5
+- **Styling**: TailwindCSS 4.2+ (Vanilla)
 - **Icons**: Standardized SVG assets using `mask-image` for coloring.
 
 ## 🛠️ Development Workflow

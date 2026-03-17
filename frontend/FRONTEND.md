@@ -10,10 +10,13 @@ The frontend of **CTS Student Management Portal (CSMP)** is designed to feel sta
 - **Corners**: Strictly use **`rounded-2xl`** (16px) for cards, modals, and buttons.
 
 ### 2. Design System & Styling
-- **Core**: TailwindCSS 4 + DaisyUI 5.
+- **Core**: TailwindCSS 4.2+ (Vanilla).
 - **Typography**: "Outfit" (Google Fonts) as the primary font family.
 - **Icons**: Modular SVG system using `mask-image`. 
     - *Usage*: Use the `.icon-mask` utility with `src/img/svg/` assets to allow dynamic coloring via Tailwind text classes.
+- **Utilities**: Custom utilities are centralized in `src/css/_tailwind.css`.
+    - *Note*: In Tailwind v4, `@import "tailwindcss";` must be at the top of the entry CSS file to load default styles.
+    - *Syntax*: For complex utilities with nested selectors (e.g., `.active` states), use CSS nesting within the `@utility` block instead of dots in the utility name.
 
 ## 🛠️ JavaScript Architecture
 
@@ -25,7 +28,7 @@ The JS layer is decoupled from HTML templates and modularized for better maintai
 ## 🚀 Standards for Components
 
 1. **Responsiveness**: Use `min-h-[calc(100vh-64px)]` and `items-center` patterns to ensure content fits the viewport.
-2. **Interactive Elements**: Use standard DaisyUI components but consistently apply `rounded-2xl` and custom transitions.
+2. **Interactive Elements**: Use standard Tailwind utility classes; consistently apply `rounded-2xl` and custom transitions.
 3. **Themes**: Every component must work in both `dark` and `light` modes. Test with the internal theme controller.
 
 ## 🛠️ Development Tools

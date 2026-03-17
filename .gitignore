@@ -4,6 +4,7 @@ template.png
 .vscode/
 .idea/
 .DS_Store
+build/
 
 # Laravel
 laravel/vendor/

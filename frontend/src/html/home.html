@@ -13,35 +13,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../css/app.css" />
-    <style>
-      body {
-        font-family: "Outfit", sans-serif;
-      }
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      .animate-fade-in-up {
-        animation: fadeInUp 0.6s ease-out forwards;
-      }
-      .card {
-        transition:
-          transform 0.3s ease,
-          box-shadow 0.3s ease;
-      }
-      .card:hover {
-        transform: translateY(-5px);
-        box-shadow:
-          0 10px 25px -5px rgba(0, 0, 0, 0.1),
-          0 8px 10px -6px rgba(0, 0, 0, 0.1);
-      }
-    </style>
   </head>
 
   <body
@@ -57,8 +28,7 @@
       class="hidden fixed top-20 left-1/2 -translate-x-1/2 z-100 w-full max-w-2xl px-4 animate-fade-in-up"
     >
       <div
-        class="alert alert-warning shadow-2xl bg-amber-500/20 border-amber-500/50 text-amber-200 border-2"
-        style="backdrop-filter: blur(64px); -webkit-backdrop-filter: blur(64px)"
+        class="flex items-center gap-4 p-4 rounded-2xl shadow-2xl bg-amber-500/20 border-amber-500/50 text-amber-200 border-2 backdrop-blur-3xl"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -73,16 +43,16 @@
             d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
           />
         </svg>
-        <div>
-          <h3 class="font-bold items-center">Security Restriction Active</h3>
+        <div class="flex-1">
+          <h3 class="font-bold">Security Restriction Active</h3>
           <div class="text-xs">
-            Opened directly.Icons and some features may not load correctly.
+            Opened directly. Icons and some features may not load correctly.
             <br />
             Please use a local server.
           </div>
         </div>
         <button
-          class="btn btn-sm btn-ghost"
+          class="p-2 hover:bg-white/10 rounded-xl transition-colors"
           onclick="this.parentElement.parentElement.remove()"
         >
           ✕
@@ -91,11 +61,11 @@
     </div>
 
     <!-- Navbar -->
-    <div
-      class="navbar bg-rose-50/70 dark:bg-rose-950/40 backdrop-blur-3xl shadow-lg border-b border-rose-200 dark:border-red-500/10 fixed top-0 left-0 right-0 z-50"
+    <nav
+      class="flex items-center justify-between px-4 h-16 bg-[var(--navbar-bg)] text-[var(--navbar-text)] backdrop-blur-3xl shadow-lg border-b border-[var(--navbar-border)] fixed top-0 left-0 right-0 z-50 transition-colors duration-300"
     >
       <!-- Logo -->
-      <div class="navbar-start">
+      <div class="flex items-center">
         <a href="#" class="text-xl font-bold flex items-center gap-1">
           <img src="../img/logo.png" alt="CSMP Logo" class="w-12 h-12" />
           CSMP
@@ -103,56 +73,53 @@
       </div>
 
       <!-- Main Navigation Menu -->
-      <div class="navbar-center hidden lg:flex">
-        <ul
-          id="main-nav"
-          class="menu menu-horizontal px-1 gap-2 text-lg font-semibold"
+      <div class="hidden lg:flex items-center gap-6 text-lg font-semibold">
+        <a
+          href="#"
+          class="text-primary flex items-center gap-2 h-full transition-all duration-300 hover:opacity-80"
         >
-          <li>
-            <a
-              href="#"
-              class="text-primary px-4 flex items-center gap-2 h-full transition-all duration-300 hover:opacity-80"
-            >
-              <span
-                class="icon-mask w-5 h-5"
-                style="
-                  mask-image: url(&quot;../img/svg/home.svg&quot;);
-                  -webkit-mask-image: url(&quot;../img/svg/home.svg&quot;);
-                "
-              ></span>
-              Home
-            </a>
-          </li>
+          <span
+            class="icon-mask w-5 h-5"
+            style="
+              mask-image: url(&quot;../img/svg/home.svg&quot;);
+              -webkit-mask-image: url(&quot;../img/svg/home.svg&quot;);
+            "
+          ></span>
+          Home
+        </a>
 
-          <!-- Departments Dropdown -->
-          <li class="dropdown dropdown-hover">
-            <div
-              tabindex="0"
-              role="button"
-              class="btn btn-ghost hover:text-primary transition-colors px-4 flex items-center gap-2"
-            >
-              <span
-                class="icon-mask w-5 h-5"
-                style="
-                  mask-image: url(&quot;../img/svg/graduation-cap.svg&quot;);
-                  -webkit-mask-image: url(&quot;../img/svg/graduation-cap.svg&quot;);
-                "
-              ></span>
-              Departments
-              <span
-                class="icon-mask w-3.5 h-3.5"
-                style="
-                  mask-image: url(&quot;../img/svg/chevron-down.svg&quot;);
-                  -webkit-mask-image: url(&quot;../img/svg/chevron-down.svg&quot;);
-                "
-              ></span>
-            </div>
+        <!-- Departments Dropdown -->
+        <div class="relative group">
+          <button
+            class="flex items-center gap-2 hover:text-primary transition-colors py-2"
+          >
+            <span
+              class="icon-mask w-5 h-5"
+              style="
+                mask-image: url(&quot;../img/svg/graduation-cap.svg&quot;);
+                -webkit-mask-image: url(&quot;../img/svg/graduation-cap.svg&quot;);
+              "
+            ></span>
+            Departments
+            <span
+              class="icon-mask w-3.5 h-3.5"
+              style="
+                mask-image: url(&quot;../img/svg/chevron-down.svg&quot;);
+                -webkit-mask-image: url(&quot;../img/svg/chevron-down.svg&quot;);
+              "
+            ></span>
+          </button>
+          <div
+            class="absolute top-full left-0 hidden group-hover:block transition-all pt-2"
+          >
             <ul
-              tabindex="0"
-              class="dropdown-content z-100 menu p-2 shadow-2xl bg-white/90 dark:bg-rose-950/80 rounded-box w-60 border border-rose-100 dark:border-red-500/20 backdrop-blur-xl py-3 -mt-3 pt-6"
+              class="bg-white/90 dark:bg-rose-950/80 rounded-2xl shadow-2xl w-60 border border-rose-100 dark:border-red-500/20 backdrop-blur-xl p-2"
             >
               <li>
-                <a href="/departments/civil" class="flex items-center gap-3">
+                <a
+                  href="/departments/civil"
+                  class="flex items-center gap-3 p-3 hover:bg-rose-100/50 dark:hover:bg-white/5 rounded-xl transition-colors"
+                >
                   <span
                     class="icon-mask w-4.5 h-4.5 text-orange-400"
                     style="
@@ -166,7 +133,7 @@
               <li>
                 <a
                   href="/departments/electrical"
-                  class="flex items-center gap-3"
+                  class="flex items-center gap-3 p-3 hover:bg-rose-100/50 dark:hover:bg-white/5 rounded-xl transition-colors"
                 >
                   <span
                     class="icon-mask w-4.5 h-4.5 text-yellow-400"
@@ -179,7 +146,10 @@
                 </a>
               </li>
               <li>
-                <a href="/departments/cst" class="flex items-center gap-3">
+                <a
+                  href="/departments/cst"
+                  class="flex items-center gap-3 p-3 hover:bg-rose-100/50 dark:hover:bg-white/5 rounded-xl transition-colors"
+                >
                   <span
                     class="icon-mask w-4.5 h-4.5 text-blue-400"
                     style="
@@ -193,7 +163,7 @@
               <li>
                 <a
                   href="/departments/mechanical"
-                  class="flex items-center gap-3"
+                  class="flex items-center gap-3 p-3 hover:bg-rose-100/50 dark:hover:bg-white/5 rounded-xl transition-colors"
                 >
                   <span
                     class="icon-mask w-4.5 h-4.5 text-slate-400"
@@ -206,37 +176,41 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </div>
+        </div>
 
-          <!-- Academics Dropdown -->
-          <li class="dropdown dropdown-hover">
-            <div
-              tabindex="0"
-              role="button"
-              class="btn btn-ghost hover:text-primary transition-colors px-4 flex items-center gap-2"
-            >
-              <span
-                class="icon-mask w-5 h-5"
-                style="
-                  mask-image: url(&quot;../img/svg/book-open.svg&quot;);
-                  -webkit-mask-image: url(&quot;../img/svg/book-open.svg&quot;);
-                "
-              ></span>
-              Academics
-              <span
-                class="icon-mask w-3.5 h-3.5"
-                style="
-                  mask-image: url(&quot;../img/svg/chevron-down.svg&quot;);
-                  -webkit-mask-image: url(&quot;../img/svg/chevron-down.svg&quot;);
-                "
-              ></span>
-            </div>
+        <!-- Academics Dropdown -->
+        <div class="relative group">
+          <button
+            class="flex items-center gap-2 hover:text-primary transition-colors py-2"
+          >
+            <span
+              class="icon-mask w-5 h-5"
+              style="
+                mask-image: url(&quot;../img/svg/book-open.svg&quot;);
+                -webkit-mask-image: url(&quot;../img/svg/book-open.svg&quot;);
+              "
+            ></span>
+            Academics
+            <span
+              class="icon-mask w-3.5 h-3.5"
+              style="
+                mask-image: url(&quot;../img/svg/chevron-down.svg&quot;);
+                -webkit-mask-image: url(&quot;../img/svg/chevron-down.svg&quot;);
+              "
+            ></span>
+          </button>
+          <div
+            class="absolute top-full left-0 hidden group-hover:block transition-all pt-2"
+          >
             <ul
-              tabindex="0"
-              class="dropdown-content z-100 menu p-2 shadow-2xl bg-white/90 dark:bg-rose-950/80 rounded-box w-52 border border-rose-100 dark:border-red-500/20 backdrop-blur-xl py-3 -mt-3 pt-6"
+              class="bg-white/90 dark:bg-rose-950/80 rounded-2xl shadow-2xl w-52 border border-rose-100 dark:border-red-500/20 backdrop-blur-xl p-2"
             >
               <li>
-                <a href="/academics/calendar" class="flex items-center gap-3">
+                <a
+                  href="/academics/calendar"
+                  class="flex items-center gap-3 p-3 hover:bg-rose-100/50 dark:hover:bg-white/5 rounded-xl transition-colors"
+                >
                   <span
                     class="icon-mask w-4.5 h-4.5 text-rose-400"
                     style="
@@ -248,7 +222,10 @@
                 </a>
               </li>
               <li>
-                <a href="/academics/syllabus" class="flex items-center gap-3">
+                <a
+                  href="/academics/syllabus"
+                  class="flex items-center gap-3 p-3 hover:bg-rose-100/50 dark:hover:bg-white/5 rounded-xl transition-colors"
+                >
                   <span
                     class="icon-mask w-4.5 h-4.5 text-indigo-400"
                     style="
@@ -262,7 +239,7 @@
               <li>
                 <a
                   href="/academics/examinations"
-                  class="flex items-center gap-3"
+                  class="flex items-center gap-3 p-3 hover:bg-rose-100/50 dark:hover:bg-white/5 rounded-xl transition-colors"
                 >
                   <span
                     class="icon-mask w-4.5 h-4.5 text-emerald-400"
@@ -275,7 +252,10 @@
                 </a>
               </li>
               <li>
-                <a href="/academics/library" class="flex items-center gap-3">
+                <a
+                  href="/academics/library"
+                  class="flex items-center gap-3 p-3 hover:bg-rose-100/50 dark:hover:bg-white/5 rounded-xl transition-colors"
+                >
                   <span
                     class="icon-mask w-4.5 h-4.5 text-cyan-400"
                     style="
@@ -287,7 +267,10 @@
                 </a>
               </li>
               <li>
-                <a href="/academics/results" class="flex items-center gap-3">
+                <a
+                  href="/academics/results"
+                  class="flex items-center gap-3 p-3 hover:bg-rose-100/50 dark:hover:bg-white/5 rounded-xl transition-colors"
+                >
                   <span
                     class="icon-mask w-4.5 h-4.5 text-orange-400"
                     style="
@@ -299,37 +282,41 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </div>
+        </div>
 
-          <!-- Portal Dropdown -->
-          <li class="dropdown dropdown-hover">
-            <div
-              tabindex="0"
-              role="button"
-              class="btn btn-ghost hover:text-primary transition-colors px-4 flex items-center gap-2"
-            >
-              <span
-                class="icon-mask w-5 h-5"
-                style="
-                  mask-image: url(&quot;../img/svg/shield.svg&quot;);
-                  -webkit-mask-image: url(&quot;../img/svg/shield.svg&quot;);
-                "
-              ></span>
-              Portal
-              <span
-                class="icon-mask w-3.5 h-3.5"
-                style="
-                  mask-image: url(&quot;../img/svg/chevron-down.svg&quot;);
-                  -webkit-mask-image: url(&quot;../img/svg/chevron-down.svg&quot;);
-                "
-              ></span>
-            </div>
+        <!-- Portal Dropdown -->
+        <div class="relative group">
+          <button
+            class="flex items-center gap-2 hover:text-primary transition-colors py-2"
+          >
+            <span
+              class="icon-mask w-5 h-5"
+              style="
+                mask-image: url(&quot;../img/svg/shield.svg&quot;);
+                -webkit-mask-image: url(&quot;../img/svg/shield.svg&quot;);
+              "
+            ></span>
+            Portal
+            <span
+              class="icon-mask w-3.5 h-3.5"
+              style="
+                mask-image: url(&quot;../img/svg/chevron-down.svg&quot;);
+                -webkit-mask-image: url(&quot;../img/svg/chevron-down.svg&quot;);
+              "
+            ></span>
+          </button>
+          <div
+            class="absolute top-full left-0 hidden group-hover:block transition-all pt-2"
+          >
             <ul
-              tabindex="0"
-              class="dropdown-content z-100 menu p-2 shadow-2xl bg-white/90 dark:bg-rose-950/80 rounded-box w-52 border border-rose-100 dark:border-red-500/20 backdrop-blur-xl py-3 -mt-3 pt-6"
+              class="bg-white/90 dark:bg-rose-950/80 rounded-2xl shadow-2xl w-52 border border-rose-100 dark:border-red-500/20 backdrop-blur-xl p-2"
             >
               <li>
-                <a href="/portal/add-student" class="flex gap-3 items-center">
+                <a
+                  href="/portal/add-student"
+                  class="flex gap-3 items-center p-3 hover:bg-rose-100/50 dark:hover:bg-white/5 rounded-xl transition-colors"
+                >
                   <span
                     class="icon-mask w-4.5 h-4.5 text-primary"
                     style="
@@ -341,7 +328,10 @@
                 </a>
               </li>
               <li>
-                <a href="/portal/records" class="flex gap-3 items-center">
+                <a
+                  href="/portal/records"
+                  class="flex gap-3 items-center p-3 hover:bg-rose-100/50 dark:hover:bg-white/5 rounded-xl transition-colors"
+                >
                   <span
                     class="icon-mask w-4.5 h-4.5 text-secondary"
                     style="
@@ -353,7 +343,10 @@
                 </a>
               </li>
               <li>
-                <a href="/portal/reports" class="flex gap-3 items-center">
+                <a
+                  href="/portal/reports"
+                  class="flex gap-3 items-center p-3 hover:bg-rose-100/50 dark:hover:bg-white/5 rounded-xl transition-colors"
+                >
                   <span
                     class="icon-mask w-4.5 h-4.5 text-accent"
                     style="
@@ -365,7 +358,10 @@
                 </a>
               </li>
               <li>
-                <a href="/portal/scholarships" class="flex gap-3 items-center">
+                <a
+                  href="/portal/scholarships"
+                  class="flex gap-3 items-center p-3 hover:bg-rose-100/50 dark:hover:bg-white/5 rounded-xl transition-colors"
+                >
                   <span
                     class="icon-mask w-4.5 h-4.5 text-amber-500"
                     style="
@@ -377,7 +373,10 @@
                 </a>
               </li>
               <li>
-                <a href="/portal/placement" class="flex gap-3 items-center">
+                <a
+                  href="/portal/placement"
+                  class="flex gap-3 items-center p-3 hover:bg-rose-100/50 dark:hover:bg-white/5 rounded-xl transition-colors"
+                >
                   <span
                     class="icon-mask w-4.5 h-4.5 text-lime-400"
                     style="
@@ -389,50 +388,55 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </div>
+        </div>
 
-          <li>
-            <a
-              href="/notices"
-              class="btn btn-ghost hover:text-primary transition-colors px-4 flex items-center gap-2"
-            >
-              <span
-                class="icon-mask w-5 h-5 text-error"
-                style="
-                  mask-image: url(&quot;../img/svg/bell.svg&quot;);
-                  -webkit-mask-image: url(&quot;../img/svg/bell.svg&quot;);
-                "
-              ></span>
-              Notices
-            </a>
-          </li>
-        </ul>
+        <a
+          href="/notices"
+          class="flex items-center gap-2 hover:text-primary transition-colors py-2"
+        >
+          <span
+            class="icon-mask w-5 h-5 text-error"
+            style="
+              mask-image: url(&quot;../img/svg/bell.svg&quot;);
+              -webkit-mask-image: url(&quot;../img/svg/bell.svg&quot;);
+            "
+          ></span>
+          Notices
+        </a>
       </div>
 
-      <div class="navbar-end gap-3 text-lg">
+      <div class="flex items-center gap-4">
         <!-- Theme Toggle -->
-        <label class="swap swap-rotate btn btn-ghost btn-circle">
-          <input type="checkbox" class="theme-controller" value="dark" />
+        <button
+          id="theme-toggle"
+          class="p-2 hover:bg-white/10 rounded-full transition-colors relative h-10 w-10 overflow-hidden"
+        >
+          <input
+            type="checkbox"
+            class="theme-controller opacity-0 absolute inset-0 cursor-pointer z-10"
+            value="dark"
+          />
           <span
-            class="swap-off icon-mask w-6 h-6"
+            class="icon-mask w-6 h-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 dark:scale-0"
             style="
               mask-image: url(&quot;../img/svg/sun.svg&quot;);
               -webkit-mask-image: url(&quot;../img/svg/sun.svg&quot;);
             "
           ></span>
           <span
-            class="swap-on icon-mask w-6 h-6"
+            class="icon-mask w-6 h-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 scale-0 dark:scale-100"
             style="
               mask-image: url(&quot;../img/svg/moon.svg&quot;);
               -webkit-mask-image: url(&quot;../img/svg/moon.svg&quot;);
             "
           ></span>
-        </label>
+        </button>
 
         <!-- Login Button -->
         <a
           href="auth.html"
-          class="btn btn-ghost btn-sm border border-white/20 bg-white/5 backdrop-blur-md gap-2 text-white hover:bg-white/10 hover:border-success/50 transition-all group px-4 shadow-sm h-10 min-h-0"
+          class="flex items-center gap-2 px-4 h-10 bg-[var(--nav-button-bg)] border border-[var(--nav-button-border)] backdrop-blur-md rounded-2xl hover:bg-[var(--nav-button-bg)]/20 hover:border-success/50 transition-all group shadow-sm"
         >
           <div
             class="w-6 h-6 rounded-full bg-success/20 flex items-center justify-center group-hover:bg-success/30 transition-colors"
@@ -448,7 +452,7 @@
           <span class="text-lg font-medium tracking-wide">Login</span>
         </a>
       </div>
-    </div>
+    </nav>
 
     <!-- About + Notice Section -->
     <section
@@ -466,10 +470,10 @@
         </h1>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           <!-- Portal Quick Access -->
-          <div class="card bg-base-100 shadow-lg">
-            <div class="card-body">
+          <div class="rounded-2xl shadow-lg bg-base-100 p-8">
+            <div>
               <h2
-                class="card-title text-3xl font-bold text-primary mb-4 border-b border-base-300 pb-3"
+                class="text-3xl font-bold text-primary mb-4 border-b border-base-300 pb-3 flex items-center gap-2"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -649,10 +653,10 @@
           </div>
 
           <!-- Notice Board -->
-          <div class="card bg-base-100 shadow-lg">
-            <div class="card-body">
+          <div class="rounded-2xl shadow-lg bg-base-100 p-8">
+            <div>
               <h2
-                class="card-title text-3xl font-bold text-error mb-4 border-b border-base-300 pb-3"
+                class="text-3xl font-bold text-error mb-4 border-b border-base-300 pb-3 flex items-center gap-2"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -686,13 +690,13 @@
                       Semester External Theoretical Examinations
                     </p>
                     <span
-                      class="badge badge-error badge-sm shrink-0 uppercase font-bold px-3 py-2"
+                      class="shrink-0 uppercase font-bold px-3 py-1 text-[10px] rounded-full bg-error text-white"
                       >MAY, 2025</span
                     >
                   </div>
                   <a
                     href="/apply/review"
-                    class="btn btn-ghost btn-sm border-error/30 text-error hover:bg-error hover:text-white w-fit"
+                    class="px-4 py-2 border border-error/30 text-error hover:bg-error hover:text-white rounded-xl transition-all w-fit text-sm font-semibold"
                   >
                     Click to Apply
                   </a>
@@ -708,13 +712,13 @@
                       (August 2025) — Back Subjects (1st–6th Semester)
                     </p>
                     <span
-                      class="badge badge-success badge-sm shrink-0 uppercase font-bold px-3 py-2"
+                      class="shrink-0 uppercase font-bold px-3 py-1 text-[10px] rounded-full bg-success text-white"
                       >2024-25</span
                     >
                   </div>
                   <a
                     href="/download/admit-card"
-                    class="btn btn-ghost btn-sm border-success/30 text-success hover:bg-success hover:text-white w-fit"
+                    class="px-4 py-2 border border-success/30 text-success hover:bg-success hover:text-white rounded-xl transition-all w-fit text-sm font-semibold"
                   >
                     Click to Download
                   </a>
@@ -730,22 +734,24 @@
                       Semester)
                     </p>
                     <span
-                      class="badge badge-warning badge-sm shrink-0 uppercase font-bold px-3 py-2"
+                      class="shrink-0 uppercase font-bold px-3 py-1 text-[10px] rounded-full bg-warning text-white"
                       >2024-25</span
                     >
                   </div>
                   <a
                     href="/apply/supplementary"
-                    class="btn btn-ghost btn-sm border-warning/30 text-warning hover:bg-warning hover:text-white w-fit"
+                    class="px-4 py-2 border border-warning/30 text-warning hover:bg-warning hover:text-white rounded-xl transition-all w-fit text-sm font-semibold"
                   >
                     Click to Apply
                   </a>
                 </div>
               </div>
 
-              <div class="card-actions mt-4 justify-end">
-                <a href="/notices" class="link link-primary text-sm"
-                  >View all notices →</a
+              <div class="mt-4 flex justify-end">
+                <a
+                  href="/notices"
+                  class="text-primary hover:underline text-sm font-medium"
+                  >View all notices &rarr;</a
                 >
               </div>
             </div>
@@ -853,7 +859,7 @@
         <div class="text-center mt-12">
           <a
             href="/gallery"
-            class="btn btn-outline btn-primary px-8 hover:scale-105 transition-transform"
+            class="inline-flex items-center px-8 py-3 rounded-2xl border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all hover:scale-105 font-bold"
           >
             Explore All Memories
           </a>
@@ -937,6 +943,7 @@
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.461027015059!2d88.35479071171858!3d22.561854133277084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02770731aeafcf%3A0x70b7fa2f49a82e14!2sThe%20Calcutta%20Technical%20School!5e0!3m2!1sen!2sin!4v1773561647084!5m2!1sen!2sin"
               width="600"
               height="450"
+              style="border: 0"
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
@@ -955,7 +962,7 @@
             <div class="space-y-6">
               <!-- Address -->
               <div
-                class="flex items-start gap-4 p-5 rounded-xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all group/card"
+                class="flex items-start gap-4 p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all group/card"
               >
                 <div
                   class="w-14 h-14 rounded-full bg-error/20 flex items-center justify-center shrink-0 group-hover/card:bg-error/30 transition-colors"
@@ -972,7 +979,7 @@
                   <h3 class="font-bold text-xl text-white mb-1">
                     Our Location
                   </h3>
-                  <p class="text-base-content/80 leading-relaxed text-lg">
+                  <p class="text-white/80 leading-relaxed text-lg">
                     110, SN Banerjee Road, Esplanade, Taltala,<br />
                     Kolkata, West Bengal 700013, India
                   </p>
@@ -981,7 +988,7 @@
 
               <!-- Phone -->
               <div
-                class="flex items-start gap-4 p-5 rounded-xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all group/card"
+                class="flex items-start gap-4 p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all group/card"
               >
                 <div
                   class="w-14 h-14 rounded-full bg-error/20 flex items-center justify-center shrink-0 group-hover/card:bg-error/30 transition-colors"
@@ -996,9 +1003,7 @@
                 </div>
                 <div>
                   <h3 class="font-bold text-xl text-white mb-1">Call Us</h3>
-                  <p
-                    class="text-base-content/90 text-2xl font-semibold tracking-wide"
-                  >
+                  <p class="text-white text-2xl font-semibold tracking-wide">
                     {{COLLAGE_NUMBER}}
                   </p>
                 </div>
@@ -1010,7 +1015,9 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer footer-center p-2 bg-blue-900 text-white">
+    <footer
+      class="flex items-center justify-center p-4 bg-rose-950 text-white border-t border-red-500/10 backdrop-blur-md"
+    >
       <div>
         <p>&copy; 2025 CSMP (CTS Faculty Management Portal).</p>
       </div>
