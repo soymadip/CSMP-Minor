@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="../img/logo.png" />
-    <title>CSMP | Login</title>
+    <title>CTS Student Management Portal | Login</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,11 +14,12 @@
     <link rel="stylesheet" href="../css/app.css" />
   </head>
   <body
-    class="min-h-screen bg-cover bg-center bg-no-repeat pt-24"
+    class="h-screen flex flex-col bg-cover bg-center bg-no-repeat overflow-hidden"
     style="
       background-image: url(&quot;../img/cts.png&quot;);
       background-size: 100% 200%;
     "
+  >
     <!-- Deprecation Warning -->
     <div class="fixed top-20 left-1/2 -translate-x-1/2 z-60 w-full max-w-xl px-4 pointer-events-none">
       <div class="bg-amber-500/10 border border-amber-500/50 backdrop-blur-xl rounded-2xl p-3 text-center">
@@ -28,12 +29,11 @@
 
     <!-- Navbar -->
     <nav
-      class="flex items-center justify-between px-4 h-16 bg-(--navbar-bg) text-(--navbar-text) backdrop-blur-3xl shadow-lg border-b border-(--navbar-border) fixed top-0 left-0 right-0 z-50 transition-colors duration-300"
+      class="flex items-center justify-between px-4 h-16 bg-(--navbar-bg) text-(--navbar-text) backdrop-blur-3xl shadow-lg border-b border-(--navbar-border) z-50 transition-colors duration-300 shrink-0"
     >
-      <!-- Logo -->
       <div class="flex items-center">
         <a href="home.html" class="text-xl font-bold flex items-center gap-1">
-          <img src="../img/logo.png" alt="CSMP Logo" class="w-12 h-12" />
+          <img src="../img/logo.png" alt="Logo" class="w-12 h-12" />
           CSMP
         </a>
       </div>
@@ -76,7 +76,7 @@
 
     <!-- Auth Section -->
     <div
-      class="flex items-center justify-center min-h-[calc(100vh-64px)] px-4 py-12 bg-black/40 backdrop-blur-md"
+      class="flex-1 flex items-center justify-center px-4 py-8 bg-black/40 backdrop-blur-md overflow-y-auto"
     >
       <div class="w-full max-w-md animate-fade-in-up">
         <div
@@ -346,6 +346,14 @@
         </div>
       </div>
     </div>
+
+    <footer
+      class="flex items-center justify-center p-2 bg-rose-950/30 text-white border-t border-white/5 backdrop-blur-xl mt-auto shrink-0"
+    >
+      <div>
+        <p class="text-xs">&copy; 2025 CSMP (The Calcutta Technical School).</p>
+      </div>
+    </footer>
 
     <!-- Theme Control & Script -->
     <script src="../js/utils.js"></script>
