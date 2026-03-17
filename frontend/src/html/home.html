@@ -30,19 +30,13 @@
       <div
         class="flex items-center gap-4 p-4 rounded-2xl shadow-2xl bg-amber-500/20 border-amber-500/50 text-amber-200 border-2 backdrop-blur-3xl"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="stroke-current shrink-0 h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-          />
-        </svg>
+        <span
+          class="icon-mask shrink-0 h-6 w-6"
+          style="
+            mask-image: url(&quot;../img/svg/shield.svg&quot;);
+            -webkit-mask-image: url(&quot;../img/svg/shield.svg&quot;);
+          "
+        ></span>
         <div class="flex-1">
           <h3 class="font-bold">Security Restriction Active</h3>
           <div class="text-xs">
@@ -62,7 +56,7 @@
 
     <!-- Navbar -->
     <nav
-      class="flex items-center justify-between px-4 h-16 bg-[var(--navbar-bg)] text-[var(--navbar-text)] backdrop-blur-3xl shadow-lg border-b border-[var(--navbar-border)] fixed top-0 left-0 right-0 z-50 transition-colors duration-300"
+      class="flex items-center justify-between px-4 h-16 bg-(--navbar-bg) text-(--navbar-text) backdrop-blur-3xl shadow-lg border-b border-(--navbar-border) fixed top-0 left-0 right-0 z-50 transition-colors duration-300"
     >
       <!-- Logo -->
       <div class="flex items-center">
@@ -433,24 +427,70 @@
           ></span>
         </button>
 
-        <!-- Login Button -->
-        <a
-          href="auth.html"
-          class="flex items-center gap-2 px-4 h-10 bg-[var(--nav-button-bg)] border border-[var(--nav-button-border)] backdrop-blur-md rounded-2xl hover:bg-[var(--nav-button-bg)]/20 hover:border-success/50 transition-all group shadow-sm"
-        >
-          <div
-            class="w-6 h-6 rounded-full bg-success/20 flex items-center justify-center group-hover:bg-success/30 transition-colors"
+        <!-- Auth Dropdown -->
+        <div class="relative group">
+          <button
+            class="flex items-center gap-2 px-4 h-10 bg-(--nav-button-bg) border border-(--nav-button-border) backdrop-blur-md rounded-2xl hover:bg-(--nav-button-bg)/20 transition-all group shadow-sm cursor-pointer"
           >
+            <div
+              class="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors"
+            >
+              <span
+                class="icon-mask w-3.5 h-3.5 text-primary"
+                style="
+                  mask-image: url(&quot;../img/svg/user-plus.svg&quot;);
+                  -webkit-mask-image: url(&quot;../img/svg/user-plus.svg&quot;);
+                "
+              ></span>
+            </div>
+            <span class="text-lg font-medium tracking-wide">Account</span>
             <span
-              class="icon-mask w-3.5 h-3.5 text-success"
+              class="icon-mask w-3.5 h-3.5 opacity-50 transition-transform group-hover:rotate-180"
               style="
-                mask-image: url(&quot;../img/svg/power.svg&quot;);
-                -webkit-mask-image: url(&quot;../img/svg/power.svg&quot;);
+                mask-image: url(&quot;../img/svg/chevron-down.svg&quot;);
+                -webkit-mask-image: url(&quot;../img/svg/chevron-down.svg&quot;);
               "
             ></span>
+          </button>
+          <div
+            class="absolute top-full right-0 hidden group-hover:block transition-all pt-2 min-w-[160px]"
+          >
+            <ul
+              class="bg-white/90 dark:bg-rose-950/80 rounded-2xl shadow-2xl border border-rose-100 dark:border-red-500/20 backdrop-blur-xl p-2"
+            >
+              <li>
+                <a
+                  href="/login"
+                  class="flex items-center gap-3 p-3 hover:bg-rose-100/50 dark:hover:bg-white/5 rounded-xl transition-colors"
+                >
+                  <span
+                    class="icon-mask w-4.5 h-4.5 text-primary"
+                    style="
+                      mask-image: url(&quot;../img/svg/power.svg&quot;);
+                      -webkit-mask-image: url(&quot;../img/svg/power.svg&quot;);
+                    "
+                  ></span>
+                  Login
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/register"
+                  class="flex items-center gap-3 p-3 hover:bg-rose-100/50 dark:hover:bg-white/5 rounded-xl transition-colors"
+                >
+                  <span
+                    class="icon-mask w-4.5 h-4.5 text-secondary"
+                    style="
+                      mask-image: url(&quot;../img/svg/user-plus.svg&quot;);
+                      -webkit-mask-image: url(&quot;../img/svg/user-plus.svg&quot;);
+                    "
+                  ></span>
+                  Signup
+                </a>
+              </li>
+            </ul>
           </div>
-          <span class="text-lg font-medium tracking-wide">Login</span>
-        </a>
+        </div>
       </div>
     </nav>
 
@@ -475,99 +515,29 @@
               <h2
                 class="text-3xl font-bold text-primary mb-4 border-b border-base-300 pb-3 flex items-center gap-2"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-7 w-7"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M13 10V3L4 14h7v7l9-11h-7z"
-                  />
-                </svg>
+                <span
+                  class="icon-mask h-7 w-7"
+                  style="
+                    mask-image: url(&quot;../img/svg/bolt.svg&quot;);
+                    -webkit-mask-image: url(&quot;../img/svg/bolt.svg&quot;);
+                  "
+                ></span>
                 Quick Access
               </h2>
 
               <div class="grid grid-cols-2 gap-4">
-                <!-- Student Portal (Unified) -->
-                <a
-                  href="auth.html"
-                  class="col-span-2 flex items-center justify-between p-6 rounded-2xl border border-base-content/10 bg-base-200/50 hover:bg-primary hover:text-white transition-all duration-500 group relative overflow-hidden shadow-lg mb-2"
-                >
-                  <div class="flex items-center gap-4 relative z-10">
-                    <div
-                      class="p-3 rounded-xl bg-primary/10 group-hover:bg-white/20 transition-colors"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-7 w-7 group-hover:scale-110 transition-transform"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
-                        />
-                      </svg>
-                    </div>
-                    <div class="flex flex-col">
-                      <span
-                        class="text-[10px] font-black uppercase tracking-[0.2em] opacity-60"
-                        >CSMP</span
-                      >
-                      <span class="text-xl font-bold">Login/Sighup</span>
-                    </div>
-                  </div>
-                  <div
-                    class="relative z-10 flex items-center gap-2 font-bold text-sm opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M13 7l5 5m0 0l-5 5m5-5H6"
-                      />
-                    </svg>
-                  </div>
-                  <!-- Subtler flourish -->
-                  <div
-                    class="absolute -right-8 -bottom-8 w-24 h-24 bg-primary/10 rounded-full blur-2xl group-hover:bg-white/5 transition-all"
-                  ></div>
-                </a>
-
                 <!-- Results -->
                 <a
                   href="/academics/results"
                   class="flex flex-col items-center justify-center p-4 rounded-2xl border border-base-content/10 bg-base-200/50 hover:bg-success hover:text-white transition-all duration-300 group"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-8 w-8 mb-2 group-hover:scale-110 transition-transform"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                    />
-                  </svg>
+                  <span
+                    class="icon-mask w-8 h-8 mb-2 group-hover:scale-110 transition-transform"
+                    style="
+                      mask-image: url(&quot;../img/svg/results.svg&quot;);
+                      -webkit-mask-image: url(&quot;../img/svg/results.svg&quot;);
+                    "
+                  ></span>
                   <span
                     class="text-xs font-bold uppercase tracking-wider text-center"
                     >Results</span
@@ -579,20 +549,13 @@
                   href="/portal/scholarships"
                   class="flex flex-col items-center justify-center p-4 rounded-2xl border border-base-content/10 bg-base-200/50 hover:bg-warning hover:text-white transition-all duration-300 group"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-8 w-8 mb-2 group-hover:scale-110 transition-transform"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
+                  <span
+                    class="icon-mask w-8 h-8 mb-2 group-hover:scale-110 transition-transform"
+                    style="
+                      mask-image: url(&quot;../img/svg/award.svg&quot;);
+                      -webkit-mask-image: url(&quot;../img/svg/award.svg&quot;);
+                    "
+                  ></span>
                   <span
                     class="text-xs font-bold uppercase tracking-wider text-center"
                     >Scholarships</span
@@ -604,20 +567,13 @@
                   href="/academics/calendar"
                   class="flex flex-col items-center justify-center p-4 rounded-2xl border border-base-content/10 bg-base-200/50 hover:bg-info hover:text-white transition-all duration-300 group"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-8 w-8 mb-2 group-hover:scale-110 transition-transform"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                    />
-                  </svg>
+                  <span
+                    class="icon-mask w-8 h-8 mb-2 group-hover:scale-110 transition-transform"
+                    style="
+                      mask-image: url(&quot;../img/svg/calendar.svg&quot;);
+                      -webkit-mask-image: url(&quot;../img/svg/calendar.svg&quot;);
+                    "
+                  ></span>
                   <span
                     class="text-xs font-bold uppercase tracking-wider text-center"
                     >Calendar</span
@@ -629,23 +585,88 @@
                   href="/downloads"
                   class="flex flex-col items-center justify-center p-4 rounded-2xl border border-base-content/10 bg-base-200/50 hover:bg-neutral hover:text-white transition-all duration-300 group"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-8 w-8 mb-2 group-hover:scale-110 transition-transform"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                    />
-                  </svg>
+                  <span
+                    class="icon-mask w-8 h-8 mb-2 group-hover:scale-110 transition-transform"
+                    style="
+                      mask-image: url(&quot;../img/svg/bolt.svg&quot;);
+                      -webkit-mask-image: url(&quot;../img/svg/bolt.svg&quot;);
+                    "
+                  ></span>
                   <span
                     class="text-xs font-bold uppercase tracking-wider text-center"
                     >Downloads</span
+                  >
+                </a>
+
+                <!-- Syllabus -->
+                <a
+                  href="/academics/syllabus"
+                  class="flex flex-col items-center justify-center p-4 rounded-2xl border border-base-content/10 bg-base-200/50 hover:bg-accent hover:text-white transition-all duration-300 group"
+                >
+                  <span
+                    class="icon-mask w-8 h-8 mb-2 group-hover:scale-110 transition-transform"
+                    style="
+                      mask-image: url(&quot;../img/svg/file-text.svg&quot;);
+                      -webkit-mask-image: url(&quot;../img/svg/file-text.svg&quot;);
+                    "
+                  ></span>
+                  <span
+                    class="text-xs font-bold uppercase tracking-wider text-center"
+                    >Syllabus</span
+                  >
+                </a>
+
+                <!-- Library -->
+                <a
+                  href="/academics/library"
+                  class="flex flex-col items-center justify-center p-4 rounded-2xl border border-base-content/10 bg-base-200/50 hover:bg-secondary hover:text-white transition-all duration-300 group"
+                >
+                  <span
+                    class="icon-mask w-8 h-8 mb-2 group-hover:scale-110 transition-transform"
+                    style="
+                      mask-image: url(&quot;../img/svg/library.svg&quot;);
+                      -webkit-mask-image: url(&quot;../img/svg/library.svg&quot;);
+                    "
+                  ></span>
+                  <span
+                    class="text-xs font-bold uppercase tracking-wider text-center"
+                    >Library</span
+                  >
+                </a>
+
+                <!-- Placements -->
+                <a
+                  href="/portal/placement"
+                  class="flex flex-col items-center justify-center p-4 rounded-2xl border border-base-content/10 bg-base-200/50 hover:bg-primary hover:text-white transition-all duration-300 group"
+                >
+                  <span
+                    class="icon-mask w-8 h-8 mb-2 group-hover:scale-110 transition-transform"
+                    style="
+                      mask-image: url(&quot;../img/svg/briefcase.svg&quot;);
+                      -webkit-mask-image: url(&quot;../img/svg/briefcase.svg&quot;);
+                    "
+                  ></span>
+                  <span
+                    class="text-xs font-bold uppercase tracking-wider text-center"
+                    >Placements</span
+                  >
+                </a>
+
+                <!-- Examinations -->
+                <a
+                  href="/academics/examinations"
+                  class="flex flex-col items-center justify-center p-4 rounded-2xl border border-base-content/10 bg-base-200/50 hover:bg-error hover:text-white transition-all duration-300 group"
+                >
+                  <span
+                    class="icon-mask w-8 h-8 mb-2 group-hover:scale-110 transition-transform"
+                    style="
+                      mask-image: url(&quot;../img/svg/clipboard-check.svg&quot;);
+                      -webkit-mask-image: url(&quot;../img/svg/clipboard-check.svg&quot;);
+                    "
+                  ></span>
+                  <span
+                    class="text-xs font-bold uppercase tracking-wider text-center"
+                    >Examinations</span
                   >
                 </a>
               </div>
@@ -658,20 +679,13 @@
               <h2
                 class="text-3xl font-bold text-error mb-4 border-b border-base-300 pb-3 flex items-center gap-2"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-7 w-7"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-                  />
-                </svg>
+                <span
+                  class="icon-mask h-7 w-7"
+                  style="
+                    mask-image: url(&quot;../img/svg/bell.svg&quot;);
+                    -webkit-mask-image: url(&quot;../img/svg/bell.svg&quot;);
+                  "
+                ></span>
                 Notice Board
               </h2>
 

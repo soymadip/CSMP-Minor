@@ -14,15 +14,21 @@
     <link rel="stylesheet" href="../css/app.css" />
   </head>
   <body
-    class="min-h-screen bg-cover bg-center bg-no-repeat pt-16"
+    class="min-h-screen bg-cover bg-center bg-no-repeat pt-24"
     style="
       background-image: url(&quot;../img/cts.png&quot;);
       background-size: 100% 200%;
     "
-  >
+    <!-- Deprecation Warning -->
+    <div class="fixed top-20 left-1/2 -translate-x-1/2 z-60 w-full max-w-xl px-4 pointer-events-none">
+      <div class="bg-amber-500/10 border border-amber-500/50 backdrop-blur-xl rounded-2xl p-3 text-center">
+        <span class="text-amber-500 font-bold uppercase tracking-widest text-[10px]">⚠️ This page is deprecated and will be removed in future versions.</span>
+      </div>
+    </div>
+
     <!-- Navbar -->
     <nav
-      class="flex items-center justify-between px-4 h-16 bg-[var(--navbar-bg)] text-[var(--navbar-text)] backdrop-blur-3xl shadow-lg border-b border-[var(--navbar-border)] fixed top-0 left-0 right-0 z-50 transition-colors duration-300"
+      class="flex items-center justify-between px-4 h-16 bg-(--navbar-bg) text-(--navbar-text) backdrop-blur-3xl shadow-lg border-b border-(--navbar-border) fixed top-0 left-0 right-0 z-50 transition-colors duration-300"
     >
       <!-- Logo -->
       <div class="flex items-center">
@@ -54,7 +60,7 @@
 
         <a
           href="home.html"
-          class="flex items-center gap-2 px-4 h-10 bg-[var(--nav-button-bg)] border border-[var(--nav-button-border)] backdrop-blur-md rounded-2xl hover:bg-[var(--nav-button-bg)]/20 transition-all shadow-sm"
+          class="flex items-center gap-2 px-4 h-10 bg-(--nav-button-bg) border border-(--nav-button-border) backdrop-blur-md rounded-2xl hover:bg-(--nav-button-bg)/20 transition-all shadow-sm"
         >
           <span
             class="icon-mask w-4 h-4"

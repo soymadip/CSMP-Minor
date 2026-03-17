@@ -34,7 +34,4 @@ The JS layer is decoupled from HTML templates and modularized for better maintai
 ## 🛠️ Development Tools
 
 - **Local Preview**: Run `npm run dev` in this directory to start the Tailwind watcher and live development server.
-- **Deployment**: The `src/` directory is the source of truth; `app.css` is generated via the Tailwind build process.
-
----
 
