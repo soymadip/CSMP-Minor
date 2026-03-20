@@ -5,6 +5,7 @@ template.png
 .idea/
 .DS_Store
 build/
+TEST/
 
 # Laravel
 laravel/vendor/

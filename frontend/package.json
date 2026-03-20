@@ -12,8 +12,8 @@
   },
   "scripts": {
     "deps-install": "$npm_execpath install",
-    "build": "$npm_execpath install && $npm_execpath x @tailwindcss/cli -i src/css/_tailwind.css -o src/css/app.css",
-    "watch": "$npm_execpath x @tailwindcss/cli -i src/css/_tailwind.css -o src/css/app.css --watch",
+    "build": "$npm_execpath install && $npm_execpath x @tailwindcss/cli -i tailwind.css -o src/css/app.css",
+    "watch": "$npm_execpath x @tailwindcss/cli -i tailwind.css -o src/css/app.css --watch",
     "serve": "live-server src",
     "dev": "$npm_execpath run deps-install && concurrently \"$npm_execpath run watch\" \"$npm_execpath run serve\""
   },
