@@ -8,7 +8,7 @@ The frontend of **CTS Student Management Portal (CSMP)** is designed to feel sta
 
 ### 1. The "Solid on Blurred" Pattern
 
-- **Layouts**: Wrap primary content sections in a `backdrop-blur-md` container.
+- **Layouts**: Wrap primary content sections in a **`backdrop-blur-md`** or **`backdrop-blur-3xl`** container (for premium elements like dropdowns).
 - **Cards**: Secondary/Content cards should use solid backgrounds (`bg-base-100`) to maintain readability on top of blurred overlays.
 - **Corners**: Strictly use **`rounded-2xl`** (16px) for cards, modals, and buttons.
 
@@ -19,7 +19,7 @@ The frontend of **CTS Student Management Portal (CSMP)** is designed to feel sta
 - **Icons**: Modular SVG system using built-in Tailwind mask utilities.
   - _Usage_: Use classes like `mask-no-repeat mask-center mask-contain` with `src/img/svg/` assets (applied via `mask-image` in the `style` attribute). Colorize using standard Tailwind `text-` classes.
 - **Utilities**: Strictly avoid custom CSS utilities. Use Tailwind's arbitrary value syntax (e.g., `[mask-image:url(...)]`) or the `@theme` block for global configuration.
-- **Dark Mode**: Supports a manual theme toggle via the `.dark` class on the `<html>` element.
+- **Dark Mode**: Supports a manual theme toggle via the `.dark` class on the `<html>` element. All UI must be audited for high contrast in both light and dark modes (e.g., using `bg-white/60` and `bg-rose-950/70` for glass containers).
   - _Standard_: To ensure zero-config compatibility and proper manual toggling in v4, strictly use the **`in-[.dark]:`** variant instead of the standard `dark:` prefix.
     - Example: `in-[.dark]:bg-slate-900`
 
@@ -36,7 +36,7 @@ To maintain the **100% Zero-Config Vanilla Tailwind v4** architecture, follow th
 The JS layer is decoupled from HTML templates and modularized:
 
 - **`utils.js`**: Pure utilities and global listeners (Theme Toggle via `.dark` class, Password Toggle, Environment Safeguards).
-- **Page-specific JS**: Files like `auth.js` or `home.js` contain specific logic (e.g., tab switching) using vanilla Tailwind classes for state.
+- **Page-specific JS**: Files like `auth.js` or `index.js` contain specific logic using vanilla Tailwind classes for state.
 
 ## 🚀 Standards for Components
 

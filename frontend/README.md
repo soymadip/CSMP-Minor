@@ -21,7 +21,7 @@ make sure to copy [utils.js](./src/js/utils.js), [common.css](./src/css/common.c
 5. Switch to `frontend` dir: `cd CSMP-Minor\frontend`
 6. Open the folder with VSCode: `code .`
 7. Open Terminal in VSCode, run: `npm run dev`, this will open live preview server in browser.
-8. In browser, go to 'html` dir, you will find all html files.
+8. In browser, go to `src/index.html`. You will find all pages linked there.
 9. As you change in code, the page should update itself, else reload browser.
 
 ### Linux

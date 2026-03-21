@@ -49,7 +49,7 @@ docker-compose down
 ## 🚀 Tech Stack
 
 - **Backend**: Laravel 12, PHP 8.4
-- **Frontend**: Livewire 3, TailwindCSS 4, DaisyUI 5
+- **Frontend**: Livewire 3, TailwindCSS 4
 - **Database**: MariaDB 10.11
 
 ### Packages
