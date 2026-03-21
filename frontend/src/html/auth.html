@@ -1,20 +1,15 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="../img/logo.png" />
     <title>CTS Student Management Portal | Login</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="../css/app.css" />
   </head>
   <body
-    class="h-screen flex flex-col bg-cover bg-center bg-no-repeat overflow-hidden"
+    class="h-screen flex flex-col bg-cover bg-center bg-no-repeat overflow-hidden font-['Outfit',sans-serif] text-slate-800 in-[.dark]:text-white bg-white in-[.dark]:bg-slate-900 transition-colors duration-300"
     style="
       background-image: url(&quot;../img/cts.png&quot;);
       background-size: 100% 200%;
@@ -29,7 +24,7 @@
 
     <!-- Navbar -->
     <nav
-      class="flex items-center justify-between px-4 h-16 bg-(--navbar-bg) text-(--navbar-text) backdrop-blur-3xl shadow-lg border-b border-(--navbar-border) z-50 transition-colors duration-300 shrink-0"
+      class="flex items-center justify-between px-4 h-16 bg-white/70 in-[.dark]:bg-slate-800/60 text-slate-800 in-[.dark]:text-white backdrop-blur-3xl shadow-lg border-b border-rose-200 in-[.dark]:border-rose-500/10 z-50 transition-colors duration-300 shrink-0"
     >
       <div class="flex items-center">
         <a href="home.html" class="text-xl font-bold flex items-center gap-1">
@@ -43,14 +38,14 @@
         <button id="theme-toggle" class="p-2 hover:bg-white/10 rounded-full transition-colors relative h-10 w-10 overflow-hidden">
           <input type="checkbox" class="theme-controller opacity-0 absolute inset-0 cursor-pointer z-10" value="dark" />
           <span
-            class="icon-mask w-6 h-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 dark:scale-0"
+            class="inline-block mask-no-repeat mask-center mask-contain bg-current w-6 h-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 in-[.dark]:scale-0"
             style="
               mask-image: url(&quot;../img/svg/sun.svg&quot;);
               -webkit-mask-image: url(&quot;../img/svg/sun.svg&quot;);
             "
           ></span>
           <span
-            class="icon-mask w-6 h-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 scale-0 dark:scale-100"
+            class="inline-block mask-no-repeat mask-center mask-contain bg-current w-6 h-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 scale-0 in-[.dark]:scale-100"
             style="
               mask-image: url(&quot;../img/svg/moon.svg&quot;);
               -webkit-mask-image: url(&quot;../img/svg/moon.svg&quot;);
@@ -60,10 +55,10 @@
 
         <a
           href="home.html"
-          class="flex items-center gap-2 px-4 h-10 bg-(--nav-button-bg) border border-(--nav-button-border) backdrop-blur-md rounded-2xl hover:bg-(--nav-button-bg)/20 transition-all shadow-sm"
+          class="flex items-center gap-2 px-4 h-10 bg-slate-50/80 in-[.dark]:bg-white/5 border border-slate-100/60 in-[.dark]:border-white/20 backdrop-blur-md rounded-2xl hover:bg-slate-50/80 in-[.dark]:bg-white/5/20 transition-all shadow-sm"
         >
           <span
-            class="icon-mask w-4 h-4"
+            class="inline-block mask-no-repeat mask-center mask-contain bg-current w-4 h-4"
             style="
               mask-image: url(&quot;../img/svg/home.svg&quot;);
               -webkit-mask-image: url(&quot;../img/svg/home.svg&quot;);
@@ -78,14 +73,14 @@
     <div
       class="flex-1 flex items-center justify-center px-4 py-8 bg-black/40 backdrop-blur-md overflow-y-auto"
     >
-      <div class="w-full max-w-md animate-fade-in-up">
+      <div class="w-full max-w-md transition-all duration-700 starting:opacity-0 starting:translate-y-5">
         <div
-          class="bg-base-100 shadow-2xl rounded-2xl overflow-hidden border border-white/5 p-8"
+          class="bg-white in-[.dark]:bg-slate-900 shadow-2xl rounded-2xl overflow-hidden border border-white/5 p-8"
         >
             <div class="text-center mb-8">
               <h1
                 id="auth-title"
-                class="text-4xl font-bold text-primary mb-2 drop-shadow-lg"
+                class="text-4xl font-bold text-rose-500 mb-2 drop-shadow-lg"
               >
                 Welcome Back
               </h1>
@@ -93,12 +88,12 @@
 
             <!-- Tab Switcher -->
             <div
-              class="grid grid-cols-2 p-1.5 bg-base-200 rounded-2xl mb-8 border border-white/5"
+              class="grid grid-cols-2 p-1.5 bg-slate-50 in-[.dark]:bg-slate-800 rounded-2xl mb-8 border border-white/5"
             >
               <button
                 id="login-tab"
                 onclick="switchTab('login')"
-                class="py-3 rounded-xl text-sm font-bold tracking-wide transition-all duration-300 tab-active"
+                class="py-3 rounded-xl text-sm font-bold tracking-wide transition-all duration-300 bg-rose-500 text-white shadow-lg shadow-rose-500/20"
               >
                 LOGIN
               </button>
@@ -112,7 +107,7 @@
             </div>
 
             <!-- Login Form -->
-            <div id="login-section" class="form-section active">
+            <div id="login-section" class="hidden [&.active]:block [&.active]:transition-all duration-500 starting:opacity-0 starting:translate-y-2 active">
               <form action="#" class="space-y-6">
                 <div>
                   <label class="block px-2 mb-2">
@@ -123,7 +118,7 @@
                   </label>
                   <div class="relative group">
                     <div
-                      class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-rose-300/40 group-focus-within:text-primary transition-colors"
+                      class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-rose-300/40 group-focus-within:text-rose-500 transition-colors"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -143,7 +138,7 @@
                     <input
                       type="email"
                       placeholder="faculty@csmp.edu.in"
-                      class="w-full pl-12 bg-white/5 border border-white/10 text-white focus:border-primary focus:ring-2 focus:ring-primary/20 h-14 rounded-2xl transition-all outline-none"
+                      class="w-full pl-12 bg-white/5 border border-white/10 text-white focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 h-14 rounded-2xl transition-all outline-none"
                       required
                     />
                   </div>
@@ -157,13 +152,13 @@
                     >
                     <a
                       href="#"
-                      class="text-primary hover:underline font-bold text-[10px] tracking-tighter"
+                      class="text-rose-500 hover:underline font-bold text-[10px] tracking-tighter"
                       >FORGOT?</a
                     >
                   </div>
                   <div class="relative group">
                     <div
-                      class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-rose-300/40 group-focus-within:text-primary transition-colors"
+                      class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-rose-300/40 group-focus-within:text-rose-500 transition-colors"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -184,13 +179,13 @@
                       id="login-password"
                       type="password"
                       placeholder="••••••••••••"
-                      class="w-full pl-12 pr-12 bg-white/5 border border-white/10 text-white focus:border-primary focus:ring-2 focus:ring-primary/20 h-14 rounded-2xl transition-all outline-none"
+                      class="w-full pl-12 pr-12 bg-white/5 border border-white/10 text-white focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 h-14 rounded-2xl transition-all outline-none"
                       required
                     />
                     <button
                       type="button"
                       onclick="togglePassword('login-password', this)"
-                      class="absolute inset-y-0 right-0 pr-4 flex items-center text-rose-300/40 hover:text-primary transition-colors"
+                      class="absolute inset-y-0 right-0 pr-4 flex items-center text-rose-300/40 hover:text-rose-500 transition-colors"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -220,7 +215,7 @@
                   <label class="flex items-center gap-3 cursor-pointer">
                     <input
                       type="checkbox"
-                      class="w-4 h-4 rounded border-white/20 bg-white/5 text-primary focus:ring-primary"
+                      class="w-4 h-4 rounded border-white/20 bg-white/5 text-rose-500 focus:ring-rose-500"
                       checked
                     />
                     <span
@@ -231,7 +226,7 @@
                 </div>
 
                 <button
-                  class="w-full h-14 text-lg font-bold rounded-2xl shadow-xl shadow-primary/20 bg-primary text-white hover:opacity-90 transition-all"
+                  class="w-full h-14 text-lg font-bold rounded-2xl shadow-xl shadow-rose-500/20 bg-rose-500 text-white hover:opacity-90 transition-all"
                 >
                   LOGIN
                 </button>
@@ -239,7 +234,7 @@
             </div>
 
             <!-- Register Form -->
-            <div id="register-section" class="form-section">
+            <div id="register-section" class="hidden [&.active]:block [&.active]:transition-all duration-500 starting:opacity-0 starting:translate-y-2">
               <form action="#" class="space-y-4">
                 <div>
                   <label class="block px-2 mb-1"
@@ -251,7 +246,7 @@
                   <input
                     type="text"
                     placeholder="John Doe"
-                    class="w-full bg-white/5 border border-white/10 text-white focus:border-primary h-12 rounded-xl transition-all px-4 outline-none"
+                    class="w-full bg-white/5 border border-white/10 text-white focus:border-rose-500 h-12 rounded-xl transition-all px-4 outline-none"
                     required
                   />
                 </div>
@@ -266,7 +261,7 @@
                   <input
                     type="email"
                     placeholder="name@institute.edu"
-                    class="w-full bg-white/5 border border-white/10 text-white focus:border-primary h-12 rounded-xl transition-all px-4 outline-none"
+                    class="w-full bg-white/5 border border-white/10 text-white focus:border-rose-500 h-12 rounded-xl transition-all px-4 outline-none"
                     required
                   />
                 </div>
@@ -279,7 +274,7 @@
                     ></label
                   >
                   <select
-                    class="w-full bg-white/5 border border-white/10 text-white focus:border-primary h-12 rounded-xl transition-all px-4 outline-none appearance-none"
+                    class="w-full bg-white/5 border border-white/10 text-white focus:border-rose-500 h-12 rounded-xl transition-all px-4 outline-none appearance-none"
                   >
                     <option disabled selected>Select Department</option>
                     <option>Computer Science & Technology</option>
@@ -301,13 +296,13 @@
                       id="register-password"
                       type="password"
                       placeholder="••••••••"
-                      class="w-full bg-white/5 border border-white/10 text-white focus:border-primary h-12 rounded-xl transition-all pr-12 px-4 outline-none"
+                      class="w-full bg-white/5 border border-white/10 text-white focus:border-rose-500 h-12 rounded-xl transition-all pr-12 px-4 outline-none"
                       required
                     />
                     <button
                       type="button"
                       onclick="togglePassword('register-password', this)"
-                      class="absolute inset-y-0 right-0 pr-4 flex items-center text-rose-300/40 hover:text-primary transition-colors"
+                      class="absolute inset-y-0 right-0 pr-4 flex items-center text-rose-300/40 hover:text-rose-500 transition-colors"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -335,7 +330,7 @@
 
                 <div class="pt-4">
                   <button
-                    class="w-full h-14 font-bold rounded-2xl shadow-xl shadow-secondary/20 bg-secondary text-white hover:opacity-90 transition-all"
+                    class="w-full h-14 font-bold rounded-2xl shadow-xl shadow-indigo-500/20 bg-indigo-500 text-white hover:opacity-90 transition-all"
                   >
                     CREATE ACCOUNT
                   </button>
@@ -348,7 +343,7 @@
     </div>
 
     <footer
-      class="flex items-center justify-center p-2 bg-rose-950/30 text-white border-t border-white/5 backdrop-blur-xl mt-auto shrink-0"
+      class="flex items-center justify-center p-2 bg-rose-950 in-[.dark]:bg-rose-950/30 text-white border-t border-white/5 backdrop-blur-xl mt-auto shrink-0"
     >
       <div>
         <p class="text-xs">&copy; 2025 CSMP (The Calcutta Technical School).</p>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" class="dark">
     <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,17 +7,17 @@
   </head>
 
   <body
-    class="min-h-screen flex bg-white dark:bg-zinc-800"
+    class="min-h-screen flex bg-white in-[.dark]:bg-zinc-800"
   >
     <!-- Sidebar -->
     <aside
       :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'"
-      class="fixed inset-y-0 left-0 w-64 transform border-r border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 transition-transform lg:static lg:inset-auto lg:translate-x-0 z-20 flex flex-col"
+      class="fixed inset-y-0 left-0 w-64 transform border-r border-zinc-200 bg-zinc-50 in-[.dark]:border-zinc-700 in-[.dark]:bg-zinc-900 transition-transform lg:static lg:inset-auto lg:translate-x-0 z-20 flex flex-col"
     >
         
       <!-- Primary Nav -->
       <nav class="px-4 space-y-4">
-        <h3 class="text-xs font-semibold uppercase text-zinc-500 dark:text-zinc-400">
+        <h3 class="text-xs font-semibold uppercase text-zinc-500 in-[.dark]:text-zinc-400">
           Platform
         </h3>
       </nav>
