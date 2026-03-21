@@ -11,7 +11,7 @@
 The project encompasses three main pillars:
 
 - **`laravel/`**: Backend core and Livewire components.
-- **`frontend/`**: Modernized UI layer (Tailwind 4.1+), Ui is ported from frontend to backend. For specific frontend guidelines, see [`frontend/FRONTEND.md`](frontend/FRONTEND.md).
+- **`frontend/`**: Modernized UI layer (Tailwind 4.2+), Ui is ported from frontend to backend. For specific frontend guidelines, see [`frontend/FRONTEND.md`](frontend/FRONTEND.md).
 
 ## 🔑 Key Functionalities by Role
 
