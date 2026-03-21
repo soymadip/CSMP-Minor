@@ -5,8 +5,8 @@
 	@include('partials.head')
 </head>
 
-<body class="min-h-screen bg-white dark:bg-zinc-800">
-	<flux:sidebar sticky stashable class="border-r border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
+<body class="min-h-screen bg-slate-50 in-[.dark]:bg-slate-950 font-['Outfit',sans-serif]">
+	<flux:sidebar sticky stashable class="border-r border-rose-500/10 bg-white/70 in-[.dark]:bg-slate-900/60 backdrop-blur-3xl">
 		<flux:sidebar.toggle class="lg:hidden" icon="bars-2" inset="left" />
 
 		<a href="{{ route('dashboard') }}" class="mr-5 flex items-center space-x-2" wire:navigate>

@@ -1,4 +1,4 @@
-<div class="p-6 bg-white dark:bg-gray-800 shadow-lg rounded-lg">
+<div class="p-6 bg-white dark:bg-gray-800 shadow-lg rounded-2xl-lg">
     <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Approve Students</h2>
 
     @if (session()->has('message'))
@@ -22,8 +22,8 @@
                         <td class="border border-gray-300 dark:border-gray-600 p-2">{{ $student->name }}</td>
                         <td class="border border-gray-300 dark:border-gray-600 p-2">{{ $student->department }}</td>
                         <td class="border border-gray-300 dark:border-gray-600 p-2">
-                            <button wire:click="approve('{{ $student->registration_no }}')" class="bg-green-500 text-white p-2 rounded">Approve</button>
-                            <button wire:click="reject('{{ $student->registration_no }}')" class="bg-red-500 text-white p-2 rounded ml-2">Reject</button>
+                            <button wire:click="approve('{{ $student->registration_no }}')" class="bg-green-500 text-white p-2 rounded-2xl">Approve</button>
+                            <button wire:click="reject('{{ $student->registration_no }}')" class="bg-red-500 text-white p-2 rounded-2xl ml-2">Reject</button>
                         </td>
                     </tr>
                 @endforeach

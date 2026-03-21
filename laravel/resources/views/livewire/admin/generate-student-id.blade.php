@@ -1,4 +1,4 @@
-<div class="p-6 bg-white dark:bg-gray-900 rounded-lg shadow-md">
+<div class="p-6 bg-white dark:bg-gray-900 rounded-2xl-lg shadow-md">
     <h2 class="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Generate Student ID Cards</h2>
     
     <div class="overflow-x-auto">
@@ -21,7 +21,7 @@
 		    <td class="border border-gray-300 dark:border-gray-700 px-4 py-2">{{ $student->phone_no }}</td>
                     <td class="border border-gray-300 dark:border-gray-700 px-4 py-2">
                         <button wire:click="downloadPDF('{{ $student->registration_no }}')" 
-                            class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-1 rounded transition dark:bg-blue-600 dark:hover:bg-blue-700">
+                            class="bg-rose-500 hover:opacity-80 text-white px-4 py-1 rounded-2xl transition in-[.dark]:bg-rose-400 in-[.dark]:hover:opacity-80">
                             Download ID Card
                         </button>
                     </td>

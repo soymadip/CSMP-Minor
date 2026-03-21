@@ -30,8 +30,9 @@ The portal is optimized for academic staff:
 
 ## 🛠️ Development Workflow
 
-- **Frontend**: Run `npm run dev` in `./frontend/` for Tailwind watcher and live preview.
-- **Backend**: Standard Artisan commands in `./laravel/`.
+- **Backend/Frontend**: Standard Artisan and npm commands in `./laravel/`. Assets in `frontend/src` are synced to `laravel/public/` for production and native preview.
+- **Vite**: Run `npm run dev` or `npm run build` in `./laravel/` to process CSS and JS.
+- **Database**: Ported to a native SQLite setup for zero-config local development.
 
 ## 🛠️ Zero-Config AI Guidelines
 

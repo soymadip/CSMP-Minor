@@ -1,19 +1,16 @@
 <!doctype html>
 
-<html lang="en" class="dark">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="img/logo.png" />
+    @include('partials.head')
+    <link rel="stylesheet" href="{{ asset('css/common.css') }}" />
     <title>CTS Student Management Portal - Institute</title>
-    <link rel="stylesheet" href="css/app.css" />
-    <link rel="stylesheet" href="css/common.css" />
   </head>
 
   <body
     class="h-screen flex flex-col bg-cover bg-center bg-no-repeat overflow-hidden font-['Outfit',sans-serif] text-slate-800 in-[.dark]:text-white bg-white in-[.dark]:bg-slate-900 transition-colors duration-300"
     style="
-      background-image: url(&quot;img/cts.png&quot;);
+      background-image: url(&quot;{{ asset('img/cts.png') }}&quot;);
       background-size: 100% 200%;
     "
   >
@@ -22,8 +19,8 @@
       class="flex items-center justify-between px-4 h-16 bg-white/70 in-[.dark]:bg-slate-800/60 text-slate-800 in-[.dark]:text-white backdrop-blur-3xl shadow-lg border-b border-rose-200 in-[.dark]:border-rose-500/10 z-50 transition-colors duration-300 shrink-0"
     >
       <div class="flex items-center">
-        <a href="index.html" class="text-xl font-bold flex items-center gap-1">
-          <img src="img/logo.png" alt="Logo" class="w-12 h-12" />
+        <a href="{{ route('home') }}" class="text-xl font-bold flex items-center gap-1">
+          <img src="{{ asset('img/logo.png') }}" alt="Logo" class="w-12 h-12" />
           CSMP
         </a>
       </div>
@@ -31,14 +28,14 @@
       <!-- Main Navigation Menu -->
       <div class="hidden lg:flex items-center gap-6 text-lg font-semibold">
         <a
-          href="index.html"
+          href="{{ route('home') }}"
           class="flex items-center gap-2 h-full transition-all duration-300 hover:text-rose-500"
         >
           <span
             class="inline-block mask-no-repeat mask-center mask-contain bg-current w-5 h-5"
             style="
-              mask-image: url(&quot;img/svg/home.svg&quot;);
-              -webkit-mask-image: url(&quot;img/svg/home.svg&quot;);
+              mask-image: url(&quot;{{ asset('img/svg/home.svg') }}&quot;);
+              -webkit-mask-image: url(&quot;{{ asset('img/svg/home.svg') }}&quot;);
             "
           ></span>
           Home
@@ -52,35 +49,35 @@
             <span
               class="inline-block mask-no-repeat mask-center mask-contain bg-current w-5 h-5"
               style="
-                mask-image: url(&quot;img/svg/graduation-cap.svg&quot;);
-                -webkit-mask-image: url(&quot;img/svg/graduation-cap.svg&quot;);
+                mask-image: url(&quot;{{ asset('img/svg/graduation-cap.svg') }}&quot;);
+                -webkit-mask-image: url(&quot;{{ asset('img/svg/graduation-cap.svg') }}&quot;);
               "
             ></span>
             Departments
             <span
               class="inline-block mask-no-repeat mask-center mask-contain bg-current w-3.5 h-3.5"
               style="
-                mask-image: url(&quot;img/svg/chevron-down.svg&quot;);
-                -webkit-mask-image: url(&quot;img/svg/chevron-down.svg&quot;);
+                mask-image: url(&quot;{{ asset('img/svg/chevron-down.svg') }}&quot;);
+                -webkit-mask-image: url(&quot;{{ asset('img/svg/chevron-down.svg') }}&quot;);
               "
             ></span>
           </button>
           <div
-            class="absolute top-full left-0 hidden group-hover:block transition-all pt-2"
+            class="absolute top-full left-0 hidden group-hover:block transition-all pt-2 z-50"
           >
             <ul
               class="bg-white/60 in-[.dark]:bg-rose-950/70 rounded-2xl shadow-2xl w-60 border border-rose-100 in-[.dark]:border-red-500/20 backdrop-blur-3xl p-2"
             >
               <li>
                 <a
-                  href="/departments/civil"
+                  href="#"
                   class="flex items-center gap-3 p-3 hover:bg-rose-100/50 in-[.dark]:hover:bg-white/5 rounded-xl transition-colors"
                 >
                   <span
                     class="inline-block mask-no-repeat mask-center mask-contain bg-current w-4.5 h-4.5 text-orange-400"
                     style="
-                      mask-image: url(&quot;img/svg/building.svg&quot;);
-                      -webkit-mask-image: url(&quot;img/svg/building.svg&quot;);
+                      mask-image: url(&quot;{{ asset('img/svg/building.svg') }}&quot;);
+                      -webkit-mask-image: url(&quot;{{ asset('img/svg/building.svg') }}&quot;);
                     "
                   ></span>
                   Civil Engineering
@@ -88,14 +85,14 @@
               </li>
               <li>
                 <a
-                  href="/departments/electrical"
+                  href="#"
                   class="flex items-center gap-3 p-3 hover:bg-rose-100/50 in-[.dark]:hover:bg-white/5 rounded-xl transition-colors"
                 >
                   <span
                     class="inline-block mask-no-repeat mask-center mask-contain bg-current w-4.5 h-4.5 text-yellow-400"
                     style="
-                      mask-image: url(&quot;img/svg/bolt.svg&quot;);
-                      -webkit-mask-image: url(&quot;img/svg/bolt.svg&quot;);
+                      mask-image: url(&quot;{{ asset('img/svg/bolt.svg') }}&quot;);
+                      -webkit-mask-image: url(&quot;{{ asset('img/svg/bolt.svg') }}&quot;);
                     "
                   ></span>
                   Electrical Engineering
@@ -103,14 +100,14 @@
               </li>
               <li>
                 <a
-                  href="/departments/cst"
+                  href="#"
                   class="flex items-center gap-3 p-3 hover:bg-rose-100/50 in-[.dark]:hover:bg-white/5 rounded-xl transition-colors"
                 >
                   <span
                     class="inline-block mask-no-repeat mask-center mask-contain bg-current w-4.5 h-4.5 text-blue-400"
                     style="
-                      mask-image: url(&quot;img/svg/monitor.svg&quot;);
-                      -webkit-mask-image: url(&quot;img/svg/monitor.svg&quot;);
+                      mask-image: url(&quot;{{ asset('img/svg/monitor.svg') }}&quot;);
+                      -webkit-mask-image: url(&quot;{{ asset('img/svg/monitor.svg') }}&quot;);
                     "
                   ></span>
                   Computer Science
@@ -118,14 +115,14 @@
               </li>
               <li>
                 <a
-                  href="/departments/mechanical"
+                  href="#"
                   class="flex items-center gap-3 p-3 hover:bg-rose-100/50 in-[.dark]:hover:bg-white/5 rounded-xl transition-colors"
                 >
                   <span
                     class="inline-block mask-no-repeat mask-center mask-contain bg-current w-4.5 h-4.5 text-slate-400"
                     style="
-                      mask-image: url(&quot;img/svg/settings.svg&quot;);
-                      -webkit-mask-image: url(&quot;img/svg/settings.svg&quot;);
+                      mask-image: url(&quot;{{ asset('img/svg/settings.svg') }}&quot;);
+                      -webkit-mask-image: url(&quot;{{ asset('img/svg/settings.svg') }}&quot;);
                     "
                   ></span>
                   Mechanical Engineering
@@ -143,35 +140,35 @@
             <span
               class="inline-block mask-no-repeat mask-center mask-contain bg-current w-5 h-5"
               style="
-                mask-image: url(&quot;img/svg/book-open.svg&quot;);
-                -webkit-mask-image: url(&quot;img/svg/book-open.svg&quot;);
+                mask-image: url(&quot;{{ asset('img/svg/book-open.svg') }}&quot;);
+                -webkit-mask-image: url(&quot;{{ asset('img/svg/book-open.svg') }}&quot;);
               "
             ></span>
             Academics
             <span
               class="inline-block mask-no-repeat mask-center mask-contain bg-current w-3.5 h-3.5"
               style="
-                mask-image: url(&quot;img/svg/chevron-down.svg&quot;);
-                -webkit-mask-image: url(&quot;img/svg/chevron-down.svg&quot;);
+                mask-image: url(&quot;{{ asset('img/svg/chevron-down.svg') }}&quot;);
+                -webkit-mask-image: url(&quot;{{ asset('img/svg/chevron-down.svg') }}&quot;);
               "
             ></span>
           </button>
           <div
-            class="absolute top-full left-0 hidden group-hover:block transition-all pt-2"
+            class="absolute top-full left-0 hidden group-hover:block transition-all pt-2 z-50"
           >
             <ul
               class="bg-white/60 in-[.dark]:bg-rose-950/70 rounded-2xl shadow-2xl w-52 border border-rose-100 in-[.dark]:border-red-500/20 backdrop-blur-3xl p-2"
             >
               <li>
                 <a
-                  href="/academics/calendar"
+                  href="#"
                   class="flex items-center gap-3 p-3 hover:bg-rose-100/50 in-[.dark]:hover:bg-white/5 rounded-xl transition-colors"
                 >
                   <span
                     class="inline-block mask-no-repeat mask-center mask-contain bg-current w-4.5 h-4.5 text-rose-400"
                     style="
-                      mask-image: url(&quot;img/svg/calendar.svg&quot;);
-                      -webkit-mask-image: url(&quot;img/svg/calendar.svg&quot;);
+                      mask-image: url(&quot;{{ asset('img/svg/calendar.svg') }}&quot;);
+                      -webkit-mask-image: url(&quot;{{ asset('img/svg/calendar.svg') }}&quot;);
                     "
                   ></span>
                   Academic Calendar
@@ -179,14 +176,14 @@
               </li>
               <li>
                 <a
-                  href="/academics/syllabus"
+                  href="#"
                   class="flex items-center gap-3 p-3 hover:bg-rose-100/50 in-[.dark]:hover:bg-white/5 rounded-xl transition-colors"
                 >
                   <span
                     class="inline-block mask-no-repeat mask-center mask-contain bg-current w-4.5 h-4.5 text-indigo-400"
                     style="
-                      mask-image: url(&quot;img/svg/file-text.svg&quot;);
-                      -webkit-mask-image: url(&quot;img/svg/file-text.svg&quot;);
+                      mask-image: url(&quot;{{ asset('img/svg/file-text.svg') }}&quot;);
+                      -webkit-mask-image: url(&quot;{{ asset('img/svg/file-text.svg') }}&quot;);
                     "
                   ></span>
                   Syllabus
@@ -194,14 +191,14 @@
               </li>
               <li>
                 <a
-                  href="/academics/examinations"
+                  href="#"
                   class="flex items-center gap-3 p-3 hover:bg-rose-100/50 in-[.dark]:hover:bg-white/5 rounded-xl transition-colors"
                 >
                   <span
                     class="inline-block mask-no-repeat mask-center mask-contain bg-current w-4.5 h-4.5 text-emerald-400"
                     style="
-                      mask-image: url(&quot;img/svg/clipboard-check.svg&quot;);
-                      -webkit-mask-image: url(&quot;img/svg/clipboard-check.svg&quot;);
+                      mask-image: url(&quot;{{ asset('img/svg/clipboard-check.svg') }}&quot;);
+                      -webkit-mask-image: url(&quot;{{ asset('img/svg/clipboard-check.svg') }}&quot;);
                     "
                   ></span>
                   Examination
@@ -209,14 +206,14 @@
               </li>
               <li>
                 <a
-                  href="/academics/library"
+                  href="#"
                   class="flex items-center gap-3 p-3 hover:bg-rose-100/50 in-[.dark]:hover:bg-white/5 rounded-xl transition-colors"
                 >
                   <span
                     class="inline-block mask-no-repeat mask-center mask-contain bg-current w-4.5 h-4.5 text-cyan-400"
                     style="
-                      mask-image: url(&quot;img/svg/library.svg&quot;);
-                      -webkit-mask-image: url(&quot;img/svg/library.svg&quot;);
+                      mask-image: url(&quot;{{ asset('img/svg/library.svg') }}&quot;);
+                      -webkit-mask-image: url(&quot;{{ asset('img/svg/library.svg') }}&quot;);
                     "
                   ></span>
                   Library
@@ -224,14 +221,14 @@
               </li>
               <li>
                 <a
-                  href="/academics/results"
+                  href="#"
                   class="flex items-center gap-3 p-3 hover:bg-rose-100/50 in-[.dark]:hover:bg-white/5 rounded-xl transition-colors"
                 >
                   <span
                     class="inline-block mask-no-repeat mask-center mask-contain bg-current w-4.5 h-4.5 text-orange-400"
                     style="
-                      mask-image: url(&quot;img/svg/results.svg&quot;);
-                      -webkit-mask-image: url(&quot;img/svg/results.svg&quot;);
+                      mask-image: url(&quot;{{ asset('img/svg/results.svg') }}&quot;);
+                      -webkit-mask-image: url(&quot;{{ asset('img/svg/results.svg') }}&quot;);
                     "
                   ></span>
                   Results
@@ -242,61 +239,79 @@
         </div>
 
         <a
-          href="/notices"
+          href="#"
           class="flex items-center gap-2 hover:text-rose-500 transition-colors py-2"
         >
           <span
             class="inline-block mask-no-repeat mask-center mask-contain bg-current w-5 h-5 text-red-500"
             style="
-              mask-image: url(&quot;img/svg/bell.svg&quot;);
-              -webkit-mask-image: url(&quot;img/svg/bell.svg&quot;);
+              mask-image: url(&quot;{{ asset('img/svg/bell.svg') }}&quot;);
+              -webkit-mask-image: url(&quot;{{ asset('img/svg/bell.svg') }}&quot;);
             "
           ></span>
           Notices
         </a>
 
         <a
-          href="#"
+          href="{{ route('about') }}"
           class="text-rose-500 flex items-center gap-2 h-full transition-all duration-300 hover:opacity-80"
         >
           <span
             class="inline-block mask-no-repeat mask-center mask-contain bg-current w-5 h-5 text-emerald-400"
             style="
-              mask-image: url(&quot;img/svg/building.svg&quot;);
-              -webkit-mask-image: url(&quot;img/svg/building.svg&quot;);
+              mask-image: url(&quot;{{ asset('img/svg/building.svg') }}&quot;);
+              -webkit-mask-image: url(&quot;{{ asset('img/svg/building.svg') }}&quot;);
             "
           ></span>
           Institute
         </a>
       </div>
 
-      <div class="flex items-center gap-4">
+      <div class="flex items-center gap-4 z-50">
         <!-- Theme Toggle -->
         <button
           id="theme-toggle"
           class="p-2 hover:bg-white/10 rounded-full transition-colors relative h-10 w-10 overflow-hidden"
         >
           <input
-            type="checkbox"
             type="checkbox" class="theme-controller opacity-0 absolute inset-0 cursor-pointer z-10"
             value="dark"
           />
           <span
             class="inline-block mask-no-repeat mask-center mask-contain bg-current w-6 h-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 in-[.dark]:scale-0"
             style="
-              mask-image: url(&quot;img/svg/sun.svg&quot;);
-              -webkit-mask-image: url(&quot;img/svg/sun.svg&quot;);
+              mask-image: url(&quot;{{ asset('img/svg/sun.svg') }}&quot;);
+              -webkit-mask-image: url(&quot;{{ asset('img/svg/sun.svg') }}&quot;);
             "
           ></span>
           <span
             class="inline-block mask-no-repeat mask-center mask-contain bg-current w-6 h-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 scale-0 in-[.dark]:scale-100"
             style="
-              mask-image: url(&quot;img/svg/moon.svg&quot;);
-              -webkit-mask-image: url(&quot;img/svg/moon.svg&quot;);
+              mask-image: url(&quot;{{ asset('img/svg/moon.svg') }}&quot;);
+              -webkit-mask-image: url(&quot;{{ asset('img/svg/moon.svg') }}&quot;);
             "
           ></span>
         </button>
 
+        @guest
+          <a
+            href="{{ route('login') }}"
+            class="flex items-center gap-2 px-4 h-10 bg-slate-50/80 in-[.dark]:bg-white/5 border border-slate-100/60 in-[.dark]:border-white/20 backdrop-blur-md rounded-2xl hover:bg-slate-50/80 in-[.dark]:bg-white/5/20 transition-all group shadow-sm cursor-pointer"
+          >
+            <div
+              class="w-6 h-6 rounded-full bg-rose-500/20 flex items-center justify-center group-hover:bg-rose-500/30 transition-colors"
+            >
+              <span
+                class="inline-block mask-no-repeat mask-center mask-contain bg-current w-3.5 h-3.5 text-rose-500"
+                style="
+                  mask-image: url(&quot;{{ asset('img/svg/user-plus.svg') }}&quot;);
+                  -webkit-mask-image: url(&quot;{{ asset('img/svg/user-plus.svg') }}&quot;);
+                "
+              ></span>
+            </div>
+            <span class="text-sm font-medium tracking-wide">Login</span>
+          </a>
+        @else
         <!-- Auth Dropdown -->
         <div class="relative group">
           <button
@@ -308,8 +323,8 @@
               <span
                 class="inline-block mask-no-repeat mask-center mask-contain bg-current w-3.5 h-3.5 text-rose-500"
                 style="
-                  mask-image: url(&quot;img/svg/user-plus.svg&quot;);
-                  -webkit-mask-image: url(&quot;img/svg/user-plus.svg&quot;);
+                  mask-image: url(&quot;{{ asset('img/svg/user-plus.svg') }}&quot;);
+                  -webkit-mask-image: url(&quot;{{ asset('img/svg/user-plus.svg') }}&quot;);
                 "
               ></span>
             </div>
@@ -317,8 +332,8 @@
             <span
               class="inline-block mask-no-repeat mask-center mask-contain bg-current w-3.5 h-3.5 opacity-50 transition-transform group-hover:rotate-180"
               style="
-                mask-image: url(&quot;img/svg/chevron-down.svg&quot;);
-                -webkit-mask-image: url(&quot;img/svg/chevron-down.svg&quot;);
+                mask-image: url(&quot;{{ asset('img/svg/chevron-down.svg') }}&quot;);
+                -webkit-mask-image: url(&quot;{{ asset('img/svg/chevron-down.svg') }}&quot;);
               "
             ></span>
           </button>
@@ -330,37 +345,23 @@
             >
               <li>
                 <a
-                  href="/login"
+                  href="{{ route('dashboard') }}"
                   class="flex items-center gap-3 p-3 hover:bg-rose-100/50 in-[.dark]:hover:bg-white/5 rounded-xl transition-colors"
                 >
                   <span
                     class="inline-block mask-no-repeat mask-center mask-contain bg-current w-4.5 h-4.5 text-rose-500"
                     style="
-                      mask-image: url(&quot;img/svg/power.svg&quot;);
-                      -webkit-mask-image: url(&quot;img/svg/power.svg&quot;);
+                      mask-image: url(&quot;{{ asset('img/svg/home.svg') }}&quot;);
+                      -webkit-mask-image: url(&quot;{{ asset('img/svg/home.svg') }}&quot;);
                     "
                   ></span>
-                  Login
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/register"
-                  class="flex items-center gap-3 p-3 hover:bg-rose-100/50 in-[.dark]:hover:bg-white/5 rounded-xl transition-colors"
-                >
-                  <span
-                    class="inline-block mask-no-repeat mask-center mask-contain bg-current w-4.5 h-4.5 text-indigo-500"
-                    style="
-                      mask-image: url(&quot;img/svg/user-plus.svg&quot;);
-                      -webkit-mask-image: url(&quot;img/svg/user-plus.svg&quot;);
-                    "
-                  ></span>
-                  Signup
+                  Dashboard
                 </a>
               </li>
             </ul>
           </div>
         </div>
+        @endguest
       </div>
     </nav>
 
@@ -373,7 +374,7 @@
         <div
           class="absolute inset-0 z-0 bg-fixed bg-cover bg-center"
           style="
-            background-image: url(&quot;img/gallery/social-event.jpg&quot;);
+            background-image: url(&quot;{{ asset('img/gallery/social-event.jpg') }}&quot;);
           "
         ></div>
         <div
@@ -419,7 +420,7 @@
             style="animation-delay: 0.4s"
           >
             <img
-              src="img/logo.png"
+              src="{{ asset('img/logo.png') }}"
               alt="CTS Heritage Logo"
               class="w-32 h-32 mx-auto"
             />
@@ -450,7 +451,7 @@
               class="col-span-2 row-span-2 group relative overflow-hidden rounded-2xl border-2 border-white/10 shadow-lg"
             >
               <img
-                src="img/gallery/cultural.png"
+                src="{{ asset('img/gallery/cultural.png') }}"
                 alt="Student Life Collage"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
@@ -468,7 +469,7 @@
               class="col-span-2 row-span-1 group relative overflow-hidden rounded-2xl border-2 border-white/10 shadow-lg"
             >
               <img
-                src="img/gallery/ex-tech-edu.png"
+                src="{{ asset('img/gallery/ex-tech-edu.png') }}"
                 alt="Prize Distribution"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
@@ -487,7 +488,7 @@
               class="col-span-1 row-span-1 group relative overflow-hidden rounded-2xl border-2 border-white/10 shadow-lg"
             >
               <img
-                src="img/gallery/social-event.jpg"
+                src="{{ asset('img/gallery/social-event.jpg') }}"
                 alt="Annual Social Event"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
@@ -498,7 +499,7 @@
               class="col-span-1 row-span-2 group relative overflow-hidden rounded-2xl border-2 border-white/10 shadow-lg"
             >
               <img
-                src="img/cts.png"
+                src="{{ asset('img/cts.png') }}"
                 alt="Campus View"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
@@ -516,7 +517,7 @@
               class="col-span-1 row-span-1 group relative overflow-hidden rounded-2xl border-2 border-white/10 shadow-lg grayscale hover:grayscale-0 transition-all"
             >
               <img
-                src="img/gallery/social.jpg"
+                src="{{ asset('img/gallery/social.jpg') }}"
                 alt="Moment"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
@@ -548,8 +549,8 @@
             >
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.461027015059!2d88.35479071171858!3d22.561854133277084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02770731aeafcf%3A0x70b7fa2f49a82e14!2sThe%20Calcutta%20Technical%20School!5e0!3m2!1sen!2sin!4v1773561647084!5m2!1sen!2sin"
-                width="600"
-                height="450"
+                width="100%"
+                height="100%"
                 style="border: 0"
                 allowfullscreen=""
                 loading="lazy"
@@ -577,8 +578,8 @@
                     <span
                       class="inline-block mask-no-repeat mask-center mask-contain bg-current w-6 h-6 text-red-500"
                       style="
-                        mask-image: url(&quot;img/svg/map-pin.svg&quot;);
-                        -webkit-mask-image: url(&quot;img/svg/map-pin.svg&quot;);
+                        mask-image: url(&quot;{{ asset('img/svg/map-pin.svg') }}&quot;);
+                        -webkit-mask-image: url(&quot;{{ asset('img/svg/map-pin.svg') }}&quot;);
                       "
                     ></span>
                   </div>
@@ -603,15 +604,15 @@
                     <span
                       class="inline-block mask-no-repeat mask-center mask-contain bg-current w-6 h-6 text-red-500"
                       style="
-                        mask-image: url(&quot;img/svg/phone.svg&quot;);
-                        -webkit-mask-image: url(&quot;img/svg/phone.svg&quot;);
+                        mask-image: url(&quot;{{ asset('img/svg/phone.svg') }}&quot;);
+                        -webkit-mask-image: url(&quot;{{ asset('img/svg/phone.svg') }}&quot;);
                       "
                     ></span>
                   </div>
                   <div>
                     <h3 class="font-bold text-xl text-slate-900 in-[.dark]:text-white mb-1">Call Us</h3>
                     <p class="text-slate-900 in-[.dark]:text-white text-2xl font-semibold tracking-wide">
-                      {{COLLAGE_NUMBER}}
+                      Not Available
                     </p>
                   </div>
                 </div>
@@ -623,15 +624,15 @@
     </main>
 
     <footer
-      class="flex items-center justify-center p-2 bg-rose-950 in-[.dark]:bg-rose-950/30 text-white border-t border-white/5 backdrop-blur-xl mt-auto shrink-0"
+      class="flex items-center justify-center p-2 bg-rose-950 in-[.dark]:bg-rose-950/30 text-white border-t border-white/5 backdrop-blur-xl mt-auto shrink-0 z-50"
     >
       <div>
-        <p class="text-xs">&copy; 2025 CSMP (The Calcutta Technical School).</p>
+        <p class="text-xs">&copy; {{ date('Y') }} CSMP (The Calcutta Technical School).</p>
       </div>
     </footer>
 
     <!-- JavaScript -->
-    <script src="js/utils.js"></script>
-    <script src="js/home.js"></script>
+    <script src="{{ asset('js/utils.js') }}"></script>
+    <script src="{{ asset('js/home.js') }}"></script>
   </body>
 </html>

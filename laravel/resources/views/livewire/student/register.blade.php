@@ -1,4 +1,4 @@
-<div class="p-6 bg-white dark:bg-gray-800 shadow-lg rounded-lg">
+<div class="p-6 bg-white dark:bg-gray-800 shadow-lg rounded-2xl-lg">
 	<h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Student Registration</h2>
 
 	@if (session()->has('error'))
@@ -7,7 +7,7 @@
 
 
 	@if(session()->has('message'))
-	<div class="bg-green-500 p-2 rounded-md text-white text-center mb-2">
+	<div class="bg-green-500 p-2 rounded-2xl-md text-white text-center mb-2">
 		{{ session('message') }}
 	</div>
 	@endif
@@ -26,7 +26,7 @@
 		{{--
 		<input type="text" wire:model="department" class="border p-2 w-full dark:bg-gray-700 dark:text-white" placeholder="Department" required>
 		--}}
-		<select wire:model="department" class="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white" required>
+		<select wire:model="department" class="w-full p-2 rounded-2xl bg-gray-700 border border-gray-600 text-white" required>
 			<option value="">Select Department</option>
 			<option value="DCST">DCST</option>
 			<option value="DEE">DEE</option>
@@ -36,6 +36,6 @@
 
 		<input type="number" wire:model="semester" class="border p-2 w-full dark:bg-gray-700 dark:text-white" placeholder="Semester" required>
 
-		<button type="submit" class="mt-4 bg-blue-500 text-white p-2 rounded">Submit</button>
+		<button type="submit" class="mt-4 bg-rose-500 text-white p-2 rounded-2xl">Submit</button>
 	</form>
 </div>

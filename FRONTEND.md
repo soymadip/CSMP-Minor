@@ -46,4 +46,6 @@ The JS layer is decoupled from HTML templates and modularized:
 
 ## 🛠️ Development Tools
 
-- **Local Preview**: Run `npm run dev` to start the Tailwind watcher and `live-server`.
+- **Native Workflow**: Run `npm run dev` in the `./laravel/` directory to start the Vite HMR server.
+- **Asset Management**: Static assets (img, js, vanilla css) are synced from `./frontend/src/` to `./laravel/public/`. Use the `asset()` helper in Blade to reference them.
+- **Build**: Use `npm run build` in `./laravel/` to generate production-ready assets in `public/build/`.

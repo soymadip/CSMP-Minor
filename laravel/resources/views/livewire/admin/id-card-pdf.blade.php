@@ -10,7 +10,7 @@
 	     margin: 0;
 	     padding: 0;
 	     box-sizing: border-box;
-	     font-family: Arial, sans-serif;
+	     font-family: 'Outfit', sans-serif;
 	 }
 
 	 body {
@@ -18,15 +18,17 @@
 	     justify-content: center;
 	     align-items: center;
 	     min-height: 100vh;
-	     background-color: #565252;
+	     background-color: #f8fafc;
 	 }
 
 	 .student-id-card {
 	     width: 15cm;
 	     height: 8.75cm;
 	     background-color: white;
-	     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 	     position: relative;
+	     border-radius: 0.5cm;
+	     overflow: hidden;
 	 }
 
 	 .card-body {
@@ -38,9 +40,8 @@
 	 }
 
 	 header .college-title {
-	     color: #690000;
+	     color: #9f1239; /* rose-800 */
 	     font-size: 0.65cm;
-	     font-family: 'Merriweather', serif;
 	     font-weight: 900;
 	     text-align: center;
 	     letter-spacing: 0.02cm;
@@ -50,6 +51,7 @@
 	     text-align: center;
 	     margin-bottom: 0.1cm;
 	     font-size: 0.5cm;
+	     color: #475569; /* slate-600 */
 	 }
 
 	 header address.college-address {
@@ -58,10 +60,11 @@
 	     font-weight: bold;
 	     margin-bottom: 0.4cm;
 	     font-style: normal;
+	     color: #64748b; /* slate-500 */
 	 }
 
 	 .student-details header.id-title {
-	     background-color: #c02c2c;
+	     background-color: #e11d48; /* rose-600 */
 	     color: white;
 	     font-size: 0.55cm;
 	     font-weight: bold;
