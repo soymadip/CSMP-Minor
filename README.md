@@ -6,56 +6,66 @@
   >
   <h1>CSMP</h1>
   <h4>CRUD Student Management Portal written in Laravel</h4>
-  <p>This is minor project.</p>
+  <p>This is a premium, modern student management system.</p>
 </div>
 
 ## 🛠️ Getting Started
 
-This project is fully Dockerized. Ensure you have Docker and Docker Compose installed.
+This project is a native Laravel application. Ensure you have PHP 8.4, Composer, and Node.js/Bun installed locally.
 
-### Edit the Env
+### 1. Installation
 
-Edit the [.env](./.env) file with your own credentials. Do not touch which are marked not to edit.
-
-### Start the application
+Clone the repository and install dependencies:
 
 ```bash
-docker-compose up
+composer install
+npm install # or bun install
 ```
 
-### Development with Auto-sync
+### 2. Environment Setup
+
+Open the environment file and configure your local database
+
+Then:
 
 ```bash
-docker compose watch
+php artisan key:generate
 ```
 
-### Stop the application
+### 3. Database Migration
+
+Run migrations to set up your local database:
 
 ```bash
-docker-compose down
+php artisan migrate --seed
 ```
 
-## 🌐 Access Points
+### 4. Running the Application
 
-- **Web App**: [`http://localhost:8000`](http://localhost:8000)
-- **Database Dashboard**: [`http://localhost:8080`](http://localhost:8080)
-- **Database URL**: `mysql://admin:admin@localhost:3306/csmp`
+Start the development server and Vite HMR:
+
+```bash
+# Terminal 1: Laravel Server
+php artisan serve
+
+# Terminal 2: Vite HMR (Tailwind v4)
+npm run dev # or bun run dev
+```
 
 ## 📂 Project Structure
 
-- `laravel/`: Backend core and Livewire components.
-- `frontend/`: Modernized UI assets and styles.
+- `app/`: Laravel application core (Models, Controllers, Providers).
+- `public/`: Static assets (images, JavaScript, CSS).
+- `resources/views/`: Blade templates and components.
+  - `components/`: Organized into `nav/`, `auth/`, `branding/`, and `ui/`.
 
 ## 🚀 Tech Stack
 
-- **Backend**: Laravel 12, PHP 8.4
-- **Frontend**: Livewire 3, TailwindCSS 4
-- **Database**: MariaDB 10.11
+- **Backend**: Laravel 12, PHP 8.4, Livewire 3
+- **Frontend**: TailwindCSS 4, Flux UI
+- **Database**: MariaDB 10.11 / MySQL 8.0
+- **PDF Generation**: `spatie/browsershot` (Requires Puppeteer)
 
-### Packages
+---
 
-- livewire starter kit (Without Volt)
-
-- spatie/laravel-permission
-
-- spatie/browsershot
+For detailed developer guidelines and styling rules, refer to **[`AGENTS.md`](AGENTS.md)**.
