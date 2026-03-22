@@ -8,54 +8,7 @@
                 class="w-12 h-12 transition-transform group-hover:scale-105" />
             <span class="tracking-tight">{{ config('app.name') }}</span>
         </a>
-        @if(app()->isLocal())
-            <div class="relative group">
-                <button
-                    class="px-2 py-0.5 bg-amber-500/20 border border-amber-500/30 text-amber-600 in-[.dark]:text-amber-400 text-[10px] font-black uppercase tracking-widest rounded-full select-none cursor-help hover:bg-amber-500/30 transition-colors">
-                    DEV Server
-                </button>
-                <div class="absolute top-full left-0 hidden group-hover:block transition-all pt-2 min-w-60 z-50">
-                    <div
-                        class="bg-white/95 in-[.dark]:bg-slate-900/95 rounded-2xl shadow-2xl border border-amber-500/20 backdrop-blur-3xl p-4 text-[11px] space-y-3">
-                        <div
-                            class="flex items-center justify-between border-b border-slate-100 in-[.dark]:border-white/10 pb-2">
-                            <span class="font-bold text-slate-400 uppercase tracking-tighter">Dev Environment</span>
-                            <span
-                                class="px-2 py-0.5 bg-emerald-500/10 text-emerald-500 rounded-md font-mono">{{ app()->environment() }}</span>
-                        </div>
-                        <div class="space-y-2">
-                            <div class="flex items-center justify-between">
-                                <span class="text-slate-500">Debug Mode</span>
-                                <span class="text-emerald-500">Enabled</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-slate-500">Vite HMR</span>
-                                <span class="text-emerald-500">Active</span>
-                            </div>
-                        </div>
-                        <div class="pt-2 border-t border-slate-100 in-[.dark]:border-white/10 space-y-2">
-                            <div>
-                                <div class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter mb-1">App Creds</div>
-                                <div class="bg-slate-50 in-[.dark]:bg-white/5 p-2 rounded-lg font-mono text-[10px] space-y-1 select-all flex flex-col justify-center">
-                                    <div><span class="text-rose-400">user:</span> {{ config('app.superadmin.email') }}</div>
-                                    <div><span class="text-rose-400">pass:</span> {{ config('app.superadmin.password') }}</div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter mb-1 flex justify-between items-center">
-                                    <span>phpMyAdmin</span>
-                                    <a href="{{ config('app.phpmyadmin_url') }}" target="_blank" class="text-sky-500 hover:text-sky-400 hover:underline normal-case tracking-normal">open &rarr;</a>
-                                </div>
-                                <div class="bg-slate-50 in-[.dark]:bg-white/5 p-2 rounded-lg font-mono text-[10px] space-y-1 select-all flex flex-col justify-center">
-                                    <div><span class="text-rose-400">user:</span> {{ config('database.connections.mysql.username') }}</div>
-                                    <div><span class="text-rose-400">pass:</span> {{ config('database.connections.mysql.password') }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endif
+
     </div>
     <!-- Main Navigation Menu -->
     <div class="hidden lg:flex items-center gap-6 text-lg font-semibold">
@@ -170,3 +123,61 @@
         </div>
     </div>
 </nav>
+
+<!-- Floating Dev Server Badge -->
+@if(app()->isLocal())
+    <div class="fixed top-20 right-6 z-40 group flex items-center justify-center">
+        <!-- Tighter Custom Ping Animation -->
+        <span class="absolute inset-0 rounded-full bg-amber-400/20 pointer-events-none" style="animation: shadow-pulse 2s cubic-bezier(0, 0, 0.2, 1) infinite"></span>
+        <style>
+            @keyframes shadow-pulse {
+                0% { transform: scale(1); opacity: 1; }
+                100% { transform: scale(1.2); opacity: 0; }
+            }
+        </style>
+        <button
+            class="relative px-3 py-1.5 bg-amber-500/20 border border-amber-500/30 text-amber-600 in-[.dark]:text-amber-400 text-xs font-black uppercase tracking-widest rounded-full shadow-lg backdrop-blur-md select-none cursor-help hover:bg-amber-500/30 transition-all hover:scale-105">
+            DEV Server
+        </button>
+        <div class="absolute top-full right-0 hidden group-hover:block transition-all pt-3 min-w-64">
+            <div
+                class="bg-white/95 in-[.dark]:bg-slate-900/95 rounded-2xl shadow-2xl border border-amber-500/20 backdrop-blur-3xl p-4 text-[11px] space-y-3">
+                <div
+                    class="flex items-center justify-between border-b border-slate-100 in-[.dark]:border-white/10 pb-2">
+                    <span class="font-bold text-slate-400 uppercase tracking-tighter">Dev Environment</span>
+                    <span
+                        class="px-2 py-0.5 bg-emerald-500/10 text-emerald-500 rounded-md font-mono">{{ app()->environment() }}</span>
+                </div>
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="text-slate-500">Debug Mode</span>
+                        <span class="text-emerald-500">Enabled</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-slate-500">Vite HMR</span>
+                        <span class="text-emerald-500">Active</span>
+                    </div>
+                </div>
+                <div class="pt-2 border-t border-slate-100 in-[.dark]:border-white/10 space-y-2">
+                    <div>
+                        <div class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter mb-1">SuperAdmin Credentials</div>
+                        <div class="bg-slate-50 in-[.dark]:bg-white/5 p-2 rounded-lg font-mono text-[10px] space-y-1 select-all flex flex-col justify-center">
+                            <div><span class="text-rose-400">user:</span> {{ config('app.superadmin.email') }}</div>
+                            <div><span class="text-rose-400">pass:</span> {{ config('app.superadmin.password') }}</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter mb-1 flex justify-between items-center">
+                            <span class="font-black text-rose-500 bg-rose-500/10 px-1 rounded">PhpMyAdmin</span>
+                            <a href="{{ config('app.pma.url') }}" target="_blank" class="text-sky-500 hover:text-sky-400 hover:underline normal-case tracking-normal">open &rarr;</a>
+                        </div>
+                        <div class="bg-slate-50 in-[.dark]:bg-white/5 p-2 rounded-lg font-mono text-[10px] space-y-1 select-all flex flex-col justify-center">
+                            <div><span class="text-rose-400">user:</span> {{ config('database.connections.mysql.username') }}</div>
+                            <div><span class="text-rose-400">pass:</span> {{ config('database.connections.mysql.password') }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endif
