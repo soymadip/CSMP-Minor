@@ -25,8 +25,8 @@ return [
     // ----------------- Default Admin Credentials --------------
 
     'superadmin' => [
-        'email' => env('SUPERADMIN_EMAIL', 'admin@example.com'),
-        'password' => env('SUPERADMIN_PASSWORD', 'password'),
+        'email' => env('SUPERADMIN_EMAIL', 'sadmin@csmp.in'),
+        'password' => env('SUPERADMIN_PASSWORD', 'SuperPasswd'),
     ],
 
     // ------------------------ PhpMyAdmin ---------------------
