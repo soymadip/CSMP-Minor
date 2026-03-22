@@ -1,61 +1,101 @@
 <div align="center">
   <img
-    src="https://raw.githubusercontent.com/soymadip/SDMP/6f32408ce61383db61fa4f31ed74013b9dfa7ed0/src/images/favicon/android-chrome-512x512.png"
+    src="./public/img/cts/logo.png"
     width=150
     alt="CSMP"
   >
   <h1>CSMP</h1>
   <h4>CRUD Student Management Portal written in Laravel</h4>
-  <p>This is minor project.</p>
 </div>
 
 ## 🛠️ Getting Started
 
-This project is fully Dockerized. Ensure you have Docker and Docker Compose installed.
+This project is a native Laravel application. Ensure you have PHP 8.4, Composer, and Node.js/Bun installed locally. Aditionally docker is needed if you want to run the database locally.
 
-### Edit the Env
+### 1. Installation
 
-Edit the [.env](./.env) file with your own credentials. Do not touch which are marked not to edit.
-
-### Start the application
+Clone the repository and install dependencies:
 
 ```bash
-docker-compose up
+composer install
+npm install # or bun install
 ```
 
-### Development with Auto-sync
+### 2. Environment Setup
+
+Open the [`.env`](./.env) file and configure your App settings.
+
+Then generate app key:
 
 ```bash
-docker compose watch
+php artisan key:generate
 ```
 
-### Stop the application
+### 3. Database & Docker Setup
+
+CSMP provides a pre-configured Docker Compose setup for consistent local development:
 
 ```bash
-docker-compose down
+docker-compose up -d
 ```
 
-## 🌐 Access Points
+#### Services & Credentials
 
-- **Web App**: [`http://localhost:8000`](http://localhost:8000)
-- **Database Dashboard**: [`http://localhost:8080`](http://localhost:8080)
-- **Database URL**: `mysql://admin:admin@localhost:3306/csmp`
+- **MySQL Container**: `csmp-mysql` (MariaDB 11.4)
+  - **Host**: `127.0.0.1` (Local) / `mysql` (Docker Network)
+  - **Port**: `3306`
+  - **Credentials**: `admin` / `csmp_Admin` (defined in `.env`)
+- **phpMyAdmin**: [http://localhost:8080](http://localhost:8080)
+  - **Login**: Use the credentials above (Theme: Metro).
+
+#### Migrations
+
+Once the database is running, seed the data:
+
+```bash
+php artisan migrate --seed
+```
+
+### 4. Running the Application
+
+Start the development server and Vite HMR:
+
+```bash
+npm run dev
+```
+
+### 5. PHP Optimization (HMR & Debugging)
+
+If you find that your PHP or Blade changes are not reflecting instantly, your OPcache might be too aggressive. Run these commands to optimize your `php.ini` for development:
+
+```bash
+# 1. Find your php.ini path
+export PHP_INI=$(php --ini | grep "Loaded Configuration File" | awk '{print $NF}' | tr -d '"')
+
+# 2. Apply development optimizations
+sudo sed -i 's/^;*opcache.revalidate_freq=.*/opcache.revalidate_freq=0/' $PHP_INI
+sudo sed -i 's/^display_errors =.*/display_errors = On/' $PHP_INI
+sudo sed -i 's/^display_startup_errors =.*/display_startup_errors = On/' $PHP_INI
+sudo sed -i 's/^error_reporting =.*/error_reporting = E_ALL/' $PHP_INI
+
+# 3. Restart your server
+php artisan serve
+```
 
 ## 📂 Project Structure
 
-- `laravel/`: Backend core and Livewire components.
-- `frontend/`: Modernized UI assets and styles.
+- `app/`: Laravel application core (Models, Controllers, Providers).
+- `public/`: Static assets (images, JavaScript, CSS).
+- `resources/views/`: Blade templates and components.
+  - `components/`: Organized into `nav/`, `auth/`, `branding/`, and `ui/`.
 
 ## 🚀 Tech Stack
 
-- **Backend**: Laravel 12, PHP 8.4
-- **Frontend**: Livewire 3, TailwindCSS 4
-- **Database**: MariaDB 10.11
+- **Backend**: Laravel 12, PHP 8.4, Livewire 3
+- **Frontend**: TailwindCSS 4, Flux UI
+- **Database**: MariaDB 11.4 / MySQL 8.0
+- **PDF Generation**: `spatie/browsershot` (Requires Puppeteer)
 
-### Packages
+---
 
-- livewire starter kit (Without Volt)
-
-- spatie/laravel-permission
-
-- spatie/browsershot
+For detailed developer guidelines and styling rules, refer to **[`AGENTS.md`](AGENTS.md)**.

@@ -1,0 +1,68 @@
+@import 'tailwindcss';
+@import '../../vendor/livewire/flux/dist/flux.css';
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../vendor/livewire/flux-pro/stubs/**/*.blade.php';
+@source '../../vendor/livewire/flux/stubs/**/*.blade.php';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-accent: var(--color-rose-500);
+    --color-accent-content: var(--color-rose-500);
+    --color-accent-foreground: var(--color-white);
+}
+
+@layer theme {
+    .dark {
+        --color-accent: var(--color-rose-400);
+        --color-accent-content: var(--color-rose-400);
+        --color-accent-foreground: var(--color-slate-900);
+    }
+}
+
+@layer base {
+
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+}
+
+/* Flux Global Overrides */
+@layer base {
+    :root {
+        --radius-sm: 0.5rem;   /* rounded-lg */
+        --radius-md: 0.75rem;  /* rounded-xl */
+        --radius-lg: 1rem;     /* rounded-2xl (CSMP Standard) */
+    }
+
+    /* Force Flux components to use our rounded-2xl standard */
+    [data-flux-control], 
+    [data-flux-button], 
+    [data-flux-card],
+    [data-flux-modal] {
+        --radius: var(--radius-lg) !important;
+        border-radius: var(--radius-lg) !important;
+    }
+}
+
+[data-flux-field]:not(ui-radio, ui-checkbox) {
+    @apply grid gap-2;
+}
+
+[data-flux-label] {
+    @apply  mb-0! leading-tight! font-medium text-slate-700 in-[.dark]:text-slate-200;
+}
+
+input:focus[data-flux-control],
+textarea:focus[data-flux-control],
+select:focus[data-flux-control] {
+    @apply outline-hidden ring-2 ring-rose-500/50 ring-offset-2 in-[.dark]:ring-rose-400/50;
+}
