@@ -61,11 +61,7 @@ php artisan migrate --seed
 Start the development server and Vite HMR:
 
 ```bash
-# Terminal 1: Laravel Server
-php artisan serve
-
-# Terminal 2: Vite HMR (Tailwind v4)
-npm run dev # or bun run dev
+npm run dev
 ```
 
 ### 5. PHP Optimization (HMR & Debugging)
