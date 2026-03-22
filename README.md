@@ -48,17 +48,10 @@ docker-compose up -d
 - **phpMyAdmin**: [http://localhost:8080](http://localhost:8080)
   - **Login**: Use the credentials above (Theme: Metro).
 
-#### Migrations
-
-Once the database is running, seed the data:
-
-```bash
-php artisan migrate --seed
-```
 
 ### 4. Running the Application
 
-Start the development server and Vite HMR:
+Simply start your development environment (Vite + Laravel + Migrations):
 
 ```bash
 npm run dev
