@@ -69,57 +69,64 @@
         <x-theme-toggle />
         <!-- Auth Dropdown -->
         <div class="relative group">
-            @auth
-                <button
-                    class="flex items-center gap-2 px-4 h-10 bg-slate-50/80 in-[.dark]:bg-white/5 border border-slate-100/60 in-[.dark]:border-white/20 backdrop-blur-md rounded-2xl hover:bg-slate-50/80 in-[.dark]:bg-white/5/20 transition-all group shadow-sm cursor-pointer">
-                    <div
-                        class="w-6 h-6 rounded-full bg-rose-500/20 flex items-center justify-center group-hover:bg-rose-500/30 transition-colors">
-                        <x-icon name="user" class="text-rose-500 w-3.5 h-3.5" />
+            @if(config('app.key'))
+                @auth
+                    <button
+                        class="flex items-center gap-2 px-4 h-10 bg-slate-50/80 in-[.dark]:bg-white/5 border border-slate-100/60 in-[.dark]:border-white/20 backdrop-blur-md rounded-2xl hover:bg-slate-50/80 in-[.dark]:bg-white/5/20 transition-all group shadow-sm cursor-pointer">
+                        <div
+                            class="w-6 h-6 rounded-full bg-rose-500/20 flex items-center justify-center group-hover:bg-rose-500/30 transition-colors">
+                            <x-icon name="user" class="text-rose-500 w-3.5 h-3.5" />
+                        </div>
+                        <span class="text-lg font-medium tracking-wide">{{ Auth::user()->name }}</span>
+                        <x-icon name="chevron-down"
+                            class="opacity-50 transition-transform group-hover:rotate-180 w-3.5 h-3.5" />
+                    </button>
+                    <div class="absolute top-full right-0 hidden group-hover:block transition-all pt-2 min-w-40">
+                        <ul
+                            class="bg-white/60 in-[.dark]:bg-rose-950/70 rounded-2xl shadow-2xl border border-rose-100 in-[.dark]:border-red-500/20 backdrop-blur-3xl p-2">
+                            <li><a href="{{ route('dashboard') }}"
+                                    class="flex items-center gap-3 p-3 hover:bg-rose-100/50 in-[.dark]:hover:bg-white/5 rounded-xl transition-colors"
+                                    wire:navigate><x-icon name="results" class="text-indigo-400 w-4.5 h-4.5" />Dashboard</a>
+                            </li>
+                            <li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit"
+                                        class="w-full text-left flex items-center gap-3 p-3 hover:bg-rose-100/50 in-[.dark]:hover:bg-white/5 rounded-xl transition-colors"><x-icon
+                                            name="power" class="text-rose-500 w-4.5 h-4.5" />Logout</button>
+                                </form>
+                            </li>
+                        </ul>
                     </div>
-                    <span class="text-lg font-medium tracking-wide">{{ Auth::user()->name }}</span>
-                    <x-icon name="chevron-down"
-                        class="opacity-50 transition-transform group-hover:rotate-180 w-3.5 h-3.5" />
-                </button>
-                <div class="absolute top-full right-0 hidden group-hover:block transition-all pt-2 min-w-40">
-                    <ul
-                        class="bg-white/60 in-[.dark]:bg-rose-950/70 rounded-2xl shadow-2xl border border-rose-100 in-[.dark]:border-red-500/20 backdrop-blur-3xl p-2">
-                        <li><a href="{{ route('dashboard') }}"
-                                class="flex items-center gap-3 p-3 hover:bg-rose-100/50 in-[.dark]:hover:bg-white/5 rounded-xl transition-colors"
-                                wire:navigate><x-icon name="results" class="text-indigo-400 w-4.5 h-4.5" />Dashboard</a>
-                        </li>
-                        <li>
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <button type="submit"
-                                    class="w-full text-left flex items-center gap-3 p-3 hover:bg-rose-100/50 in-[.dark]:hover:bg-white/5 rounded-xl transition-colors"><x-icon
-                                        name="power" class="text-rose-500 w-4.5 h-4.5" />Logout</button>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
+                @else
+                    <button
+                        class="flex items-center gap-2 px-4 h-10 bg-slate-50/80 in-[.dark]:bg-white/5 border border-slate-100/60 in-[.dark]:border-white/20 backdrop-blur-md rounded-2xl hover:bg-slate-50/80 in-[.dark]:bg-white/5/20 transition-all group shadow-sm cursor-pointer">
+                        <div
+                            class="w-6 h-6 rounded-full bg-rose-500/20 flex items-center justify-center group-hover:bg-rose-500/30 transition-colors">
+                            <x-icon name="user-plus" class="text-rose-500 w-3.5 h-3.5" />
+                        </div>
+                        <span class="text-lg font-medium tracking-wide">Account</span>
+                        <x-icon name="chevron-down"
+                            class="opacity-50 transition-transform group-hover:rotate-180 w-3.5 h-3.5" />
+                    </button>
+                    <div class="absolute top-full right-0 hidden group-hover:block transition-all pt-2 min-w-40">
+                        <ul
+                            class="bg-white/60 in-[.dark]:bg-rose-950/70 rounded-2xl shadow-2xl border border-rose-100 in-[.dark]:border-red-500/20 backdrop-blur-3xl p-2">
+                            <li><a href="{{ route('login') }}"
+                                    class="flex items-center gap-3 p-3 hover:bg-rose-100/50 in-[.dark]:hover:bg-white/5 rounded-xl transition-colors"
+                                    wire:navigate><x-icon name="power" class="text-rose-500 w-4.5 h-4.5" />Login</a></li>
+                            <li><a href="{{ route('register') }}"
+                                    class="flex items-center gap-3 p-3 hover:bg-rose-100/50 in-[.dark]:hover:bg-white/5 rounded-xl transition-colors"
+                                    wire:navigate><x-icon name="user-plus" class="text-indigo-500 w-4.5 h-4.5" />Signup</a></li>
+                        </ul>
+                    </div>
+                @endauth
             @else
-                <button
-                    class="flex items-center gap-2 px-4 h-10 bg-slate-50/80 in-[.dark]:bg-white/5 border border-slate-100/60 in-[.dark]:border-white/20 backdrop-blur-md rounded-2xl hover:bg-slate-50/80 in-[.dark]:bg-white/5/20 transition-all group shadow-sm cursor-pointer">
-                    <div
-                        class="w-6 h-6 rounded-full bg-rose-500/20 flex items-center justify-center group-hover:bg-rose-500/30 transition-colors">
-                        <x-icon name="user-plus" class="text-rose-500 w-3.5 h-3.5" />
-                    </div>
-                    <span class="text-lg font-medium tracking-wide">Account</span>
-                    <x-icon name="chevron-down"
-                        class="opacity-50 transition-transform group-hover:rotate-180 w-3.5 h-3.5" />
-                </button>
-                <div class="absolute top-full right-0 hidden group-hover:block transition-all pt-2 min-w-40">
-                    <ul
-                        class="bg-white/60 in-[.dark]:bg-rose-950/70 rounded-2xl shadow-2xl border border-rose-100 in-[.dark]:border-red-500/20 backdrop-blur-3xl p-2">
-                        <li><a href="{{ route('login') }}"
-                                class="flex items-center gap-3 p-3 hover:bg-rose-100/50 in-[.dark]:hover:bg-white/5 rounded-xl transition-colors"
-                                wire:navigate><x-icon name="power" class="text-rose-500 w-4.5 h-4.5" />Login</a></li>
-                        <li><a href="{{ route('register') }}"
-                                class="flex items-center gap-3 p-3 hover:bg-rose-100/50 in-[.dark]:hover:bg-white/5 rounded-xl transition-colors"
-                                wire:navigate><x-icon name="user-plus" class="text-indigo-500 w-4.5 h-4.5" />Signup</a></li>
-                    </ul>
+                <!-- Minimal Placeholder when key is missing -->
+                <div class="px-4 h-10 flex items-center bg-rose-500/10 text-rose-500 border border-rose-500/20 rounded-2xl text-sm font-bold animate-pulse">
+                   KEY ERROR
                 </div>
-            @endauth
+            @endif
         </div>
     </div>
 </nav>

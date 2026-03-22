@@ -1,18 +1,18 @@
 <?php
 
+use App\Livewire\Admin\AddRegistration;
+use App\Livewire\Admin\ApproveStudents;
+use App\Livewire\Admin\GenerateStudentId;
+use App\Http\Controllers\DashboardController;
+use App\Livewire\Hod\ViewStudents;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
-use Illuminate\Support\Facades\Route;
-
-use App\Http\Controllers\DashboardController;
+use App\Livewire\Student\Register;
 use App\Livewire\Superadmin\CreateUser;
 use App\Livewire\Superadmin\UserList;
-use App\Livewire\Hod\ViewStudents;
-use App\Livewire\Admin\AddRegistration;
-use App\Livewire\Admin\ApproveStudents;
-use App\Livewire\Student\Register;
-use App\Livewire\Admin\GenerateStudentId;
+use Illuminate\Support\Facades\Route;
+
 
 Route::get('/', function () {
     return view('home');
@@ -26,7 +26,7 @@ Route::get('/student/Registration', Register::class)->name('student.registration
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
-    
+
     Route::get('settings/profile', Profile::class)->name('settings.profile');
     Route::get('settings/password', Password::class)->name('settings.password');
     Route::get('settings/appearance', Appearance::class)->name('settings.appearance');
@@ -76,4 +76,4 @@ Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('/user/dashboard', [DashboardController::class, 'user'])->name('user.dashboard');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
