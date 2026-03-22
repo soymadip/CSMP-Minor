@@ -10,7 +10,7 @@
 		class="border-r border-rose-500/10 bg-white/70 in-[.dark]:bg-slate-900/60 backdrop-blur-3xl">
 		<flux:sidebar.toggle class="lg:hidden" icon="bars-2" inset="left" />
 
-		<a href="{{ route('dashboard') }}" class="mr-5 flex items-center space-x-2" wire:navigate>
+		<a href="{{ route('home') }}" class="mr-5 flex items-center space-x-2" wire:navigate>
 			<x-app-logo class="size-2" href="#"></x-app-logo>
 		</a>
 
@@ -74,7 +74,7 @@
 			<flux:profile :name="auth()->user()->name" :initials="auth()->user()->initials()"
 				icon-trailing="chevrons-up-down" />
 
-			<flux:menu class="w-[220px]">
+			<flux:menu class="w-55">
 				<flux:menu.radio.group>
 					<div class="p-0 text-sm font-normal">
 						<div class="flex items-center gap-2 px-1 py-1.5 text-left text-sm">

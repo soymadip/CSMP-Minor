@@ -70,9 +70,6 @@
 
     <x-footer />
 
-    <!-- JavaScript -->
-    <script src="{{ asset('js/utils.js') }}"></script>
-    <script src="{{ asset('js/home.js') }}"></script>
 </body>
 
 </html>

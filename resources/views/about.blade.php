@@ -4,7 +4,6 @@
 
 <head>
   @include('partials.head', ['title' => 'Institute'])
-  <link rel="stylesheet" href="{{ asset('css/common.css') }}" />
 </head>
 
 <body
@@ -192,9 +191,6 @@
 
   <x-footer />
 
-  <!-- JavaScript -->
-  <script src="{{ asset('js/utils.js') }}"></script>
-  <script src="{{ asset('js/home.js') }}"></script>
 </body>
 
 </html>
