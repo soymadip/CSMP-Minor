@@ -34,7 +34,7 @@
           class="space-y-8 text-xl md:text-2xl leading-relaxed text-gray-300 transition-all duration-700 starting:opacity-0 starting:translate-y-5"
           style="animation-delay: 0.2s">
           <p class="drop-shadow-md">
-            <span class="text-rose-500 font-extrabold">The Calcutta Technical School</span>
+            <span class="text-rose-500 font-extrabold">{{ config('app.institute.name') }}</span>
             is one of the most prestigious and oldest technical institutions
             in West Bengal. Established in
             <span class="text-white font-bold underline decoration-primary/50 underline-offset-4">1927</span>, before
@@ -135,7 +135,7 @@
           <div
             class="w-full h-100 rounded-2xl overflow-hidden border-2 border-slate-200 in-[.dark]:border-white/10 shadow-2xl group">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.461027015059!2d88.35479071171858!3d22.561854133277084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02770731aeafcf%3A0x70b7fa2f49a82e14!2sThe%20Calcutta%20Technical%20School!5e0!3m2!1sen!2sin!4v1773561647084!5m2!1sen!2sin"
+              src="{{ config('app.institute.map_url') }}"
               width="100%" height="100%" style="border: 0" allowfullscreen="" loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
@@ -162,8 +162,7 @@
                     Our Location
                   </h3>
                   <p class="text-slate-600 in-[.dark]:text-white/80 leading-relaxed text-lg">
-                    110, SN Banerjee Road, Esplanade, Taltala,<br />
-                    Kolkata, West Bengal 700013, India
+                    {{ config('app.institute.address') }}
                   </p>
                 </div>
               </div>
@@ -178,7 +177,7 @@
                 <div>
                   <h3 class="font-bold text-xl text-slate-900 in-[.dark]:text-white mb-1">Call Us</h3>
                   <p class="text-slate-900 in-[.dark]:text-white text-2xl font-semibold tracking-wide">
-                    Not Available
+                    {{ config('app.institute.phone') }}
                   </p>
                 </div>
               </div>

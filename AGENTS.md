@@ -66,6 +66,21 @@ We use a modular SVG mask system to maintain zero-config compatibility and dynam
 
 ---
 
+## ⚙️ Environment & Configuration Standards
+
+### 1. Dynamic Configuration (`config/app.php`)
+
+- **Rule**: All application identity (Names, GitHub URLs), administrative credentials, and institutional data (Name, Address, Phone, Map URL) **must** be stored in `.env` and mapped directly inside the `config/app.php` array.
+- **Usage**: Always use the `config()` helper in Blade templates (e.g., `{{ config('app.name') }}`, `{{ config('app.superadmin.email') }}`, or `{{ config('app.institute.name') }}`). Never use `env()` directly in views.
+- **Reason**: This prevents hardcoded values and protects against headers/footers revealing defaults in production.
+
+### 2. Local vs. Production Execution
+
+- **Tracking `.env`**: Because the `.env` file is tracked in this repository to synchronize shared settings, the application's default `APP_ENV` and `APP_DEBUG` are strictly set to `production` and `false` to prevent accidental leakages.
+- **Local Development**: The `npm run dev` (`package.json`) script automatically injects `APP_ENV=local APP_DEBUG=true` using the `cross-env` package before spinning up the Laravel backend. This ensures cross-platform compatibility (Windows/Mac/Linux) while safely guaranteeing a debug environment locally without risking production servers.
+
+---
+
 ## 🛠️ Performance & Dev Lifecycle
 
 ### 1. Development Hot Reloading (HMR) & Vite
@@ -101,11 +116,11 @@ page specific scripts should be added in the page itself or resources/<page>.js 
 ### 1. Local Setup
 
 ```bash
-# Start Database & phpMyAdmin
+# Start Database & phpMyAdmin (Metroid Dark UI enabled by default)
 docker-compose up -d
 
-# Start Both Servers in Parallel
-npm run dev
+# Seed the base roles and Super Admin account
+php artisan migrate --seed
 ```
 
 ### 2. PDF Rendering

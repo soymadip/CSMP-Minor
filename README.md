@@ -44,9 +44,9 @@ docker-compose up -d
 - **MySQL Container**: `csmp-mysql` (MariaDB 11.4)
   - **Host**: `127.0.0.1` (Local) / `mysql` (Docker Network)
   - **Port**: `3306`
-  - **Credentials**: `admin` / `admin` (defined in `.env`)
+  - **Credentials**: `admin` / `csmp_Admin` (defined in `.env`)
 - **phpMyAdmin**: [http://localhost:8080](http://localhost:8080)
-  - **Login**: Use the credentials above.
+  - **Login**: Use the credentials above (Theme: Metro).
 
 #### Migrations
 

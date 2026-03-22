@@ -24,6 +24,10 @@ services:
       PMA_USER: ${DB_USERNAME}
       PMA_PASSWORD: ${DB_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      PMA_PMADB: phpmyadmin
+      PMA_CONTROLUSER: root
+      PMA_CONTROLPASS: ${DB_ROOT_PASSWORD}
+      PMA_THEME: metro
     ports:
       - "8080:80"
 

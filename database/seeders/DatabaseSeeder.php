@@ -13,11 +13,12 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             RolesSeeder::class,
+            SuperAdminSeeder::class,
         ]);
 
+        # Only run in dev server
         if (app()->isLocal()) {
             $this->call([
-                AdminUserSeeder::class,
                 StudentTestSeeder::class,
             ]);
         }

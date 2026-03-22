@@ -2,5 +2,5 @@
     <x-app-logo-icon class="size-7" />
 </div>
 <div class="ms-2 grid flex-1 text-start text-sm">
-    <span class="mb-0.5 truncate leading-none font-bold tracking-tight text-rose-500 uppercase">CSMP</span>
+    <span class="mb-0.5 truncate leading-none font-bold tracking-tight text-rose-500 uppercase">{{ config('app.name') }}</span>
 </div>

@@ -291,9 +291,9 @@
 		<div class="watermark" aria-hidden="true"></div>
 		<div class="card-body">
 			<header>
-				<h1 class="college-title">THE CALCUTTA TECHNICAL SCHOOL</h1>
-				<h2 class="college-subtitle">Govt. of W.B</h2>
-				<address class="college-address">110, S.N. BANERJEE ROAD, KOLKATA-700 013</address>
+				<h1 class="college-title">{{ strtoupper(config('app.institute.name')) }}</h1>
+				<h2 class="college-subtitle">{{ config('app.institute.subtitle') }}</h2>
+				<address class="college-address">{{ config('app.institute.address') }}</address>
 			</header>
 			<main class="card-content">
 				<figure class="photo-container">

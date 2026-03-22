@@ -6,13 +6,13 @@
         <a href="{{ route('home') }}" class="text-xl font-bold flex items-center gap-1 group" wire:navigate>
             <img src="{{ asset('img/cts/logo.png') }}" alt="Logo"
                 class="w-12 h-12 transition-transform group-hover:scale-105" />
-            <span class="tracking-tight">CSMP</span>
+            <span class="tracking-tight">{{ config('app.name') }}</span>
         </a>
         @if(app()->isLocal())
             <div class="relative group">
                 <button
                     class="px-2 py-0.5 bg-amber-500/20 border border-amber-500/30 text-amber-600 in-[.dark]:text-amber-400 text-[10px] font-black uppercase tracking-widest rounded-full select-none cursor-help hover:bg-amber-500/30 transition-colors">
-                    DEV
+                    DEV Server
                 </button>
                 <div class="absolute top-full left-0 hidden group-hover:block transition-all pt-2 min-w-60 z-50">
                     <div
@@ -33,13 +33,23 @@
                                 <span class="text-emerald-500">Active</span>
                             </div>
                         </div>
-                        <div class="pt-2 border-t border-slate-100 in-[.dark]:border-white/10">
-                            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter mb-1">Test Creds
+                        <div class="pt-2 border-t border-slate-100 in-[.dark]:border-white/10 space-y-2">
+                            <div>
+                                <div class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter mb-1">App Creds</div>
+                                <div class="bg-slate-50 in-[.dark]:bg-white/5 p-2 rounded-lg font-mono text-[10px] space-y-1 select-all flex flex-col justify-center">
+                                    <div><span class="text-rose-400">user:</span> {{ config('app.superadmin.email') }}</div>
+                                    <div><span class="text-rose-400">pass:</span> {{ config('app.superadmin.password') }}</div>
+                                </div>
                             </div>
-                            <div
-                                class="bg-slate-50 in-[.dark]:bg-white/5 p-2 rounded-lg font-mono text-[10px] space-y-1 select-all">
-                                <div><span class="text-rose-400">user:</span> admin@csmp.com</div>
-                                <div><span class="text-rose-400">pass:</span> password</div>
+                            <div>
+                                <div class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter mb-1 flex justify-between items-center">
+                                    <span>phpMyAdmin</span>
+                                    <a href="{{ config('app.phpmyadmin_url') }}" target="_blank" class="text-sky-500 hover:text-sky-400 hover:underline normal-case tracking-normal">open &rarr;</a>
+                                </div>
+                                <div class="bg-slate-50 in-[.dark]:bg-white/5 p-2 rounded-lg font-mono text-[10px] space-y-1 select-all flex flex-col justify-center">
+                                    <div><span class="text-rose-400">user:</span> {{ config('database.connections.mysql.username') }}</div>
+                                    <div><span class="text-rose-400">pass:</span> {{ config('database.connections.mysql.password') }}</div>
+                                </div>
                             </div>
                         </div>
                     </div>

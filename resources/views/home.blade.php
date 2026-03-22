@@ -20,7 +20,7 @@
         class="text-4xl md:text-6xl font-bold text-white text-center mb-10 drop-shadow-2xl transition-all duration-700 starting:opacity-0 starting:translate-y-5"
         style="animation-delay: 0.2s">
         Welcome to
-        <span class="text-rose-500"><a href="https://github.com/soymadip/csmp-minor">CSMP</a></span>
+        <span class="text-rose-500"><a href="{{ config('app.repo') }}" target="_blank">{{ config('app.name') }}</a></span>
       </h1>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
         <!-- Portal Quick Access -->

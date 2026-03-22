@@ -7,7 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 
-class AdminUserSeeder extends Seeder
+class SuperAdminSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -19,10 +19,10 @@ class AdminUserSeeder extends Seeder
 
         // Create the Super Admin user
         $user = User::updateOrCreate(
-            ['email' => 'admin@csmp.com'],
+            ['email' => config('app.superadmin.email')],
             [
                 'name' => 'Super Admin',
-                'password' => Hash::make('password'),
+                'password' => Hash::make(config('app.superadmin.password')),
             ]
         );
 
