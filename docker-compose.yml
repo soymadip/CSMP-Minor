@@ -12,6 +12,7 @@ services:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+      - ./database/init:/docker-entrypoint-initdb.d
 
   phpmyadmin:
     image: phpmyadmin:latest
@@ -27,7 +28,9 @@ services:
       PMA_PMADB: phpmyadmin
       PMA_CONTROLUSER: root
       PMA_CONTROLPASS: ${DB_ROOT_PASSWORD}
-      PMA_THEME: metro
+      PMA_THEME: ${PMA_THEME}
+    volumes:
+      - ./database/init/pma_config.inc.php:/etc/phpmyadmin/config.user.inc.php
     ports:
       - "8080:80"
 

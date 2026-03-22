@@ -135,4 +135,4 @@ npm install
 
 Update this file after each notable changes.
 
-_Last updated: March 2026 - Documentation Consolidation & Quality Polish._
+_Last updated: March 2026 - Documentation Consolidation & Quality Polish (Nested Config Sync)._

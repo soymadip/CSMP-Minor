@@ -29,7 +29,11 @@ return [
         'password' => env('SUPERADMIN_PASSWORD', 'password'),
     ],
 
-    'phpmyadmin_url' => env('PHPMYADMIN_URL', 'http://localhost:8080'),
+    // ------------------------ PhpMyAdmin ---------------------
+    'pma' => [
+        'url' => env('PMA_URL', 'http://localhost:8080'),
+        'theme' => env('PMA_THEME', 'metro'),
+    ],
 
     // ----------------- Institutional Identity --------------
 
